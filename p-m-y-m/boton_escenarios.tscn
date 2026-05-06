@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://le27n0xf4g4n"]
+[gd_scene load_steps=2 format=3 uid="uid://le27n0xf4g4n"]
+
+[ext_resource type="Script" uid="uid://xesrka6h3op4" path="res://boton_escenarios.gd" id="1_axoj2"]
 
 [node name="boton_escenarios" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_axoj2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,6 +31,7 @@ size_flags_vertical = 0
 text = "Mapa"
 
 [node name="menu" type="Panel" parent="MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -75,3 +79,9 @@ size_flags_vertical = 4
 [node name="salir" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario1" to="." method="_on_escenario_1_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario2" to="." method="_on_escenario_2_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/escenario3" to="." method="_on_escenario_3_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/salir" to="." method="_on_salir_pressed"]
