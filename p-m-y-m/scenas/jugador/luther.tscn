@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://duw8s1jsg4i1c"]
+
+[ext_resource type="Script" uid="uid://bdf4fkva7foyd" path="res://luther.gd" id="1_p2y8e"]
+[ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="2_o4ps3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3t8w"]
+size = Vector2(61, 63)
+
+[node name="Luther" type="CharacterBody2D"]
+script = ExtResource("1_p2y8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_o4ps3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_d3t8w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

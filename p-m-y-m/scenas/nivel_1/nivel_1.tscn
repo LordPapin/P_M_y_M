@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://wl5oibbu2ey8"]
+
+[ext_resource type="Texture2D" uid="uid://ce6mw7m5itfwq" path="res://assets/nivel_1/fondo.jpeg" id="1_t5p4g"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
+vertices = PackedVector2Array(1029.7578, 635.09375, 70.99219, 636.96094, 219.0625, 438.92188, 394, 476.22656, 626.39844, 508.53906, 624.5781, 460.45313, 394, 436.15625, 535.78125, 503.95313)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0), PackedInt32Array(2, 6, 3), PackedInt32Array(0, 3, 7), PackedInt32Array(0, 7, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(214, 429, 51, 647, 1078, 645, 614, 445, 616, 498, 537, 494, 404, 468, 404, 426)])
+
+[node name="nivel_1" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(578.99994, 328.49997)
+scale = Vector2(0.9015624, 0.9124999)
+texture = ExtResource("1_t5p4g")
+
+[node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_eqivl")
+
+[node name="Luther" parent="." instance=ExtResource("2_eqivl")]
+position = Vector2(232, 546)
