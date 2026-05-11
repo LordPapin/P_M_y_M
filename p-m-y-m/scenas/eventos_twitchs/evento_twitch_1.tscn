@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=6 format=3 uid="uid://cdy0t71ivgmlr"]
 
+[ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nunfk"]
@@ -13,35 +14,36 @@ size = Vector2(92, 86)
 
 [node name="evento_twitch_1" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="NPC" type="CharacterBody2D" parent="."]
 position = Vector2(532, 331)
+script = ExtResource("1_nunfk")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
 scale = Vector2(0.71875, 1.53125)
 texture = ExtResource("1_qvj33")
 
-[node name="Area2Dculo" type="Area2D" parent="CharacterBody2D"]
+[node name="Area2Dculo" type="Area2D" parent="NPC"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2Dculo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dculo"]
 position = Vector2(0, 43)
 shape = SubResource("RectangleShape2D_nunfk")
 
-[node name="Area2Dbilletes" type="Area2D" parent="CharacterBody2D"]
+[node name="Area2Dbilletes" type="Area2D" parent="NPC"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2Dbilletes"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dbilletes"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_r6r7q")
 debug_color = Color(0, 0.45013297, 0.28504965, 0.41960785)
 
-[node name="Area2Dcabeza" type="Area2D" parent="CharacterBody2D"]
+[node name="Area2Dcabeza" type="Area2D" parent="NPC"]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2Dcabeza"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dcabeza"]
 position = Vector2(0, -54)
 shape = SubResource("RectangleShape2D_n4rbh")
