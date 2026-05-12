@@ -1,22 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=6 format=3 uid="uid://wl5oibbu2ey8"]
 
-[ext_resource type="Texture2D" uid="uid://ce6mw7m5itfwq" path="res://assets/nivel_1/fondo.jpeg" id="1_t5p4g"]
+[ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
+[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_p6foy"]
+[ext_resource type="PackedScene" uid="uid://culg6816a4j1e" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
-vertices = PackedVector2Array(1029.7578, 635.09375, 70.99219, 636.96094, 219.0625, 438.92188, 394, 476.22656, 626.39844, 508.53906, 624.5781, 460.45313, 394, 436.15625, 535.78125, 503.95313)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0), PackedInt32Array(2, 6, 3), PackedInt32Array(0, 3, 7), PackedInt32Array(0, 7, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(214, 429, 51, 647, 1078, 645, 614, 445, 616, 498, 537, 494, 404, 468, 404, 426)])
+vertices = PackedVector2Array(601.53906, 450.20313, 1012.8672, 642.89844, 137.38281, 641.03125, 272.57813, 432.7578, 404, 427, 585.8203, 434.8672, 602.9922, 446.10938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(267, 423, 119, 651, 1058, 653, 614, 445, 618, 446, 618, 444, 589, 425, 404, 417)])
 
 [node name="nivel_1" type="Node2D"]
 
-[node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(578.99994, 328.49997)
-scale = Vector2(0.9015624, 0.9124999)
-texture = ExtResource("1_t5p4g")
+[node name="BocetoEscenario1" type="Sprite2D" parent="."]
+position = Vector2(578.5, 325)
+scale = Vector2(0.7686667, 0.89444447)
+texture = ExtResource("1_p6foy")
+
+[node name="escritorio" parent="." instance=ExtResource("4_qkwb7")]
+position = Vector2(556, 441.00003)
+scale = Vector2(3, 3)
 
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
 position = Vector2(232, 546)
+
+[node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
+offset_left = 599.0
+offset_top = 311.0
+offset_right = 599.0
+offset_bottom = 311.0
