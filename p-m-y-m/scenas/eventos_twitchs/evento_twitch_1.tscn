@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=9 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
+[ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_r6r7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nunfk"]
 size = Vector2(86, 106)
@@ -83,3 +84,21 @@ position = Vector2(68, 30)
 
 [node name="pos4" type="Marker2D" parent="jump_points"]
 position = Vector2(284, 28)
+
+[node name="Luther" type="Node2D" parent="."]
+position = Vector2(1003, 511)
+script = ExtResource("3_r6r7q")
+metadata/_edit_group_ = true
+
+[node name="boca" type="Marker2D" parent="Luther"]
+position = Vector2(-148, -47)
+
+[node name="Sprite2D" type="Sprite2D" parent="Luther"]
+modulate = Color(0, 0.9137255, 0.38431373, 1)
+scale = Vector2(2.2656252, 2.0937502)
+texture = ExtResource("1_qvj33")
+
+[node name="lengua" type="Line2D" parent="Luther"]
+visible = false
+position = Vector2(-148, -47)
+default_color = Color(1, 0, 0, 1)
