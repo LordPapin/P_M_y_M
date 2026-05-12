@@ -42,3 +42,17 @@ func jump_to(target_index):
 		global_position = pos
 	global_position = end_pos
 	is_jumping = false
+
+signal parte_tocada(nombre_parte)
+
+func _on_area_2_dculo_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("dispararLengua"):
+		parte_tocada.emit("culo")
+
+func _on_area_2_dbilletes_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("dispararLengua"):
+		parte_tocada.emit("billetes")
+
+func _on_area_2_dcabeza_input_event(_viewport, event, _shape_idx):
+	if event.is_action_pressed("dispararLengua"):
+		parte_tocada.emit("cabeza")

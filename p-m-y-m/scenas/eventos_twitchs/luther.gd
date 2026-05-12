@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var boca = $boca
 @onready var lengua = $lengua
+var score := 0
 
 func _input(event):
 	if event.is_action_pressed("dispararLengua"):

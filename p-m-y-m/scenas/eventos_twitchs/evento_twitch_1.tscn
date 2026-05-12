@@ -1,14 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=13 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
+[ext_resource type="Script" uid="uid://bkf2jwoj1l6d0" path="res://scenas/eventos_twitchs/evento_twitch_1.gd" id="1_tn4ag"]
 [ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_r6r7q"]
+
+[sub_resource type="GDScript" id="GDScript_n4rbh"]
+script/source = "
+extends Area2D
+
+@export var hit_type := \"Area2Dculo\""
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nunfk"]
 size = Vector2(86, 106)
 
+[sub_resource type="GDScript" id="GDScript_0oqla"]
+script/source = "extends Area2D
+
+@export var hit_type := \"Area2Dbilletes\"
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6r7q"]
 size = Vector2(39, 50)
+
+[sub_resource type="GDScript" id="GDScript_lpgxo"]
+script/source = "extends Area2D
+
+@export var hit_type := \"Area2Dcabeza\"
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4rbh"]
 size = Vector2(92, 86)
@@ -20,6 +39,7 @@ size = Vector2(95, 28)
 size = Vector2(1169, 20)
 
 [node name="evento_twitch_1" type="Node2D"]
+script = ExtResource("1_tn4ag")
 
 [node name="NPC" type="CharacterBody2D" parent="."]
 position = Vector2(463, 281)
@@ -33,6 +53,7 @@ texture = ExtResource("1_qvj33")
 [node name="Area2Dculo" type="Area2D" parent="NPC"]
 collision_layer = 4
 collision_mask = 0
+script = SubResource("GDScript_n4rbh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dculo"]
 position = Vector2(0, 43)
@@ -41,6 +62,7 @@ shape = SubResource("RectangleShape2D_nunfk")
 [node name="Area2Dbilletes" type="Area2D" parent="NPC"]
 collision_layer = 2
 collision_mask = 0
+script = SubResource("GDScript_0oqla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dbilletes"]
 position = Vector2(0, 15)
@@ -50,6 +72,7 @@ debug_color = Color(0, 0.45013297, 0.28504965, 0.41960785)
 [node name="Area2Dcabeza" type="Area2D" parent="NPC"]
 collision_layer = 8
 collision_mask = 0
+script = SubResource("GDScript_lpgxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dcabeza"]
 position = Vector2(0, -54)
@@ -102,3 +125,12 @@ texture = ExtResource("1_qvj33")
 visible = false
 position = Vector2(-148, -47)
 default_color = Color(1, 0, 0, 1)
+
+[node name="TimerCastigo" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[connection signal="input_event" from="NPC/Area2Dculo" to="NPC" method="_on_area_2_dculo_input_event"]
+[connection signal="input_event" from="NPC/Area2Dbilletes" to="NPC" method="_on_area_2_dbilletes_input_event"]
+[connection signal="input_event" from="NPC/Area2Dcabeza" to="NPC" method="_on_area_2_dcabeza_input_event"]
+[connection signal="timeout" from="TimerCastigo" to="." method="_on_timer_castigo_timeout"]
