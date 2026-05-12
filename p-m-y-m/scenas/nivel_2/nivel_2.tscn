@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://28551t5u55wj"]
+
+[ext_resource type="Texture2D" uid="uid://b2tj1ju066fkj" path="res://assets/nivel_2/boceto bar.png" id="1_7jsjt"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_e64c6"]
+[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_0ls8r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
+vertices = PackedVector2Array(1139.7891, 564.8906, 1138.2031, 642.8594, 35.117188, 628.2969, 106.21875, 554.03906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(93, 540, -1, 645, 1148, 653, 1150, 555)])
+
+[node name="nivel2" type="Node2D"]
+
+[node name="BocetoBar" type="Sprite2D" parent="."]
+position = Vector2(572.50006, 324)
+scale = Vector2(0.7673333, 0.8972222)
+texture = ExtResource("1_7jsjt")
+
+[node name="Luther" parent="." instance=ExtResource("2_e64c6")]
+position = Vector2(254, 602)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_e64c6")
+
+[node name="boton_escenarios" parent="." instance=ExtResource("3_0ls8r")]
+offset_left = 589.0
+offset_top = 323.0
+offset_right = 589.0
+offset_bottom = 323.0
