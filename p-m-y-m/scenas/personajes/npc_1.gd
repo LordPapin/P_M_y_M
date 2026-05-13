@@ -10,7 +10,8 @@ func _handle_interaction():
 	match state:
 		"no_interactuado":
 			print("diálogo inicial")
-		"sin_sobornar":
+			NPCstates.npcs["npc1"]["current_state"] = "no_sobornado"
+		"no_sobornado":
 			print("pide el soborno")
 		"robado":
 			print("es robado")

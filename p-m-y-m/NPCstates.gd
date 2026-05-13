@@ -2,7 +2,7 @@ extends Node
 
 var npcs = {
 	"npc1": {
-		"current state" : "no_interactuado",
+		"current_state" : "no_interactuado",
 		"states": {
 			"no_interactuado" : {"location" : "bar"},
 			"no_sobornado" : {"location" : "bar"},
