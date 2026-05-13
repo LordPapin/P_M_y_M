@@ -2,7 +2,7 @@ extends Node2D
 
 var puntuacion = 0
 var max_puntuacion = 5
-@onready var timer_castigo = $TimerCastigo # Crea un Timer de 0.75s
+@onready var timer_castigo = $TimerCastigo
 
 func _ready():
 	$NPC.parte_tocada.connect(_al_tocar_npc)

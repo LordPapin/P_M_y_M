@@ -6,6 +6,7 @@ extends CharacterBody2D
 var jump_points := []
 var current_point := 0
 var is_jumping := false
+var billetes_tocados_este_frame := false
 
 func _ready():
 	jump_points = $"../jump_points".get_children()
@@ -45,14 +46,22 @@ func jump_to(target_index):
 
 signal parte_tocada(nombre_parte)
 
-func _on_area_2_dculo_input_event(_viewport, event, _shape_idx):
+func _on_area_2_dbilletes_input_event(viewport, event, _shape_idx):
 	if event.is_action_pressed("dispararLengua"):
-		parte_tocada.emit("culo")
-
-func _on_area_2_dbilletes_input_event(_viewport, event, _shape_idx):
-	if event.is_action_pressed("dispararLengua"):
+		billetes_tocados_este_frame = true
 		parte_tocada.emit("billetes")
+		viewport.set_input_as_handled()
+		await get_tree().process_frame
+		billetes_tocados_este_frame = false
 
-func _on_area_2_dcabeza_input_event(_viewport, event, _shape_idx):
+func _on_area_2_dculo_input_event(viewport, event, _shape_idx):
+	if event.is_action_pressed("dispararLengua"):
+		await get_tree().process_frame
+		if not billetes_tocados_este_frame:
+			parte_tocada.emit("culo")
+			viewport.set_input_as_handled()
+
+func _on_area_2_dcabeza_input_event(viewport, event, _shape_idx):
 	if event.is_action_pressed("dispararLengua"):
 		parte_tocada.emit("cabeza")
+		viewport.set_input_as_handled()
