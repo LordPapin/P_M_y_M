@@ -14,6 +14,10 @@ config/name="P_M_y_M"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+NPCstates="*res://NPCstates.gd"
+
 [input]
 
 dispararLengua={
