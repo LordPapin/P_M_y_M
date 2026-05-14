@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var conversable = false
 
 func _on_area_2d_input_event(_viewport, event: InputEvent, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -17,3 +18,14 @@ func _handle_interaction():
 			print("es robado")
 		"sobornado":
 			print("información muy importante")
+
+
+
+func _on_cercanía_de_conv_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		conversable = true
+
+
+func _on_cercanía_de_conv_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		conversable = false

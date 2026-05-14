@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpjyj6b00reey"]
+[gd_scene load_steps=5 format=3 uid="uid://dpjyj6b00reey"]
 
 [ext_resource type="Script" uid="uid://cwxds02pw3gyx" path="res://scenas/personajes/npc_1.gd" id="1_34iv8"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_nsgrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
 size = Vector2(77, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
+size = Vector2(194, 166)
 
 [node name="NPC1" type="CharacterBody2D"]
 script = ExtResource("1_34iv8")
@@ -23,4 +26,11 @@ shape = SubResource("RectangleShape2D_34iv8")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_34iv8")
 
+[node name="cercanía de conv" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cercanía de conv"]
+shape = SubResource("RectangleShape2D_m6nua")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="body_entered" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_entered"]
+[connection signal="body_exited" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_exited"]

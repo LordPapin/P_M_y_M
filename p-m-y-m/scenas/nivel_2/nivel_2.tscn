@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://28551t5u55wj"]
+[gd_scene load_steps=6 format=3 uid="uid://28551t5u55wj"]
 
 [ext_resource type="Texture2D" uid="uid://b2tj1ju066fkj" path="res://assets/nivel_2/boceto bar.png" id="1_7jsjt"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_e64c6"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_0ls8r"]
+[ext_resource type="PackedScene" uid="uid://dpjyj6b00reey" path="res://scenas/personajes/npc_1.tscn" id="4_mg47c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
 vertices = PackedVector2Array(1139.7891, 564.8906, 1138.2031, 642.8594, 35.117188, 628.2969, 106.21875, 554.03906)
@@ -27,3 +28,6 @@ offset_left = 589.0
 offset_top = 323.0
 offset_right = 589.0
 offset_bottom = 323.0
+
+[node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
+position = Vector2(646, 536)
