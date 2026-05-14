@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_p6foy"]
-[ext_resource type="PackedScene" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
+[ext_resource type="PackedScene" uid="uid://culg6816a4j1e" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
 vertices = PackedVector2Array(601.53906, 450.20313, 1012.8672, 642.89844, 137.38281, 641.03125, 272.57813, 432.7578, 404, 427, 585.8203, 434.8672, 602.9922, 446.10938)

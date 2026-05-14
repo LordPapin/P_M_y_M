@@ -13,16 +13,17 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		set_movement_target(get_global_mouse_position())
-		cambio_direccion()
+
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
 	
-func cambio_direccion():
-	if up_direction.x < 0:
-		sprite_2d.flip_h = true
-	else: sprite_2d.flip_h = false
-	pass
+
+func cambio_direccion(direccion_x: float):
+	if direccion_x < 0:
+		sprite_2d.flip_h = true  # Va hacia la izquierda, voltear sprite
+	elif direccion_x > 0:
+		sprite_2d.flip_h = false # Va hacia la derecha, sprite normal
 
 func _physics_process(_delta: float) -> void:
 	if nav_agent.is_navigation_finished():
@@ -34,4 +35,6 @@ func _physics_process(_delta: float) -> void:
 	var new_velocity: Vector2 = (next_path_position - current_agent_position).normalized() * speed
 	
 	velocity = new_velocity
+	cambio_direccion(velocity.x)
+
 	move_and_slide()
