@@ -1,0 +1,20 @@
+~ start
+if NPCstates.npcs["npc1"]["current_state"] == "no_interactuado":
+	Luther: Tienes información, ¿Verdad?
+	Soplón: Que onda Luther. No lo sé, no recuerdo bien... Sabes cómo es esto.
+	Luther: Tú sí que sabes cómo es, yo nunca traigo dinero.
+	Soplón: Es una pena...
+	- Robar dinero
+if NPCstates.npcs["npc1"]["current_state"] == "robado":
+	Luther: Justo recordé que traía algo de dinero de emergencia en tu bolsillo, aquí tienes.
+	(Le diste el dinero al Soplón)
+	Soplón: ¡Que rápido crece la economía! ahora sí recuerdo con más claridad.
+	Luther: Sueltalo, vamos.
+	Soplón: A quien buscas es alguien muy pequeño, pero con un poder muy grande...
+	Luther: Sabes que puedes ser más claro que eso.
+	Soplón: Te sorprenderías esta vez...
+	(Soplón te dá dinero)
+	Luther: ¿Y esto por qué?
+	Soplón: Quiero que me digas: ¿Para qué querías la información?
+	Luther: Apareció una amenaza al banco en la comisaría. Parece que tendré que usar queso para algunos ratones...
+	do NPCstates.npcs["npc1"]["current_state"] = "sobornado"

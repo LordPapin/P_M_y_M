@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://culg6816a4j1e"]
 
-[ext_resource type="Texture2D" uid="uid://cx2nb35w70j8o" path="res://assets/nivel_1/boceto escritorio.png" id="1_7mdnd"]
+[ext_resource type="Texture2D" uid="uid://cfjf46p4sohte" path="res://assets/nivel_1/escritorio1.png" id="1_7mdnd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e5gw2"]
 

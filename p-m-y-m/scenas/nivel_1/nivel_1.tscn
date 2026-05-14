@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=9 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_p6foy"]
 [ext_resource type="PackedScene" uid="uid://culg6816a4j1e" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
+[ext_resource type="Texture2D" uid="uid://cih0411mg17m4" path="res://assets/nivel_1/tablero.png" id="5_och76"]
+[ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
 vertices = PackedVector2Array(601.53906, 450.20313, 1012.8672, 642.89844, 137.38281, 641.03125, 272.57813, 432.7578, 404, 427, 585.8203, 434.8672, 602.9922, 446.10938)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(267, 423, 119, 651, 1058, 653, 614, 445, 618, 446, 618, 444, 589, 425, 404, 417)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rr3"]
+size = Vector2(122, 59)
 
 [node name="nivel_1" type="Node2D"]
 
@@ -24,11 +29,32 @@ scale = Vector2(3, 3)
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
-[node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(232, 546)
-
 [node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
 offset_left = 599.0
 offset_top = 311.0
 offset_right = 599.0
 offset_bottom = 311.0
+
+[node name="tablero" type="Area2D" parent="."]
+position = Vector2(363, 349)
+
+[node name="Sprite2D" type="Sprite2D" parent="tablero"]
+texture = ExtResource("5_och76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tablero"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_l3rr3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 317.0
+offset_top = 331.0
+offset_right = 406.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_oeh3s")
+theme_override_font_sizes/font_size = 18
+text = "debo ir al bar"
+
+[node name="Luther" parent="." instance=ExtResource("2_eqivl")]
+position = Vector2(232, 546)
