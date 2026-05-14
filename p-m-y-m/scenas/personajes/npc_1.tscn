@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpjyj6b00reey"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjyj6b00reey"]
 
 [ext_resource type="Script" uid="uid://cwxds02pw3gyx" path="res://scenas/personajes/npc_1.gd" id="1_34iv8"]
-[ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_nsgrb"]
+[ext_resource type="Texture2D" uid="uid://f1sgl2f15ica" path="res://scenas/personajes/NPC1_bar.png" id="2_34iv8"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_m6nua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
 size = Vector2(77, 84)
@@ -11,10 +12,11 @@ size = Vector2(194, 166)
 
 [node name="NPC1" type="CharacterBody2D"]
 script = ExtResource("1_34iv8")
+personaje = ExtResource("2_m6nua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.65625, 0.6875)
-texture = ExtResource("1_nsgrb")
+scale = Vector2(2, 2)
+texture = ExtResource("2_34iv8")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=15 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
 [ext_resource type="Script" uid="uid://bkf2jwoj1l6d0" path="res://scenas/eventos_twitchs/evento_twitch_1.gd" id="1_tn4ag"]
+[ext_resource type="Texture2D" uid="uid://f1sgl2f15ica" path="res://scenas/personajes/NPC1_bar.png" id="3_0oqla"]
 [ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_r6r7q"]
+[ext_resource type="Texture2D" uid="uid://dcr3ax57hlf81" path="res://assets/luther/luther_222.png" id="6_lpgxo"]
 
 [sub_resource type="GDScript" id="GDScript_0oqla"]
 script/source = "extends Area2D
@@ -18,10 +20,11 @@ size = Vector2(39, 50)
 script/source = "
 extends Area2D
 
-@export var hit_type := \"Area2Dculo\""
+@export var hit_type := \"Area2Dculo\"
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nunfk"]
-size = Vector2(86, 106)
+size = Vector2(86, 138.49945)
 
 [sub_resource type="GDScript" id="GDScript_lpgxo"]
 script/source = "extends Area2D
@@ -30,10 +33,10 @@ script/source = "extends Area2D
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4rbh"]
-size = Vector2(92, 86)
+size = Vector2(92, 84.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oqla"]
-size = Vector2(95, 28)
+size = Vector2(95, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpgxo"]
 size = Vector2(1169, 20)
@@ -46,10 +49,12 @@ position = Vector2(463, 281)
 script = ExtResource("1_nunfk")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC"]
-scale = Vector2(0.71875, 1.53125)
-texture = ExtResource("1_qvj33")
+scale = Vector2(1.69, 1.6356249)
+texture = ExtResource("3_0oqla")
 
 [node name="Area2Dbilletes" type="Area2D" parent="NPC"]
+position = Vector2(0, 2)
+scale = Vector2(1.0800049, 0.7200024)
 collision_layer = 2
 collision_mask = 0
 script = SubResource("GDScript_0oqla")
@@ -60,25 +65,28 @@ shape = SubResource("RectangleShape2D_r6r7q")
 debug_color = Color(0, 0.45013297, 0.28504965, 0.41960785)
 
 [node name="Area2Dculo" type="Area2D" parent="NPC"]
+scale = Vector2(1, 0.40000486)
 collision_layer = 4
 collision_mask = 0
 script = SubResource("GDScript_n4rbh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dculo"]
-position = Vector2(0, 43)
+position = Vector2(0, 26.750244)
 shape = SubResource("RectangleShape2D_nunfk")
 
 [node name="Area2Dcabeza" type="Area2D" parent="NPC"]
+position = Vector2(0, -15)
+scale = Vector2(1, 0.56)
 collision_layer = 8
 collision_mask = 0
 script = SubResource("GDScript_lpgxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dcabeza"]
-position = Vector2(0, -54)
+position = Vector2(0, -54.75)
 shape = SubResource("RectangleShape2D_n4rbh")
 
 [node name="pies" type="CollisionShape2D" parent="NPC"]
-position = Vector2(0.5, 84)
+position = Vector2(1, 56)
 shape = SubResource("RectangleShape2D_0oqla")
 
 [node name="plataforma_invisible" type="StaticBody2D" parent="."]
@@ -113,12 +121,11 @@ script = ExtResource("3_r6r7q")
 metadata/_edit_group_ = true
 
 [node name="boca" type="Marker2D" parent="Luther"]
-position = Vector2(-148, -47)
+position = Vector2(-119, -187)
 
 [node name="Sprite2D" type="Sprite2D" parent="Luther"]
-modulate = Color(0, 0.9137255, 0.38431373, 1)
 scale = Vector2(2.2656252, 2.0937502)
-texture = ExtResource("1_qvj33")
+texture = ExtResource("6_lpgxo")
 
 [node name="lengua" type="Line2D" parent="Luther"]
 visible = false

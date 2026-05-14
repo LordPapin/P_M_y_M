@@ -18,7 +18,7 @@ scale = Vector2(0.7673333, 0.8972222)
 texture = ExtResource("1_7jsjt")
 
 [node name="Luther" parent="." instance=ExtResource("2_e64c6")]
-position = Vector2(254, 602)
+position = Vector2(117, 601)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_e64c6")
@@ -30,4 +30,4 @@ offset_right = 589.0
 offset_bottom = 323.0
 
 [node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
-position = Vector2(646, 536)
+position = Vector2(1020, 520)
