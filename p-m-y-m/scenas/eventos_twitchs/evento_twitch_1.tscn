@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=17 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://f1sgl2f15ica" path="res://scenas/personajes/NPC1_bar.png" id="3_0oqla"]
 [ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_r6r7q"]
 [ext_resource type="Texture2D" uid="uid://dcr3ax57hlf81" path="res://assets/luther/luther_222.png" id="6_lpgxo"]
+[ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="7_h0pjf"]
+[ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="8_x6e1x"]
 
 [sub_resource type="GDScript" id="GDScript_0oqla"]
 script/source = "extends Area2D
@@ -62,7 +64,7 @@ script = SubResource("GDScript_0oqla")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2Dbilletes"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_r6r7q")
-debug_color = Color(0, 0.45013297, 0.28504965, 0.41960785)
+debug_color = Color(0, 0.8235294, 0.30588236, 0.8)
 
 [node name="Area2Dculo" type="Area2D" parent="NPC"]
 scale = Vector2(1, 0.40000486)
@@ -123,14 +125,21 @@ metadata/_edit_group_ = true
 [node name="boca" type="Marker2D" parent="Luther"]
 position = Vector2(-119, -187)
 
-[node name="Sprite2D" type="Sprite2D" parent="Luther"]
+[node name="lutherSprite" type="Sprite2D" parent="Luther"]
 scale = Vector2(2.2656252, 2.0937502)
 texture = ExtResource("6_lpgxo")
 
 [node name="lengua" type="Line2D" parent="Luther"]
 visible = false
+texture_repeat = 1
 position = Vector2(-148, -47)
-default_color = Color(1, 0, 0, 1)
+width = 20.0
+texture = ExtResource("7_h0pjf")
+texture_mode = 1
+
+[node name="PuntaLengua" type="Sprite2D" parent="Luther"]
+scale = Vector2(2, 2)
+texture = ExtResource("8_x6e1x")
 
 [node name="TimerCastigo" type="Timer" parent="."]
 wait_time = 2.0

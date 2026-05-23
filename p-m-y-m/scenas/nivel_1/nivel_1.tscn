@@ -8,9 +8,9 @@
 [ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
-vertices = PackedVector2Array(601.53906, 450.20313, 1012.8672, 642.89844, 137.38281, 641.03125, 272.57813, 432.7578, 404, 427, 585.8203, 434.8672, 602.9922, 446.10938)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(267, 423, 119, 651, 1058, 653, 614, 445, 618, 446, 618, 444, 589, 425, 404, 417)])
+vertices = PackedVector2Array(285.5703, 442.28906, 410.39063, 448.6328, 427.21875, 506, 171.40625, 638, 924.39844, 638, 627.4922, 534.3125, 680.6719, 510.1172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(280, 432, 154, 648, 965, 648, 681, 499, 626, 524, 435, 497, 418, 439)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rr3"]
 size = Vector2(122, 59)
@@ -30,6 +30,7 @@ scale = Vector2(3, 3)
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
 [node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
+visible = false
 offset_left = 599.0
 offset_top = 311.0
 offset_right = 599.0
@@ -57,4 +58,4 @@ theme_override_font_sizes/font_size = 18
 text = "debo ir al bar"
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(232, 546)
+position = Vector2(266, 539)
