@@ -1,7 +1,7 @@
 extends Node2D
 
 var puntuacion = 0
-var max_puntuacion = 5
+var max_billetes = 5
 @onready var timer_castigo = $TimerCastigo
 @onready var mi_npc = $NPC
 
@@ -15,7 +15,7 @@ func _al_tocar_npc(parte):
 		"billetes":
 			puntuacion += 1
 			print("¡Billetes! Puntos: ", puntuacion)
-			if puntuacion >= max_puntuacion:
+			if puntuacion >= max_billetes:
 				ganar_juego()
 		"culo":
 			derrota("SLAP")
