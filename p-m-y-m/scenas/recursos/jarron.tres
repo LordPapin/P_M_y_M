@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://mqmax6u0rkjd"]
+
+[ext_resource type="Texture2D" uid="uid://c7amdwa17ude1" path="res://scenas/recursos/jarron.png" id="1_0nbmj"]
+[ext_resource type="Script" uid="uid://c8q0hsc6hoo4d" path="res://ItemData.gd" id="1_18vwn"]
+
+[resource]
+script = ExtResource("1_18vwn")
+id = "Jarron"
+icon = ExtResource("1_0nbmj")
+metadata/_custom_type_script = "uid://c8q0hsc6hoo4d"
