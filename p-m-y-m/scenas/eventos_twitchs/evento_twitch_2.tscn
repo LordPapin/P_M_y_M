@@ -4,6 +4,12 @@
 
 [node name="Luther" type="Node2D" parent="."]
 
+[node name="grafiti 1" type="Marker2D" parent="Luther"]
+
+[node name="grafiti 2" type="Marker2D" parent="Luther"]
+
+[node name="grafiti 3" type="Marker2D" parent="Luther"]
+
 [node name="LauchaMapache" type="Node2D" parent="."]
 
 [node name="Boton" type="Node2D" parent="."]
