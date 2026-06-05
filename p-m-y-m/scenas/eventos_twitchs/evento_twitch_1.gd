@@ -36,8 +36,10 @@ func derrota(tipo):
 
 func ganar_juego():
 	print("ganaste")
-	mi_npc.call_deferred("queue_free")
-	await get_tree().create_timer(1.0).timeout
+	#mi_npc.call_deferred("queue_free")
+	#await get_tree().create_timer(1.0).timeout
 	emit_signal("minijuego_ganado")
-	get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
+	#get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
 	NPCstates.npcs["npc1"]["current_state"] = "robado"
+	get_tree().call_group("evento_1","JuegoTerminado")
+	queue_free()
