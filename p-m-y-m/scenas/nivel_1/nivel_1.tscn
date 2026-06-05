@@ -32,7 +32,6 @@ scale = Vector2(3, 3)
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
 [node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
-visible = false
 offset_left = 599.0
 offset_top = 311.0
 offset_right = 599.0
@@ -59,10 +58,10 @@ theme_override_fonts/font = ExtResource("7_oeh3s")
 theme_override_font_sizes/font_size = 18
 text = "debo ir al bar"
 
+[node name="Jarron" parent="." instance=ExtResource("8_867q3")]
+position = Vector2(529, 375)
+
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
 position = Vector2(266, 539)
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
-
-[node name="Jarron" parent="." instance=ExtResource("8_867q3")]
-position = Vector2(529, 375)
