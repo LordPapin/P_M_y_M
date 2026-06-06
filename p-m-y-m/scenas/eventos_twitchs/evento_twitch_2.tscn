@@ -1,24 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=6 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 [ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
 [ext_resource type="Script" uid="uid://d2k0gmbruxcn2" path="res://scenas/eventos_twitchs/laucha_mapache.gd" id="2_al2cu"]
 [ext_resource type="Script" uid="uid://71olh57g0thw" path="res://scenas/eventos_twitchs/boton.gd" id="2_piq6c"]
+[ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="5_x4d7s"]
 
 [node name="evento_twitch_2" type="Node2D"]
 script = ExtResource("1_7rgwk")
 
-[node name="Luther" type="Node2D" parent="."]
+[node name="Luther" type="CharacterBody2D" parent="."]
+position = Vector2(70, 400)
 script = ExtResource("1_7dgbb")
 
-[node name="grafiti 1" type="Marker2D" parent="Luther"]
+[node name="Sprite2D" type="Sprite2D" parent="Luther"]
+texture = ExtResource("5_x4d7s")
 
-[node name="grafiti 2" type="Marker2D" parent="Luther"]
+[node name="Grafitis" type="Node2D" parent="."]
 
-[node name="grafiti 3" type="Marker2D" parent="Luther"]
+[node name="grafiti1" type="Marker2D" parent="Grafitis"]
+position = Vector2(300, 400)
+
+[node name="grafiti2" type="Marker2D" parent="Grafitis"]
+position = Vector2(600, 400)
+
+[node name="grafiti3" type="Marker2D" parent="Grafitis"]
+position = Vector2(900, 400)
 
 [node name="LauchaMapache" type="Node2D" parent="."]
+position = Vector2(900, 522)
 script = ExtResource("2_al2cu")
 
 [node name="Boton" type="Node2D" parent="."]
+position = Vector2(615, 242)
 script = ExtResource("2_piq6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton"]
+position = Vector2(-23, -31)
+texture = ExtResource("5_x4d7s")

@@ -5,17 +5,20 @@ signal prueba_fallida
 
 @export var duracion := 5.0
 
+var activa := false
+
 var clicks_actuales := 0
 var clicks_objetivo := 10
 
-var activa := false
-
+@onready var sprite = $Sprite2D
 @onready var timer := Timer.new()
 
-
 func _ready():
+
 	add_child(timer)
+
 	timer.one_shot = true
+
 	timer.timeout.connect(_on_timeout)
 
 	hide()
@@ -24,11 +27,12 @@ func _ready():
 func iniciar_prueba(objetivo:int):
 
 	clicks_objetivo = objetivo
+
 	clicks_actuales = 0
 
 	activa = true
 
-	mostrar_color_rojo()
+	sprite.modulate = Color.RED
 
 	show()
 
@@ -40,24 +44,23 @@ func _input(event):
 	if !activa:
 		return
 
-	if event is InputEventMouseButton:
-		if event.pressed:
+	if event is InputEventMouseButton and event.pressed:
 
-			clicks_actuales += 1
+		clicks_actuales += 1
 
-			actualizar_color()
+		actualizar_color()
 
-			if clicks_actuales >= clicks_objetivo:
+		if clicks_actuales >= clicks_objetivo:
 
-				activa = false
+			activa = false
 
-				timer.stop()
+			timer.stop()
 
-				mostrar_color_verde()
+			sprite.modulate = Color.GREEN
 
-				prueba_superada.emit()
+			hide()
 
-				hide()
+			prueba_superada.emit()
 
 
 func _on_timeout():
@@ -67,9 +70,9 @@ func _on_timeout():
 
 	activa = false
 
-	prueba_fallida.emit()
-
 	hide()
+
+	prueba_fallida.emit()
 
 
 func actualizar_color():
@@ -77,29 +80,17 @@ func actualizar_color():
 	var progreso = float(clicks_actuales) / float(clicks_objetivo)
 
 	if progreso >= 1.0:
-		mostrar_color_verde()
+
+		sprite.modulate = Color.GREEN
 
 	elif progreso >= 0.66:
-		mostrar_color_amarillo()
+
+		sprite.modulate = Color.YELLOW
 
 	elif progreso >= 0.33:
-		mostrar_color_naranja()
+
+		sprite.modulate = Color.ORANGE
 
 	else:
-		mostrar_color_rojo()
 
-
-func mostrar_color_rojo():
-	modulate = Color.RED
-
-
-func mostrar_color_naranja():
-	modulate = Color.ORANGE
-
-
-func mostrar_color_amarillo():
-	modulate = Color.YELLOW
-
-
-func mostrar_color_verde():
-	modulate = Color.GREEN
+		sprite.modulate = Color.RED

@@ -1,12 +1,17 @@
 extends Node2D
 
 @onready var luther = $Luther
+
+@onready var grafiti1 = $Grafitis/grafiti1
+@onready var grafiti2 = $Grafitis/grafiti2
+@onready var grafiti3 = $Grafitis/grafiti3
+
 @onready var laucha_mapache = $LauchaMapache
 @onready var boton = $Boton
 
 var fase_actual := 0
 
-var clicks_por_fase = [
+var objetivos = [
 	10,
 	15,
 	20
@@ -17,62 +22,32 @@ func _ready():
 	luther.grafiti_alcanzado.connect(_on_grafiti_alcanzado)
 
 	laucha_mapache.inicio_vigilancia.connect(_on_inicio_vigilancia)
-	laucha_mapache.fin_vigilancia.connect(_on_fin_vigilancia)
 	laucha_mapache.alertados.connect(_on_alertados)
 
 	boton.prueba_superada.connect(_on_prueba_superada)
 	boton.prueba_fallida.connect(_on_prueba_fallida)
 
+	# SOLO PARA TEST
+	iniciar_minijuego()
+	print(grafiti1)
+	print(grafiti2)
+	print(grafiti3)
 
-# ------------------------------------------------------------------
-# ADVERTENCIA INICIAL
-# ------------------------------------------------------------------
-
-func jugador_se_acerca():
-
-	if luther.estado_actual == "no_advertido":
-
-		luther.cambiar_estado("advertido")
-
-		# Abrir diálogo:
-		# "Ignorar advertencia"
-		# "Espiar sigilosamente"
-
-
-func elegir_ignorar():
-
-	# Si vuelve a acercarse:
-	# Cinemática derrota
-
-	pass
-
-
-func elegir_sigilo():
+func iniciar_minijuego():
 
 	fase_actual = 0
 
 	luther.cambiar_estado("caminando")
 
-	luther.ir_a_grafiti(0)
+	luther.ir_a_grafiti(grafiti1, 0)
 
-	laucha_mapache.cambiar_estado("susurrando")
+	laucha_mapache.iniciar_patron()
 
-
-# ------------------------------------------------------------------
-# LUTHER
-# ------------------------------------------------------------------
 
 func _on_grafiti_alcanzado(indice):
 
-	print("Luther llegó al grafiti ", indice)
+	print("Llegó al grafiti ", indice)
 
-	# Esperamos a que LauchaMapache entre en vigilancia.
-	# Cuando eso ocurra se disparará la prueba.
-
-
-# ------------------------------------------------------------------
-# LAUCHA Y MAPACHE
-# ------------------------------------------------------------------
 
 func _on_inicio_vigilancia():
 
@@ -83,29 +58,8 @@ func _on_inicio_vigilancia():
 
 	boton.global_position = luther.global_position + Vector2(0, -80)
 
-	boton.iniciar_prueba(
-		clicks_por_fase[fase_actual]
-	)
+	boton.iniciar_prueba(objetivos[fase_actual])
 
-
-func _on_fin_vigilancia():
-
-	if luther.estado_actual == "visible":
-
-		laucha_mapache.cambiar_estado("alertados")
-
-
-func _on_alertados():
-
-	print("DERROTA")
-
-	# Mostrar viñetas de derrota
-	# Reiniciar escena o devolver al inicio
-
-
-# ------------------------------------------------------------------
-# BOTÓN
-# ------------------------------------------------------------------
 
 func _on_prueba_superada():
 
@@ -113,13 +67,16 @@ func _on_prueba_superada():
 
 	fase_actual += 1
 
-	if fase_actual >= 3:
+	match fase_actual:
 
-		finalizar_minijuego()
+		1:
+			luther.ir_a_grafiti(grafiti2, 1)
 
-		return
+		2:
+			luther.ir_a_grafiti(grafiti3, 2)
 
-	luther.ir_a_grafiti(fase_actual)
+		3:
+			finalizar_minijuego()
 
 
 func _on_prueba_fallida():
@@ -129,9 +86,12 @@ func _on_prueba_fallida():
 	laucha_mapache.cambiar_estado("alertados")
 
 
-# ------------------------------------------------------------------
-# FINAL
-# ------------------------------------------------------------------
+func _on_alertados():
+
+	print("DERROTA")
+
+	# Aquí pondrás las viñetas
+
 
 func finalizar_minijuego():
 
@@ -139,7 +99,5 @@ func finalizar_minijuego():
 
 	print("MINIJUEGO SUPERADO")
 
-	# Conversación visible
-	# Obtener información
-	# Transición
-	# Cargar escena posterior
+	# diálogo
+	# transición

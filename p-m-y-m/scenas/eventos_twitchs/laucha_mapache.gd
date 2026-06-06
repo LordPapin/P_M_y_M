@@ -17,6 +17,11 @@ func _ready():
 
 	timer.one_shot = true
 
+	timer.timeout.connect(_on_timer_timeout)
+
+
+func iniciar_patron():
+
 	cambiar_estado("susurrando")
 
 
@@ -28,7 +33,7 @@ func cambiar_estado(nuevo_estado:String):
 
 		"susurrando":
 
-			print("Laucha y Mapache susurran")
+			print("Susurrando")
 
 			fin_vigilancia.emit()
 
@@ -36,7 +41,7 @@ func cambiar_estado(nuevo_estado:String):
 
 		"vigilando":
 
-			print("Laucha y Mapache vigilan")
+			print("Vigilando")
 
 			inicio_vigilancia.emit()
 
@@ -44,7 +49,7 @@ func cambiar_estado(nuevo_estado:String):
 
 		"alertados":
 
-			print("Laucha y Mapache detectaron a Luther")
+			print("Alertados")
 
 			alertados.emit()
 
