@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=2 format=3 uid="uid://gtk5ey14cpve"]
+
+[ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 
 [node name="evento_twitch_2" type="Node2D"]
 
 [node name="Luther" type="Node2D" parent="."]
+script = ExtResource("1_7dgbb")
 
 [node name="grafiti 1" type="Marker2D" parent="Luther"]
 
