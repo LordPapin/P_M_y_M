@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=5 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
+[ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
 [ext_resource type="Script" uid="uid://d2k0gmbruxcn2" path="res://scenas/eventos_twitchs/laucha_mapache.gd" id="2_al2cu"]
 [ext_resource type="Script" uid="uid://71olh57g0thw" path="res://scenas/eventos_twitchs/boton.gd" id="2_piq6c"]
 
 [node name="evento_twitch_2" type="Node2D"]
+script = ExtResource("1_7rgwk")
 
 [node name="Luther" type="Node2D" parent="."]
 script = ExtResource("1_7dgbb")
