@@ -9,6 +9,8 @@ extends Node2D
 @onready var laucha_mapache = $LauchaMapache
 @onready var boton = $Boton
 
+var dialogo = load("res://dialogos/escucha_laucha_mapache.dialogue")
+
 var fase_actual := 0
 
 var objetivos = [
@@ -90,4 +92,4 @@ func _on_alertados():
 func finalizar_minijuego():
 	luther.cambiar_estado("aliviado")
 	print("MINIJUEGO SUPERADO")
-	DialogueManager.mostrar_dialogo("escucha_laucha_mapache")
+	DialogueManager.show_dialogue_balloon(dialogo)
