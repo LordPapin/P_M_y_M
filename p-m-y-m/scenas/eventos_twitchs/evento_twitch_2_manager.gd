@@ -88,10 +88,6 @@ func _on_alertados():
 
 
 func finalizar_minijuego():
-
 	luther.cambiar_estado("aliviado")
-
 	print("MINIJUEGO SUPERADO")
-
-	# diálogo
-	# transición
+	DialogueManager.mostrar_dialogo("escucha_laucha_mapache")
