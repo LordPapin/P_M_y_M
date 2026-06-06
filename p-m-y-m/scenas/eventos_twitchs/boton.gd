@@ -6,7 +6,7 @@ signal prueba_fallida
 @export var duracion := 5.0
 
 var activa := false
-
+var superada := false
 var clicks_actuales := 0
 var clicks_objetivo := 10
 
@@ -29,7 +29,7 @@ func iniciar_prueba(objetivo:int):
 	clicks_objetivo = objetivo
 
 	clicks_actuales = 0
-
+	superada = false
 	activa = true
 
 	sprite.modulate = Color.RED
@@ -46,21 +46,16 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.pressed:
 
+		if superada:
+			return
+
 		clicks_actuales += 1
 
 		actualizar_color()
 
 		if clicks_actuales >= clicks_objetivo:
-
-			activa = false
-
-			timer.stop()
-
+			superada = true
 			sprite.modulate = Color.GREEN
-
-			hide()
-
-			prueba_superada.emit()
 
 
 func _on_timeout():
@@ -72,7 +67,10 @@ func _on_timeout():
 
 	hide()
 
-	prueba_fallida.emit()
+	if superada:
+		prueba_superada.emit()
+	else:
+		prueba_fallida.emit()
 
 
 func actualizar_color():

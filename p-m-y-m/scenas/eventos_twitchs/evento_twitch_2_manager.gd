@@ -62,27 +62,21 @@ func _on_inicio_vigilancia():
 
 
 func _on_prueba_superada():
-
+	laucha_mapache.terminar_vigilancia()
 	luther.cambiar_estado("respirando")
-
 	fase_actual += 1
-
 	match fase_actual:
-
 		1:
 			luther.ir_a_grafiti(grafiti2, 1)
-
 		2:
 			luther.ir_a_grafiti(grafiti3, 2)
-
 		3:
 			finalizar_minijuego()
 
 
 func _on_prueba_fallida():
-
+	laucha_mapache.terminar_vigilancia()
 	luther.cambiar_estado("visible")
-
 	laucha_mapache.cambiar_estado("alertados")
 
 

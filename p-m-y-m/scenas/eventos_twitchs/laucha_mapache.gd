@@ -5,7 +5,6 @@ signal fin_vigilancia
 signal alertados
 
 @export var tiempo_susurro := 3.0
-@export var tiempo_vigilancia := 2.0
 
 var estado_actual := "susurrando"
 
@@ -40,12 +39,8 @@ func cambiar_estado(nuevo_estado:String):
 			timer.start(tiempo_susurro)
 
 		"vigilando":
-
 			print("Vigilando")
-
 			inicio_vigilancia.emit()
-
-			timer.start(tiempo_vigilancia)
 
 		"alertados":
 
@@ -53,7 +48,9 @@ func cambiar_estado(nuevo_estado:String):
 
 			alertados.emit()
 
-
+func terminar_vigilancia():
+	cambiar_estado("susurrando")
+	
 func _on_timer_timeout():
 
 	match estado_actual:
