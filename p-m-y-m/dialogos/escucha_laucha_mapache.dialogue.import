@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://62dwtosfnd1m"
+path="res://.godot/imported/escucha_laucha_mapache.dialogue-879169a3a4f85d3a340e0a4cc53e2529.tres"
+
+[deps]
+
+source_file="res://dialogos/escucha_laucha_mapache.dialogue"
+dest_files=["res://.godot/imported/escucha_laucha_mapache.dialogue-879169a3a4f85d3a340e0a4cc53e2529.tres"]
+
+[params]
+
+defaults=true
