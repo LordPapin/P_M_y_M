@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=18 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
 [ext_resource type="Script" uid="uid://bkf2jwoj1l6d0" path="res://scenas/eventos_twitchs/evento_twitch_1.gd" id="1_tn4ag"]
+[ext_resource type="Texture2D" uid="uid://b2tj1ju066fkj" path="res://assets/nivel_2/boceto bar.png" id="2_x6e1x"]
 [ext_resource type="Texture2D" uid="uid://f1sgl2f15ica" path="res://scenas/personajes/NPC1_bar.png" id="3_0oqla"]
 [ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_r6r7q"]
 [ext_resource type="Texture2D" uid="uid://dcr3ax57hlf81" path="res://assets/luther/luther_222.png" id="6_lpgxo"]
@@ -44,7 +45,12 @@ size = Vector2(95, 36)
 size = Vector2(1169, 20)
 
 [node name="evento_twitch_1" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_tn4ag")
+
+[node name="BocetoBar" type="Sprite2D" parent="."]
+position = Vector2(411, 357)
+texture = ExtResource("2_x6e1x")
 
 [node name="NPC" type="CharacterBody2D" parent="."]
 position = Vector2(463, 281)

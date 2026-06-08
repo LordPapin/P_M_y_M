@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var miniJuego = "res://scenas/eventos_twitchs/evento_twitch_1.tscn"
 var conversable = false
+@onready var MiniJuego = preload("res://scenas/eventos_twitchs/evento_twitch_1.tscn")
 @onready var MiDialogo = preload ("res://dialogos/diálogo npc1.dialogue")
 @export var personaje = PackedScene
 func _ready() -> void:
@@ -12,7 +13,8 @@ func _handle_interaction():
 	match state:
 		"no_interactuado":
 			print("diálogo inicial")
-			get_tree().change_scene_to_file("res://scenas/eventos_twitchs/evento_twitch_1.tscn")
+			get_tree().call_group("evento_1","minijuego")
+			#get_tree().change_scene_to_file("res://scenas/eventos_twitchs/evento_twitch_1.tscn")
 
 			NPCstates.npcs["npc1"]["current_state"] = "no_sobornado"
 		"no_sobornado":
