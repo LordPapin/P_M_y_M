@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=3 uid="uid://bjpyjw3ifvkqo"]
+
+[ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="1_0iobx"]
+[ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="2_0f57m"]
+[ext_resource type="Texture2D" uid="uid://biujodytic2ed" path="res://assets/nivel_4/npc_mapache.png" id="3_aufdi"]
+[ext_resource type="Texture2D" uid="uid://c5cibh4ntkj3t" path="res://assets/nivel_4/Bolsas_d_basura.png" id="4_0jrpg"]
+[ext_resource type="Texture2D" uid="uid://c4135hp1yp141" path="res://assets/nivel_4/basuratirada.png" id="5_rm82d"]
+[ext_resource type="Texture2D" uid="uid://c7bcc1xyoetrl" path="res://assets/nivel_4/bote_de_basura.png" id="6_h7pse"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="7_4o0vk"]
+[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="8_aufdi"]
+[ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="9_0jrpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4gqp"]
+size = Vector2(42.5, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqef"]
+size = Vector2(60.00003, 82.33334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t57pb"]
+size = Vector2(169.5, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j54c3"]
+size = Vector2(72.66667, 22.666672)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4awm"]
+size = Vector2(53.33333, 65.33331)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dppi0"]
+size = Vector2(61, 58.666656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpm0r"]
+size = Vector2(70.5, 78.5)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
+vertices = PackedVector2Array(2648.8672, 629.97656, 28.507813, 625.0078, 21.507813, 485, 2647.1172, 485)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(11, 475, 19, 635, 2659, 640, 2657, 475)])
+
+[node name="callejon" type="Node2D"]
+
+[node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
+position = Vector2(1337, 326)
+scale = Vector2(4.175, 2.6833334)
+texture = ExtResource("1_0iobx")
+
+[node name="NpcLaucha" type="StaticBody2D" parent="."]
+position = Vector2(2319, 401)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLaucha"]
+position = Vector2(-0.75, -2.5)
+shape = SubResource("RectangleShape2D_x4gqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="NpcLaucha"]
+texture = ExtResource("2_0f57m")
+
+[node name="NpcMapache" type="StaticBody2D" parent="."]
+position = Vector2(2516, 382.00003)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcMapache"]
+position = Vector2(2.666687, 0.83332825)
+shape = SubResource("RectangleShape2D_8uqef")
+
+[node name="Sprite2D" type="Sprite2D" parent="NpcMapache"]
+texture = ExtResource("3_aufdi")
+
+[node name="BolsasDBasura" type="StaticBody2D" parent="."]
+position = Vector2(1895, 424)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BolsasDBasura"]
+position = Vector2(9.75, 10.5)
+shape = SubResource("RectangleShape2D_t57pb")
+
+[node name="Sprite2D" type="Sprite2D" parent="BolsasDBasura"]
+texture = ExtResource("4_0jrpg")
+
+[node name="Basuratirada" type="StaticBody2D" parent="."]
+position = Vector2(1127, 587)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
+position = Vector2(0, 1.3333282)
+shape = SubResource("RectangleShape2D_j54c3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basuratirada"]
+texture = ExtResource("5_rm82d")
+
+[node name="BoteDeBasura" type="StaticBody2D" parent="."]
+position = Vector2(118, 394)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura"]
+position = Vector2(-9.3333435, 22.666656)
+shape = SubResource("RectangleShape2D_f4awm")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura"]
+texture = ExtResource("6_h7pse")
+
+[node name="BoteDeBasura2" type="StaticBody2D" parent="."]
+position = Vector2(291, 398)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura2"]
+position = Vector2(6.5, 19.333344)
+shape = SubResource("RectangleShape2D_dppi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura2"]
+texture = ExtResource("6_h7pse")
+
+[node name="BoteDeBasura3" type="StaticBody2D" parent="."]
+position = Vector2(193, 439)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura3"]
+position = Vector2(3.75, 15.75)
+shape = SubResource("RectangleShape2D_hpm0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura3"]
+texture = ExtResource("6_h7pse")
+
+[node name="Luther" parent="." instance=ExtResource("7_4o0vk")]
+position = Vector2(84, 640)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_top = 0
+limit_right = 2667
+limit_bottom = 647
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_wtw07")
+
+[node name="boton_escenarios" parent="." instance=ExtResource("8_aufdi")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("9_0jrpg")]

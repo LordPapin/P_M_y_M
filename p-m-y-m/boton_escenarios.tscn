@@ -60,7 +60,7 @@ size_flags_horizontal = 4
 [node name="escenario1" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "oficina"
+text = "Oficina"
 
 [node name="escenario2" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -76,14 +76,34 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 4
+text = "Calle"
 
-[node name="salir" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="callejon" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "cerrar"
+text = "Callejon
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="muelle" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Muelle
+"
+
+[node name="salir" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+text = "Cerrar"
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario1" to="." method="_on_escenario_1_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario2" to="." method="_on_escenario_2_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/escenario3" to="." method="_on_escenario_3_pressed"]
-[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/callejon" to="." method="_on_callejon_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3/muelle" to="." method="_on_muelle_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3/salir" to="." method="_on_salir_pressed"]

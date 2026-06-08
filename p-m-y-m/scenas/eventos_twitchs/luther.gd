@@ -3,9 +3,11 @@ extends Node2D
 @onready var boca = $boca
 @onready var lengua = $lengua
 @onready var punta = $PuntaLengua
+@onready var luther_sprite: AnimatedSprite2D = $lutherSprite
 
 var animado :bool = false
-
+func _ready() -> void:
+	luther_sprite.play("idle")
 
 func _input(event):
 	if event.is_action_pressed("dispararLengua") and not animado:
