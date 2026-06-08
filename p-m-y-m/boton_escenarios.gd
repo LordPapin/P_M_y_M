@@ -35,6 +35,17 @@ func _on_escenario_2_pressed() -> void:
 func _on_escenario_3_pressed() -> void:
 	#cambiar_escena("")
 	print("cambiaste a escenario 3")
+	get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 
 func _on_salir_pressed() -> void:
 	menu.visible = false
+
+
+func _on_callejon_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenas/nivel_4/callejon.tscn")
+	pass # Replace with function body.
+
+
+func _on_muelle_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenas/nivel_5/muelle.tscn")
+	pass # Replace with function body.

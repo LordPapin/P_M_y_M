@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var puntuacion = 0
 var max_billetes = 5

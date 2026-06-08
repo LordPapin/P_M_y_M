@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=6 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_wjdaa"]
+[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_wjdaa"]
+[ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_47044"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
 vertices = PackedVector2Array(27, 687.03125, 27, 334.10156, 427.1797, 375.96875, 3262.1328, 696.96094, 1096.3828, 416.03906, 1169.4219, 406.03125, 2038.3828, 502, 2124.2578, 502, 2128.2188, 450.4375, 3264.8594, 503.53125, 2036.3594, 450.52344)
@@ -26,3 +28,7 @@ limit_bottom = 717
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_47044")
+
+[node name="boton_escenarios" parent="." instance=ExtResource("3_wjdaa")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
