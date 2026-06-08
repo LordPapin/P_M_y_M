@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var boton = $MarginContainer/Button
 @onready var menu = $MarginContainer/menu
