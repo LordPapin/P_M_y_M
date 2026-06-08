@@ -31,6 +31,9 @@ position = Vector2(900, 400)
 position = Vector2(900, 522)
 script = ExtResource("2_al2cu")
 
+[node name="Sprite2D" type="Sprite2D" parent="LauchaMapache"]
+texture = ExtResource("5_x4d7s")
+
 [node name="Boton" type="Node2D" parent="."]
 position = Vector2(615, 242)
 script = ExtResource("2_piq6c")
