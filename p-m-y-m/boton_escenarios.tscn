@@ -2,26 +2,17 @@
 
 [ext_resource type="Script" uid="uid://xesrka6h3op4" path="res://boton_escenarios.gd" id="1_axoj2"]
 
-[node name="boton_escenarios" type="Control"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="boton_escenarios" type="CanvasLayer"]
 script = ExtResource("1_axoj2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -170.0
-offset_top = -326.0
-offset_right = 570.0
-offset_bottom = 214.0
+offset_left = -727.0
+offset_top = 4.0
+offset_right = 13.0
+offset_bottom = 544.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -40,17 +31,15 @@ text = "Mapa"
 [node name="menu" type="Panel" parent="MarginContainer"]
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
 offset_top = 2.0
-offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -58,7 +47,6 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/menu/MarginContainer"]
 layout_mode = 2
@@ -72,7 +60,7 @@ size_flags_horizontal = 4
 [node name="escenario1" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "oficina"
+text = "Oficina"
 
 [node name="escenario2" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -88,14 +76,34 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 4
+text = "Calle"
 
-[node name="salir" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="callejon" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "cerrar"
+text = "Callejon
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="muelle" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Muelle
+"
+
+[node name="salir" type="Button" parent="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+text = "Cerrar"
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario1" to="." method="_on_escenario_1_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer/escenario2" to="." method="_on_escenario_2_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/escenario3" to="." method="_on_escenario_3_pressed"]
-[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer2/callejon" to="." method="_on_callejon_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3/muelle" to="." method="_on_muelle_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/MarginContainer/VBoxContainer/HBoxContainer3/salir" to="." method="_on_salir_pressed"]

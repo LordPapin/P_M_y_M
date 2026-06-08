@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxpnoosd4sj13"]
+
+[ext_resource type="Texture2D" uid="uid://cru3xuhmt4egx" path="res://assets/nivel_5/Muelle_1.png" id="1_35nha"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
+[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_priya"]
+[ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_befke"]
+vertices = PackedVector2Array(2613.0234, 694.9922, 515.46094, 679.59375, 1212.1484, 509, 2013.8984, 515.0078, 2349.4219, 451.34375, 2416.6406, 395.14063, 2762.0938, 314.03125, 3076.0781, 517.02344, 4150, 509.0703, 4150, 688.03906, 2475.6016, 316.97656, 2409.0234, 338.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(0, 4, 5, 6, 7), PackedInt32Array(7, 8, 9, 0), PackedInt32Array(10, 6, 5, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(435, 689, 1211, 499, 2013, 505, 2345, 442, 2406, 391, 2398, 331, 2474, 307, 2765, 304, 3079, 507, 4160, 499, 4160, 698, 2613, 705)])
+
+[node name="muelle" type="Node2D"]
+
+[node name="Muelle1" type="Sprite2D" parent="."]
+position = Vector2(2083.9998, 355)
+scale = Vector2(2.1718748, 1)
+texture = ExtResource("1_35nha")
+
+[node name="Luther" parent="." instance=ExtResource("2_el811")]
+position = Vector2(1187, 675)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_top = 0
+limit_right = 4165
+limit_bottom = 708
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_befke")
+
+[node name="boton_escenarios" parent="." instance=ExtResource("3_priya")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_da1rf")]
