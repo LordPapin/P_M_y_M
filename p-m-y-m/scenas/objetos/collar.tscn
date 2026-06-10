@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr5u0crhn2mey"]
+[gd_scene load_steps=4 format=3 uid="uid://bga6vb0jym6nm"]
 
 [ext_resource type="Texture2D" uid="uid://cu1prw7necgx1" path="res://scenas/recursos/collar.png" id="1_6lba2"]
 [ext_resource type="Script" uid="uid://brxjr5pix4qmc" path="res://scenas/objetos/collar.gd" id="1_dwpbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwpbr"]
 
-[node name="collar" type="Area2D"]
+[node name="collar" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_dwpbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5mtpmvtv3e0x"]
+[gd_scene load_steps=4 format=3 uid="uid://di7numij427ih"]
 
 [ext_resource type="Script" uid="uid://dteftr4uru3ro" path="res://llave.gd" id="1_mhrpi"]
 [ext_resource type="Texture2D" uid="uid://dod48m1mbmkvl" path="res://scenas/recursos/llave.png" id="2_nyreu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usp67"]
 
-[node name="llave" type="Area2D"]
+[node name="llave" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_mhrpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

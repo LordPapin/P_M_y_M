@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mli5y"]
 size = Vector2(32, 37)
 
-[node name="Jarron" type="Area2D"]
+[node name="Jarron" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_mli5y")
 
 [node name="Jarron" type="Sprite2D" parent="."]

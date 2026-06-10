@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_och76"]
 [ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 [ext_resource type="PackedScene" uid="uid://cv7h2lngqyfq" path="res://scenas/objetos/jarron.tscn" id="8_867q3"]
-[ext_resource type="PackedScene" uid="uid://cohlqnfygq3t8" path="res://scenas/objetos/cerbeza.tscn" id="9_oeh3s"]
-[ext_resource type="PackedScene" uid="uid://dr5u0crhn2mey" path="res://scenas/objetos/collar.tscn" id="10_tq52u"]
-[ext_resource type="PackedScene" uid="uid://gj5gsyhvncmn" path="res://scenas/objetos/piedra.tscn" id="11_s7pnb"]
-[ext_resource type="PackedScene" uid="uid://c5mtpmvtv3e0x" path="res://scenas/objetos/llave.tscn" id="12_4yct3"]
+[ext_resource type="PackedScene" uid="uid://be3jshksqnkxs" path="res://scenas/objetos/cerbeza.tscn" id="9_oeh3s"]
+[ext_resource type="PackedScene" uid="uid://bga6vb0jym6nm" path="res://scenas/objetos/collar.tscn" id="10_tq52u"]
+[ext_resource type="PackedScene" uid="uid://3fne2invt1ep" path="res://scenas/objetos/piedra.tscn" id="11_s7pnb"]
+[ext_resource type="PackedScene" uid="uid://di7numij427ih" path="res://scenas/objetos/llave.tscn" id="12_4yct3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
 vertices = PackedVector2Array(1765.8125, 713.2422, -430.32813, 718.90625, -84.078125, 499.97656, 673.1094, 556.75, 890.71875, 583.28125, 678.97656, 496.04688, 970.28906, 544.4922)

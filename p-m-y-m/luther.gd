@@ -11,11 +11,18 @@ class_name personaje
 @onready var punta_lengua = $Lengua/PuntaLengua
 
 var longitud_lengua := 1.0
+var recurso_objetivo = null
+var lengua_activa := false
+var lengua_extendiendo := false
+
+@export var distancia_recoleccion := 150.0
 
 
 func _ready() -> void:
 	lengua.visible = false
 	animation_player.play("idle")
+	for recurso in get_tree().get_nodes_in_group("recursos"):
+		recurso.clicked.connect(seleccionar_recurso)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -29,36 +36,37 @@ func set_movement_target(target_point: Vector2):
 
 
 func _physics_process(_delta: float) -> void:
-
+	if recurso_objetivo != null:
+		print("DISTANCIA:",global_position.distance_to(recurso_objetivo.global_position))
 	if nav_agent.is_navigation_finished():
 		velocity = Vector2.ZERO
 	else:
 		var current_agent_position = global_position
 		var next_path_position = nav_agent.get_next_path_position()
-
 		velocity = (
 			next_path_position - current_agent_position
 		).normalized() * speed
-
 	move_and_slide()
-
 	actualizar_animacion()
-
+	if recurso_objetivo != null:
+		if is_instance_valid(recurso_objetivo):
+			var distancia = global_position.distance_to(recurso_objetivo.global_position)
+			if distancia <= distancia_recoleccion:
+				print("ESTOY CERCA: ", distancia)
+				velocity = Vector2.ZERO
+				iniciar_lengua()
+				return
 
 func _process(delta):
 
-	# La lengua apunta al cursor
-	lengua.look_at(get_global_mouse_position())
+	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
+		lengua.look_at(recurso_objetivo.global_position)
+	else:
+		lengua.look_at(get_global_mouse_position())
 
-	# Prueba temporal con espacio
-	if Input.is_key_pressed(KEY_SPACE):
-
-		lengua.visible = true
-
+	if lengua_extendiendo:
 		longitud_lengua += 25.0 * delta
-
 		cuerpo_lengua.scale.x = longitud_lengua
-
 		punta_lengua.position.x = 16 * longitud_lengua
 
 	else:
@@ -96,3 +104,17 @@ func actualizar_animacion():
 	else:
 
 		animation_player.play("idle")
+
+func seleccionar_recurso(recurso):
+	print("CLICK EN: ", recurso.name)
+	recurso_objetivo = recurso
+	print("OBJETIVO:", recurso.global_position)
+	nav_agent.target_position = recurso.global_position
+	
+func iniciar_lengua():
+	if lengua_activa:
+		return
+	lengua_activa = true
+	lengua_extendiendo = true
+	longitud_lengua = 1.0
+	lengua.visible = true

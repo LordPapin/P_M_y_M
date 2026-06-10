@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://gj5gsyhvncmn"]
+[gd_scene load_steps=4 format=3 uid="uid://3fne2invt1ep"]
 
 [ext_resource type="Script" uid="uid://gsnslg5jo7wu" path="res://piedra.gd" id="1_v7xym"]
 [ext_resource type="Texture2D" uid="uid://dmyeii6o5bgwd" path="res://scenas/recursos/piedra.png" id="2_rn2sl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhdj"]
 
-[node name="piedra" type="Area2D"]
+[node name="piedra" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_v7xym")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
