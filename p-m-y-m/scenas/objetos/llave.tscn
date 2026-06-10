@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5mtpmvtv3e0x"]
+
+[ext_resource type="Script" uid="uid://dteftr4uru3ro" path="res://llave.gd" id="1_mhrpi"]
+[ext_resource type="Texture2D" uid="uid://dod48m1mbmkvl" path="res://scenas/recursos/llave.png" id="2_nyreu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usp67"]
+
+[node name="llave" type="Area2D"]
+script = ExtResource("1_mhrpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nyreu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_usp67")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

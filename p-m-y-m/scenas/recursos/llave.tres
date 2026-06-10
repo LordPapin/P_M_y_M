@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bjwkdgx8cwf6p"]
+
+[ext_resource type="Texture2D" uid="uid://dod48m1mbmkvl" path="res://scenas/recursos/llave.png" id="1_kgfi0"]
+[ext_resource type="Script" uid="uid://c8q0hsc6hoo4d" path="res://ItemData.gd" id="2_s7kgv"]
+
+[resource]
+script = ExtResource("2_s7kgv")
+id = "Jarron"
+icon = ExtResource("1_kgfi0")
+metadata/_custom_type_script = "uid://c8q0hsc6hoo4d"

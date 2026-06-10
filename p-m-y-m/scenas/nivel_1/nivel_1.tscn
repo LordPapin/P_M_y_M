@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=15 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
@@ -8,11 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_och76"]
 [ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 [ext_resource type="PackedScene" uid="uid://cv7h2lngqyfq" path="res://scenas/objetos/jarron.tscn" id="8_867q3"]
+[ext_resource type="PackedScene" uid="uid://cohlqnfygq3t8" path="res://scenas/objetos/cerbeza.tscn" id="9_oeh3s"]
+[ext_resource type="PackedScene" uid="uid://dr5u0crhn2mey" path="res://scenas/objetos/collar.tscn" id="10_tq52u"]
+[ext_resource type="PackedScene" uid="uid://gj5gsyhvncmn" path="res://scenas/objetos/piedra.tscn" id="11_s7pnb"]
+[ext_resource type="PackedScene" uid="uid://c5mtpmvtv3e0x" path="res://scenas/objetos/llave.tscn" id="12_4yct3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
-vertices = PackedVector2Array(1792.8281, 642.89844, -430.5703, 641.03125, -89.34375, 445, 889.27344, 542.5469, 679.3906, 446.96875, 681.3125, 495.03906, 987.46094, 493.4375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 6, 0), PackedInt32Array(2, 5, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-92, 435, -468, 651, 1902, 653, 986, 483, 888, 532, 691, 487, 689, 437)])
+vertices = PackedVector2Array(1765.8125, 713.2422, -430.32813, 718.90625, -84.078125, 499.97656, 673.1094, 556.75, 890.71875, 583.28125, 678.97656, 496.04688, 970.28906, 544.4922)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 5, 3), PackedInt32Array(0, 4, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-87, 490, -465, 729, 1860, 723, 969, 534, 889, 573, 684, 548, 690, 486)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rr3"]
 size = Vector2(364, 133)
@@ -20,12 +24,12 @@ size = Vector2(364, 133)
 [node name="nivel_1" type="Node2D"]
 
 [node name="BocetoEscenario1" type="Sprite2D" parent="."]
-position = Vector2(1531, 326)
-scale = Vector2(2.0470002, 0.89444447)
+position = Vector2(1531, 363)
+scale = Vector2(2.0470002, 0.9972222)
 texture = ExtResource("1_p6foy")
 
 [node name="escritorio" parent="." instance=ExtResource("4_qkwb7")]
-position = Vector2(1610, 450.00003)
+position = Vector2(1619.0001, 478)
 scale = Vector2(3, 3)
 
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
@@ -59,15 +63,28 @@ theme_override_font_sizes/font_size = 54
 text = "debo ir al bar"
 
 [node name="Jarron" parent="." instance=ExtResource("8_867q3")]
-position = Vector2(1508, 381)
+position = Vector2(1549, 417)
+
+[node name="cerbeza" parent="." instance=ExtResource("9_oeh3s")]
+position = Vector2(1588, 431)
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(552, 627)
+position = Vector2(610, 697)
+scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
 limit_left = 0
-limit_top = 0
+limit_top = -3
 limit_right = 3060
-limit_bottom = 650
+limit_bottom = 717
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
+
+[node name="collar" parent="." instance=ExtResource("10_tq52u")]
+position = Vector2(1709, 456)
+
+[node name="piedra" parent="." instance=ExtResource("11_s7pnb")]
+position = Vector2(1539, 440)
+
+[node name="llave" parent="." instance=ExtResource("12_4yct3")]
+position = Vector2(1627, 450)

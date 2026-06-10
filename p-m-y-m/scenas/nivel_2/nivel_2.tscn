@@ -8,11 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bqc7ga7csrret" path="res://assets/nivel_2/npc_barman-Sheet.png" id="6_48d3o"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_48d3o"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
-vertices = PackedVector2Array(2865, 562.9297, 2865, 637.96875, 25.28125, 632.02344, 35.851563, 545.0469)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(27, 535, 14, 642, 2875, 648, 2875, 553)])
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ret4i"]
 atlas = ExtResource("6_48d3o")
 region = Rect2(0, 0, 100, 100)
@@ -56,36 +51,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
+vertices = PackedVector2Array(2865, 562.9297, 2865, 637.96875, 25.28125, 632.02344, 35.851563, 545.0469)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(27, 535, 14, 642, 2875, 648, 2875, 553)])
+
 [node name="nivel2" type="Node2D" groups=["evento_1"]]
 script = ExtResource("1_uik70")
 
 [node name="BocetoBar" type="Sprite2D" parent="."]
-position = Vector2(1441.68, 325.99997)
-scale = Vector2(1.4982501, 0.8972222)
+position = Vector2(1441.68, 361.49997)
+scale = Vector2(1.4982501, 0.99583334)
 texture = ExtResource("2_uik70")
 
+[node name="Barista" type="AnimatedSprite2D" parent="."]
+position = Vector2(1383, 239)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1dr2i")
+animation = &"idle"
+frame_progress = 0.10260697
+
 [node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
-position = Vector2(2706, 506)
+position = Vector2(2702, 498)
+scale = Vector2(2, 2)
 
 [node name="Luther" parent="." instance=ExtResource("2_e64c6")]
-position = Vector2(117, 601)
+position = Vector2(384, 675)
+scale = Vector2(7, 7)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 2877
-limit_bottom = 647
+limit_bottom = 720
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(29, 70)
 navigation_polygon = SubResource("NavigationPolygon_e64c6")
 
 [node name="boton_escenarios" parent="." instance=ExtResource("3_0ls8r")]
-
-[node name="Barista" type="AnimatedSprite2D" parent="."]
-position = Vector2(1367, 243)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_1dr2i")
-animation = &"idle"
-frame_progress = 0.10260697
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_48d3o")]

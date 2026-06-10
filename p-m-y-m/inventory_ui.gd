@@ -7,7 +7,8 @@ extends CanvasLayer
 	$HBoxContainer/TextureRect1,
 	$HBoxContainer/TextureRect2,
 	$HBoxContainer/TextureRect3,
-	$HBoxContainer/TextureRect4
+	$HBoxContainer/TextureRect4,
+	$HBoxContainer/TextureRect5
 ]
 
 func _ready():

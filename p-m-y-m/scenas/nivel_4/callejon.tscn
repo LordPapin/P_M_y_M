@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="8_aufdi"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="9_0jrpg"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
+vertices = PackedVector2Array(2651.1016, 483.97656, 2652.8906, 653, 21.359375, 654.9922, 27.640625, 480.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 11, 665, 2663, 663, 2661, 474)])
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4gqp"]
 size = Vector2(42.5, 90)
 
@@ -31,27 +36,27 @@ size = Vector2(61, 58.666656)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpm0r"]
 size = Vector2(70.5, 78.5)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
-vertices = PackedVector2Array(2648.8672, 629.97656, 28.507813, 625.0078, 21.507813, 485, 2647.1172, 485)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(11, 475, 19, 635, 2659, 640, 2657, 475)])
-
 [node name="callejon" type="Node2D"]
 
 [node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
-position = Vector2(1337, 326)
-scale = Vector2(4.175, 2.6833334)
+position = Vector2(1337, 358)
+scale = Vector2(4.175, 3.025)
 texture = ExtResource("1_0iobx")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-4, 56)
+navigation_polygon = SubResource("NavigationPolygon_wtw07")
 
 [node name="NpcLaucha" type="StaticBody2D" parent="."]
 position = Vector2(2319, 401)
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLaucha"]
-position = Vector2(-0.75, -2.5)
+position = Vector2(-2, 39.5)
 shape = SubResource("RectangleShape2D_x4gqp")
 
 [node name="Sprite2D" type="Sprite2D" parent="NpcLaucha"]
+position = Vector2(2, 43)
 texture = ExtResource("2_0f57m")
 
 [node name="NpcMapache" type="StaticBody2D" parent="."]
@@ -59,10 +64,11 @@ position = Vector2(2516, 382.00003)
 scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcMapache"]
-position = Vector2(2.666687, 0.83332825)
+position = Vector2(2.0000203, 19.333328)
 shape = SubResource("RectangleShape2D_8uqef")
 
 [node name="Sprite2D" type="Sprite2D" parent="NpcMapache"]
+position = Vector2(6.3333335, 24.333324)
 texture = ExtResource("3_aufdi")
 
 [node name="BolsasDBasura" type="StaticBody2D" parent="."]
@@ -70,10 +76,11 @@ position = Vector2(1895, 424)
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BolsasDBasura"]
-position = Vector2(9.75, 10.5)
+position = Vector2(14, 36)
 shape = SubResource("RectangleShape2D_t57pb")
 
 [node name="Sprite2D" type="Sprite2D" parent="BolsasDBasura"]
+position = Vector2(8.5, 21.5)
 texture = ExtResource("4_0jrpg")
 
 [node name="Basuratirada" type="StaticBody2D" parent="."]
@@ -81,10 +88,11 @@ position = Vector2(1127, 587)
 scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
-position = Vector2(0, 1.3333282)
+position = Vector2(8, 23.333328)
 shape = SubResource("RectangleShape2D_j54c3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Basuratirada"]
+position = Vector2(8.666667, 23)
 texture = ExtResource("5_rm82d")
 
 [node name="BoteDeBasura" type="StaticBody2D" parent="."]
@@ -92,10 +100,11 @@ position = Vector2(118, 394)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura"]
-position = Vector2(-9.3333435, 22.666656)
+position = Vector2(-8, 51.333324)
 shape = SubResource("RectangleShape2D_f4awm")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura"]
+position = Vector2(0, 57.333336)
 texture = ExtResource("6_h7pse")
 
 [node name="BoteDeBasura2" type="StaticBody2D" parent="."]
@@ -103,10 +112,11 @@ position = Vector2(291, 398)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura2"]
-position = Vector2(6.5, 19.333344)
+position = Vector2(6.6666665, 56.66668)
 shape = SubResource("RectangleShape2D_dppi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura2"]
+position = Vector2(0, 58.666668)
 texture = ExtResource("6_h7pse")
 
 [node name="BoteDeBasura3" type="StaticBody2D" parent="."]
@@ -114,23 +124,22 @@ position = Vector2(193, 439)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura3"]
-position = Vector2(3.75, 15.75)
+position = Vector2(4, 56)
 shape = SubResource("RectangleShape2D_hpm0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura3"]
+position = Vector2(2.6666667, 56)
 texture = ExtResource("6_h7pse")
 
 [node name="Luther" parent="." instance=ExtResource("7_4o0vk")]
-position = Vector2(84, 640)
+position = Vector2(101, 672)
+scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 2667
-limit_bottom = 647
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_wtw07")
+limit_bottom = 720
 
 [node name="boton_escenarios" parent="." instance=ExtResource("8_aufdi")]
 
