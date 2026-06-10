@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const COLLAR = preload("uid://dpc3peuxr3mj")
+const COLLAR = preload("res://scenas/recursos/collar.tres")
 
 
 @export var item_data: ItemData = COLLAR

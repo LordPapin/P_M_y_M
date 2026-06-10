@@ -2,7 +2,7 @@ extends Area2D
 
 
 
-const PIEDRA = preload("uid://nv3a37larhqv")
+const PIEDRA = preload("res://scenas/recursos/piedra.tres")
 
 @export var item_data: ItemData = PIEDRA
 

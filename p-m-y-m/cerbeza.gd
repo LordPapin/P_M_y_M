@@ -2,7 +2,7 @@ extends Area2D
 
 
 
-const CERBEZA = preload("uid://b160c5abeikot")
+const CERBEZA = preload("res://scenas/recursos/cerbeza.tres")
 
 @export var item_data: ItemData =CERBEZA
 

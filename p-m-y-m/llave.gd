@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const LLAVE = preload("uid://bjwkdgx8cwf6p")
+const LLAVE = preload("res://scenas/recursos/llave.tres")
 
 
 @export var item_data: ItemData = LLAVE
