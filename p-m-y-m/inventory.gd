@@ -2,7 +2,7 @@ extends Node
 
 signal inventory_updated
 
-const MAX_SLOTS = 4
+const MAX_SLOTS = 5
 # Creamos un arreglo que solo acepta ItemData
 var items: Array[ItemData] = []
 
@@ -18,5 +18,5 @@ func add_item(item: ItemData) -> bool:
 			inventory_updated.emit()
 			return true # Se guardó con éxito
 			
-	print("El inventario está lleno (4/4)")
+	print("El inventario está lleno (5/5)")
 	return false # No había espacio

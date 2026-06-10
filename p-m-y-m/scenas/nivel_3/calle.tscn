@@ -24,7 +24,7 @@ position = Vector2(96, 407)
 limit_left = 0
 limit_top = 0
 limit_right = 3294
-limit_bottom = 717
+limit_bottom = 720
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_47044")

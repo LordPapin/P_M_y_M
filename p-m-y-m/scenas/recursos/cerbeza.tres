@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b160c5abeikot"]
+
+[ext_resource type="Texture2D" uid="uid://doebx0qwev4qp" path="res://scenas/recursos/cerbeza.png" id="1_rsfb0"]
+[ext_resource type="Script" uid="uid://c8q0hsc6hoo4d" path="res://ItemData.gd" id="2_lpl5t"]
+
+[resource]
+script = ExtResource("2_lpl5t")
+id = "Jarron"
+icon = ExtResource("1_rsfb0")
+metadata/_custom_type_script = "uid://c8q0hsc6hoo4d"

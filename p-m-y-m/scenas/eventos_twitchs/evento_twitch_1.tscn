@@ -92,11 +92,12 @@ process_mode = 3
 script = ExtResource("1_tn4ag")
 
 [node name="BocetoBar" type="Sprite2D" parent="."]
-position = Vector2(402, 350)
+position = Vector2(656, 363)
 texture = ExtResource("2_x6e1x")
 
 [node name="NPC" type="CharacterBody2D" parent="."]
-position = Vector2(463, 281)
+position = Vector2(445, 517)
+scale = Vector2(2, 2)
 script = ExtResource("1_nunfk")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC"]
@@ -143,7 +144,7 @@ shape = SubResource("RectangleShape2D_0oqla")
 [node name="plataforma_invisible" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_invisible"]
-position = Vector2(581, 422)
+position = Vector2(-770, 357)
 shape = SubResource("RectangleShape2D_lpgxo")
 
 [node name="Sprite2D" type="Sprite2D" parent="plataforma_invisible"]
@@ -153,7 +154,7 @@ scale = Vector2(9.234375, 0.140625)
 texture = ExtResource("1_qvj33")
 
 [node name="jump_points" type="Node2D" parent="."]
-position = Vector2(463, 281)
+position = Vector2(445, 517)
 
 [node name="pos1" type="Marker2D" parent="jump_points"]
 position = Vector2(-336, 36)
@@ -168,15 +169,15 @@ position = Vector2(68, 30)
 position = Vector2(284, 28)
 
 [node name="Luther" type="Node2D" parent="."]
-position = Vector2(933, 427)
+position = Vector2(1055, 493)
 script = ExtResource("3_r6r7q")
 metadata/_edit_group_ = true
 
 [node name="boca" type="Marker2D" parent="Luther"]
-position = Vector2(-65, -148)
+position = Vector2(-19, -76)
 
 [node name="lutherSprite" type="AnimatedSprite2D" parent="Luther"]
-scale = Vector2(10, 9.24)
+scale = Vector2(5, 4.62)
 sprite_frames = SubResource("SpriteFrames_a17yt")
 animation = &"idle"
 frame = 4

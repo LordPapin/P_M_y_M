@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cohlqnfygq3t8"]
+
+[ext_resource type="Script" uid="uid://dmbhedgxwik6g" path="res://cerbeza.gd" id="1_kba3h"]
+[ext_resource type="Texture2D" uid="uid://doebx0qwev4qp" path="res://scenas/recursos/cerbeza.png" id="2_vmjxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skr57"]
+
+[node name="cerbeza" type="Area2D"]
+script = ExtResource("1_kba3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(74, 34)
+texture = ExtResource("2_vmjxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73, 34)
+shape = SubResource("RectangleShape2D_skr57")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

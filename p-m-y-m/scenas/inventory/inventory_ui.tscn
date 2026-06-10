@@ -1,37 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq6xijo36cclu"]
+[gd_scene load_steps=4 format=3 uid="uid://cq6xijo36cclu"]
 
 [ext_resource type="Script" uid="uid://x45wsc10dc2l" path="res://inventory_ui.gd" id="1_eodt1"]
 [ext_resource type="Texture2D" uid="uid://dp4e3eqo6du5p" path="res://scenas/recursos/Maletin (1).png" id="2_eodt1"]
+[ext_resource type="Texture2D" uid="uid://doka3y3h0gila" path="res://assets/maletin_2.png" id="2_suxtb"]
 
 [node name="InventoryUI" type="CanvasLayer"]
 script = ExtResource("1_eodt1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 17.0
-offset_top = 27.0
-offset_right = 227.0
-offset_bottom = 73.0
+offset_left = 30.0
+offset_top = 435.0
+offset_right = 243.0
+offset_bottom = 483.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(107.99999, 25.999996)
+scale = Vector2(2.91, 1.6575)
+texture = ExtResource("2_suxtb")
 
 [node name="TextureRect1" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 6
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 6
 
 [node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 6
 
 [node name="MaletinButton" type="TextureButton" parent="."]
 offset_left = 29.0
-offset_top = 587.0
-offset_right = 65.0
-offset_bottom = 619.0
+offset_top = 598.0
+offset_right = 105.0
+offset_bottom = 642.0
 texture_normal = ExtResource("2_eodt1")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="MaletinButton" to="." method="_on_maletin_button_pressed"]
