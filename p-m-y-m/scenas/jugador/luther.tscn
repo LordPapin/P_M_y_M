@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://duw8s1jsg4i1c"]
+[gd_scene load_steps=29 format=3 uid="uid://duw8s1jsg4i1c"]
 
 [ext_resource type="Script" uid="uid://bdf4fkva7foyd" path="res://luther.gd" id="1_p2y8e"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="2_p2y8e"]
@@ -161,6 +161,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3t8w"]
 size = Vector2(21, 16.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0yjg"]
+size = Vector2(12.235293, 14.000008)
+
 [node name="Luther" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_p2y8e")
@@ -178,7 +181,7 @@ shape = SubResource("RectangleShape2D_d3t8w")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Lengua" type="Node2D" parent="."]
-position = Vector2(0, -33.25)
+position = Vector2(0, -34)
 
 [node name="CuerpoLengua" type="Sprite2D" parent="Lengua"]
 scale = Vector2(0.375, 0.171875)
@@ -186,6 +189,13 @@ texture = ExtResource("5_t0yjg")
 centered = false
 
 [node name="PuntaLengua" type="Sprite2D" parent="Lengua"]
-position = Vector2(6.625, 1.249999)
+position = Vector2(0, -9.536743e-07)
 scale = Vector2(0.265625, 0.2499999)
 texture = ExtResource("6_hg65m")
+
+[node name="Area2D" type="Area2D" parent="Lengua/PuntaLengua"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lengua/PuntaLengua/Area2D"]
+shape = SubResource("RectangleShape2D_t0yjg")
+
+[connection signal="area_entered" from="Lengua/PuntaLengua/Area2D" to="." method="_on_area_2d_area_entered"]

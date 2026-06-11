@@ -63,10 +63,10 @@ theme_override_font_sizes/font_size = 54
 text = "debo ir al bar"
 
 [node name="Jarron" parent="." instance=ExtResource("8_867q3")]
-position = Vector2(1549, 417)
+position = Vector2(1085, 476)
 
 [node name="cerbeza" parent="." instance=ExtResource("9_oeh3s")]
-position = Vector2(1588, 431)
+position = Vector2(1055, 337)
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
 position = Vector2(610, 697)
@@ -81,10 +81,10 @@ limit_bottom = 717
 [node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
 
 [node name="collar" parent="." instance=ExtResource("10_tq52u")]
-position = Vector2(1709, 456)
+position = Vector2(1128, 238)
 
 [node name="piedra" parent="." instance=ExtResource("11_s7pnb")]
-position = Vector2(1539, 440)
+position = Vector2(1129, 447)
 
 [node name="llave" parent="." instance=ExtResource("12_4yct3")]
-position = Vector2(1627, 450)
+position = Vector2(1128, 411)

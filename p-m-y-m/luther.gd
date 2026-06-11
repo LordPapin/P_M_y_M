@@ -2,21 +2,24 @@ extends CharacterBody2D
 class_name personaje
 
 @export var speed: float = 300.0
+@export var distancia_recoleccion := 500.0
+@export var longitud_maxima := 12.0
+@export var velocidad_lengua := 10.0
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimatedSprite2D = $animacion
-
 @onready var lengua = $Lengua
 @onready var cuerpo_lengua = $Lengua/CuerpoLengua
 @onready var punta_lengua = $Lengua/PuntaLengua
 
+
 var longitud_lengua := 1.0
 var recurso_objetivo = null
-var lengua_activa := false
-var lengua_extendiendo := false
+var objeto_atrapado = null
 
-@export var distancia_recoleccion := 150.0
-
+enum EstadoLengua { INACTIVA, EXTENDIENDO, RETRAYENDO }
+var estado_lengua := EstadoLengua.INACTIVA
+var recolectando := false
 
 func _ready() -> void:
 	lengua.visible = false
@@ -24,97 +27,119 @@ func _ready() -> void:
 	for recurso in get_tree().get_nodes_in_group("recursos"):
 		recurso.clicked.connect(seleccionar_recurso)
 
-
 func _unhandled_input(event: InputEvent) -> void:
+	if recolectando:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			set_movement_target(get_global_mouse_position())
 
-
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
 
-
 func _physics_process(_delta: float) -> void:
-	if recurso_objetivo != null:
-		print("DISTANCIA:",global_position.distance_to(recurso_objetivo.global_position))
+	if recolectando:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		actualizar_animacion()
+		return
+
+	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
+		var distancia = global_position.distance_to(recurso_objetivo.global_position)
+		if distancia <= distancia_recoleccion:
+			velocity = Vector2.ZERO
+			iniciar_lengua()
+			move_and_slide()
+			actualizar_animacion()
+			return
+
 	if nav_agent.is_navigation_finished():
 		velocity = Vector2.ZERO
 	else:
-		var current_agent_position = global_position
-		var next_path_position = nav_agent.get_next_path_position()
-		velocity = (
-			next_path_position - current_agent_position
-		).normalized() * speed
+		var next = nav_agent.get_next_path_position()
+		velocity = (next - global_position).normalized() * speed
+
 	move_and_slide()
 	actualizar_animacion()
-	if recurso_objetivo != null:
-		if is_instance_valid(recurso_objetivo):
-			var distancia = global_position.distance_to(recurso_objetivo.global_position)
-			if distancia <= distancia_recoleccion:
-				print("ESTOY CERCA: ", distancia)
-				velocity = Vector2.ZERO
-				iniciar_lengua()
-				return
 
-func _process(delta):
-
+func _process(delta: float) -> void:
+	# orientar la lengua
 	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
-		lengua.look_at(recurso_objetivo.global_position)
+		var dir = recurso_objetivo.global_position - lengua.global_position
+		lengua.rotation = dir.angle()
+		print("dir: ", dir, " | angle: ", rad_to_deg(dir.angle()), " | lengua.rotation: ", rad_to_deg(lengua.rotation))
 	else:
-		lengua.look_at(get_global_mouse_position())
+		var dir = get_global_mouse_position() - lengua.global_position
+		lengua.rotation = dir.angle()
 
-	if lengua_extendiendo:
-		longitud_lengua += 25.0 * delta
-		cuerpo_lengua.scale.x = longitud_lengua
-		punta_lengua.position.x = 16 * longitud_lengua
+	match estado_lengua:
+		EstadoLengua.EXTENDIENDO:
+			longitud_lengua = min(longitud_lengua + velocidad_lengua * delta, longitud_maxima)
+			_aplicar_longitud()
 
-	else:
+			# hit por distancia: comparamos la punta con el recurso
+			if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
+				var dist_punta = punta_lengua.global_position.distance_to(recurso_objetivo.global_position)
+				if dist_punta < 40.0:
+					objeto_atrapado = recurso_objetivo
+					estado_lengua = EstadoLengua.RETRAYENDO
 
-		longitud_lengua = 1.0
+			# llegó al máximo sin golpear nada → retraer igual
+			if longitud_lengua >= longitud_maxima and estado_lengua == EstadoLengua.EXTENDIENDO:
+				estado_lengua = EstadoLengua.RETRAYENDO
 
-		cuerpo_lengua.scale.x = 1.0
+		EstadoLengua.RETRAYENDO:
+			longitud_lengua = max(longitud_lengua - velocidad_lengua * delta, 1.0)
+			_aplicar_longitud()
 
-		punta_lengua.position.x = 16
+			# arrastrar objeto si hay uno atrapado
+			if objeto_atrapado != null:
+				objeto_atrapado.global_position = punta_lengua.global_position
 
-		lengua.visible = false
+			if longitud_lengua <= 1.0:
+				_finalizar_recoleccion()
+	if estado_lengua == EstadoLengua.EXTENDIENDO:
+		print("punta: ", punta_lengua.global_position, " | objetivo: ", recurso_objetivo.global_position, " | distancia: ", punta_lengua.global_position.distance_to(recurso_objetivo.global_position))
 
+func _aplicar_longitud() -> void:
+	cuerpo_lengua.scale.x = longitud_lengua
+	punta_lengua.position.x = 16.0 * longitud_lengua
 
-func actualizar_animacion():
+func iniciar_lengua() -> void:
+	if estado_lengua != EstadoLengua.INACTIVA:
+		return
+	recolectando = true
+	longitud_lengua = 0.0
+	estado_lengua = EstadoLengua.EXTENDIENDO
+	lengua.visible = true
 
+func _finalizar_recoleccion() -> void:
+	estado_lengua = EstadoLengua.INACTIVA
+	recolectando = false
+	lengua.visible = false
+
+	if objeto_atrapado != null and is_instance_valid(objeto_atrapado):
+		if Inventory.add_item(objeto_atrapado.item_data):
+			objeto_atrapado.queue_free()
+
+	objeto_atrapado = null
+	recurso_objetivo = null
+
+func actualizar_animacion() -> void:
 	if velocity.length() > 0:
-
 		if abs(velocity.y) > abs(velocity.x):
-
-			if velocity.y < 0:
-				animation_player.play("walk_up")
-			else:
-				animation_player.play("walk")
-
+			animation_player.play("walk_up" if velocity.y < 0 else "walk")
 		else:
-
 			animation_player.play("walk")
-
-			if velocity.x < 0:
-				animation_player.flip_h = true
-
-			elif velocity.x > 0:
-				animation_player.flip_h = false
-
+			animation_player.flip_h = velocity.x < 0
 	else:
-
 		animation_player.play("idle")
 
-func seleccionar_recurso(recurso):
-	print("CLICK EN: ", recurso.name)
-	recurso_objetivo = recurso
-	print("OBJETIVO:", recurso.global_position)
-	nav_agent.target_position = recurso.global_position
-	
-func iniciar_lengua():
-	if lengua_activa:
+func seleccionar_recurso(recurso) -> void:
+	if recolectando:
 		return
-	lengua_activa = true
-	lengua_extendiendo = true
-	longitud_lengua = 1.0
-	lengua.visible = true
+	recurso_objetivo = recurso
+	nav_agent.target_position = recurso.global_position
+
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	pass
