@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name personaje
 
 @export var speed: float = 300.0
-@export var distancia_recoleccion := 500.0
+@export var distancia_recoleccion := 400.0
 @export var longitud_maxima := 12.0
 @export var velocidad_lengua := 10.0
 
@@ -117,13 +117,12 @@ func _finalizar_recoleccion() -> void:
 	estado_lengua = EstadoLengua.INACTIVA
 	recolectando = false
 	lengua.visible = false
-
 	if objeto_atrapado != null and is_instance_valid(objeto_atrapado):
 		if Inventory.add_item(objeto_atrapado.item_data):
 			objeto_atrapado.queue_free()
-
 	objeto_atrapado = null
 	recurso_objetivo = null
+	nav_agent.target_position = global_position
 
 func actualizar_animacion() -> void:
 	if velocity.length() > 0:
@@ -140,6 +139,3 @@ func seleccionar_recurso(recurso) -> void:
 		return
 	recurso_objetivo = recurso
 	nav_agent.target_position = recurso.global_position
-
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	pass
