@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=8 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_wjdaa"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_wjdaa"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_47044"]
+[ext_resource type="PackedScene" uid="uid://3fne2invt1ep" path="res://scenas/objetos/piedra.tscn" id="5_gf5te"]
+[ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="6_vtwhg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
 vertices = PackedVector2Array(27, 687.03125, 27, 334.10156, 427.1797, 375.96875, 3262.1328, 696.96094, 1096.3828, 416.03906, 1169.4219, 406.03125, 2038.3828, 502, 2124.2578, 502, 2128.2188, 450.4375, 3264.8594, 503.53125, 2036.3594, 450.52344)
@@ -17,7 +19,7 @@ position = Vector2(1650, 364)
 scale = Vector2(1.8333334, 1)
 texture = ExtResource("1_8rw0t")
 
-[node name="Luther" parent="." instance=ExtResource("2_wjdaa")]
+[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_wjdaa")]
 position = Vector2(96, 407)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
@@ -32,3 +34,19 @@ navigation_polygon = SubResource("NavigationPolygon_47044")
 [node name="boton_escenarios" parent="." instance=ExtResource("3_wjdaa")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
+
+[node name="piedra" parent="." instance=ExtResource("5_gf5te")]
+position = Vector2(633, 607)
+scale = Vector2(2, 2)
+
+[node name="banana" parent="." instance=ExtResource("6_vtwhg")]
+position = Vector2(1338, 508)
+scale = Vector2(2, 2)
+
+[node name="banana2" parent="." instance=ExtResource("6_vtwhg")]
+position = Vector2(1875, 534)
+scale = Vector2(2, 2)
+
+[node name="banana3" parent="." instance=ExtResource("6_vtwhg")]
+position = Vector2(2425, 599)
+scale = Vector2(2, 2)

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b8woicaohyf4h"
+path="res://.godot/imported/npc_barman.dialogue-40d6185db9340b883197a85429d61d2e.tres"
+
+[deps]
+
+source_file="res://dialogos/npc_barman.dialogue"
+dest_files=["res://.godot/imported/npc_barman.dialogue-40d6185db9340b883197a85429d61d2e.tres"]
+
+[params]
+
+defaults=true

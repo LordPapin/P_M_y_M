@@ -1,11 +1,41 @@
-[gd_scene load_steps=29 format=3 uid="uid://duw8s1jsg4i1c"]
+[gd_scene load_steps=38 format=3 uid="uid://duw8s1jsg4i1c"]
 
 [ext_resource type="Script" uid="uid://bdf4fkva7foyd" path="res://luther.gd" id="1_p2y8e"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="2_p2y8e"]
+[ext_resource type="Texture2D" uid="uid://ubo45u5b5m8u" path="res://assets/luther/caida_anim.png" id="2_rwq8c"]
+[ext_resource type="Texture2D" uid="uid://dsl7j67kg3kou" path="res://assets/luther/Luther_golpeado.png" id="3_dsp73"]
 [ext_resource type="Texture2D" uid="uid://dhmjj2q0y2cd1" path="res://assets/luther/Luther_walk_1.png" id="3_o4ps3"]
 [ext_resource type="Texture2D" uid="uid://bh2f4w3wsn7e4" path="res://assets/luther/Luther_walk_3.png" id="4_d3t8w"]
 [ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="5_t0yjg"]
 [ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="6_hg65m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuavq"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgm3x"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgh23"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiky5"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aml3"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w73rc"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8mlb"]
+atlas = ExtResource("2_rwq8c")
+region = Rect2(600, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3t8w"]
 atlas = ExtResource("2_p2y8e")
@@ -87,6 +117,40 @@ region = Rect2(600, 0, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kuavq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgm3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgh23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiky5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aml3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w73rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8mlb")
+}],
+"loop": false,
+"name": &"caida",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dsp73")
+}],
+"loop": true,
+"name": &"golpeado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d3t8w")
 }, {
 "duration": 1.0,
@@ -127,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lmwnd")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }, {
@@ -153,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sv6xl")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_up",
 "speed": 5.0
 }]
@@ -172,7 +236,7 @@ script = ExtResource("1_p2y8e")
 position = Vector2(1, -24)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_tbgj0")
-animation = &"walk_up"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -8.75)
