@@ -1,20 +1,92 @@
-[gd_scene load_steps=6 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=19 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 [ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
 [ext_resource type="Script" uid="uid://d2k0gmbruxcn2" path="res://scenas/eventos_twitchs/laucha_mapache.gd" id="2_al2cu"]
 [ext_resource type="Script" uid="uid://71olh57g0thw" path="res://scenas/eventos_twitchs/boton.gd" id="2_piq6c"]
+[ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="2_se7m7"]
+[ext_resource type="Texture2D" uid="uid://bfr1a8aulqfcd" path="res://assets/luther/sigiloso.png" id="3_nm4vf"]
+[ext_resource type="Texture2D" uid="uid://dsl7j67kg3kou" path="res://assets/luther/Luther_golpeado.png" id="4_se7m7"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="5_x4d7s"]
+[ext_resource type="Texture2D" uid="uid://c7bcc1xyoetrl" path="res://assets/nivel_4/bote_de_basura.png" id="6_nd8ra"]
+[ext_resource type="Texture2D" uid="uid://biujodytic2ed" path="res://assets/nivel_4/npc_mapache.png" id="8_d655e"]
+[ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="9_svngd"]
 
-[node name="evento_twitch_2" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqoae"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spm7b"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd8ra"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d655e"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svngd"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nost8"]
+atlas = ExtResource("3_nm4vf")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8v3t1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqoae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spm7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd8ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d655e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svngd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nost8")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_se7m7")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="evento_twitch_2" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_7rgwk")
+
+[node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
+position = Vector2(791.00006, 364.00003)
+scale = Vector2(2.4859376, 3.0208333)
+texture = ExtResource("2_se7m7")
 
 [node name="Luther" type="CharacterBody2D" parent="."]
 position = Vector2(70, 400)
 script = ExtResource("1_7dgbb")
 
-[node name="Sprite2D" type="Sprite2D" parent="Luther"]
-texture = ExtResource("5_x4d7s")
+[node name="animacion" type="AnimatedSprite2D" parent="Luther"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8v3t1")
+animation = &"caminar"
 
 [node name="Grafitis" type="Node2D" parent="."]
 
@@ -27,12 +99,24 @@ position = Vector2(600, 400)
 [node name="grafiti3" type="Marker2D" parent="Grafitis"]
 position = Vector2(900, 400)
 
+[node name="BoteDeBasura" type="Sprite2D" parent="."]
+position = Vector2(907, 452)
+scale = Vector2(2, 2)
+texture = ExtResource("6_nd8ra")
+
 [node name="LauchaMapache" type="Node2D" parent="."]
-position = Vector2(900, 522)
+position = Vector2(1015, 643)
 script = ExtResource("2_al2cu")
 
 [node name="Sprite2D" type="Sprite2D" parent="LauchaMapache"]
-texture = ExtResource("5_x4d7s")
+position = Vector2(112, -80)
+scale = Vector2(3, 3)
+texture = ExtResource("8_d655e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LauchaMapache"]
+position = Vector2(-61, -43)
+scale = Vector2(2, 2)
+texture = ExtResource("9_svngd")
 
 [node name="Boton" type="Node2D" parent="."]
 position = Vector2(615, 242)
@@ -41,3 +125,5 @@ script = ExtResource("2_piq6c")
 [node name="Sprite2D" type="Sprite2D" parent="Boton"]
 position = Vector2(-23, -31)
 texture = ExtResource("5_x4d7s")
+
+[connection signal="finalizar" from="." to="." method="_on_finalizar"]

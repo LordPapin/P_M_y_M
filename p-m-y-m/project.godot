@@ -29,7 +29,7 @@ runtime/balloon_path="res://dialogos/balloon.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
@@ -38,6 +38,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 recursos=""
+jugador=""
 
 [input]
 
@@ -59,7 +60,7 @@ dispararLengua={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogos/diálogo npc1.dialogue", "res://dialogos/escucha_laucha_mapache.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogos/diálogo npc1.dialogue", "res://dialogos/escucha_laucha_mapache.dialogue", "res://dialogos/npc_barman.dialogue")
 
 [rendering]
 

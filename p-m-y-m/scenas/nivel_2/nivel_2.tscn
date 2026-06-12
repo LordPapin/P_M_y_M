@@ -1,55 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://28551t5u55wj"]
+[gd_scene load_steps=11 format=3 uid="uid://28551t5u55wj"]
 
 [ext_resource type="Script" uid="uid://btyqjhwmwv4p" path="res://scenas/nivel_2/nivel_2.gd" id="1_uik70"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_e64c6"]
 [ext_resource type="Texture2D" uid="uid://by8l71wyi7wjr" path="res://assets/nivel_2/bar_escene2.png" id="2_uik70"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_0ls8r"]
+[ext_resource type="PackedScene" uid="uid://3y6wtihriuw4" path="res://scenas/personajes/npc_barman.tscn" id="3_sbju3"]
 [ext_resource type="PackedScene" uid="uid://dpjyj6b00reey" path="res://scenas/personajes/npc_1.tscn" id="4_mg47c"]
-[ext_resource type="Texture2D" uid="uid://bqc7ga7csrret" path="res://assets/nivel_2/npc_barman-Sheet.png" id="6_48d3o"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_48d3o"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ret4i"]
-atlas = ExtResource("6_48d3o")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sy16t"]
-atlas = ExtResource("6_48d3o")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7l6y"]
-atlas = ExtResource("6_48d3o")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7l5u"]
-atlas = ExtResource("6_48d3o")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkk12"]
-atlas = ExtResource("6_48d3o")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1dr2i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ret4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sy16t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w7l6y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e7l5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkk12")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="8_sbju3"]
+[ext_resource type="PackedScene" uid="uid://be3jshksqnkxs" path="res://scenas/objetos/cerbeza.tscn" id="9_ret4i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
 vertices = PackedVector2Array(2865, 562.9297, 2865, 637.96875, 25.28125, 632.02344, 35.851563, 545.0469)
@@ -64,18 +23,19 @@ position = Vector2(1441.68, 361.49997)
 scale = Vector2(1.4982501, 0.99583334)
 texture = ExtResource("2_uik70")
 
-[node name="Barista" type="AnimatedSprite2D" parent="."]
-position = Vector2(1383, 239)
+[node name="NPC2" parent="." instance=ExtResource("3_sbju3")]
+position = Vector2(1540, 256)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_1dr2i")
-animation = &"idle"
-frame_progress = 0.10260697
 
 [node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
 position = Vector2(2702, 498)
 scale = Vector2(2, 2)
 
-[node name="Luther" parent="." instance=ExtResource("2_e64c6")]
+[node name="banana" parent="." instance=ExtResource("8_sbju3")]
+position = Vector2(1196, 652)
+scale = Vector2(2, 2)
+
+[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_e64c6")]
 position = Vector2(384, 675)
 scale = Vector2(7, 7)
 
@@ -92,3 +52,7 @@ navigation_polygon = SubResource("NavigationPolygon_e64c6")
 [node name="boton_escenarios" parent="." instance=ExtResource("3_0ls8r")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_48d3o")]
+
+[node name="cerbeza" parent="." instance=ExtResource("9_ret4i")]
+position = Vector2(1818, 289)
+scale = Vector2(2, 2)

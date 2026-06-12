@@ -1,30 +1,26 @@
 extends CharacterBody2D
 var miniJuego = "res://scenas/eventos_twitchs/evento_twitch_1.tscn"
 var conversable = false
+@onready var MiSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
-@onready var MiDialogo = preload ("res://dialogos/diálogo npc1.dialogue")
+@onready var MiDialogo = preload ("res://dialogos/npc_barman.dialogue")
 func _ready() -> void:
-	
+	MiSprite.play("idle")
 	conversable = false
 	pass
 
 
 func _handle_interaction():
-	var state = NPCstates.npcs ["npc1"]["current_state"]
+	var state = NPCstates.npcs ["npc_barman"]["current_state"]
 	match state:
-		"no_interactuado":
+		"no_interactuado_sin_billetes":
 			print("diálogo inicial")
-			get_tree().call_group("evento_1","minijuego")
-			#get_tree().change_scene_to_file("res://scenas/eventos_twitchs/evento_twitch_1.tscn")
-
-			NPCstates.npcs["npc1"]["current_state"] = "no_sobornado"
-		"no_sobornado":
-			print("pide el soborno")
-		"robado":
-			print("es robado")
-		"sobornado":
-			print("información muy importante")
+			NPCstates.npcs["npc_barman"]["current_state"] = "interactuado_sin_billetes"
+		"interactuado_sin_billetes":
+			print("dialogo de boludeo")
+		"con_billetes":
+			print("nos dice pobres")
 
 		
 
@@ -47,10 +43,10 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		_handle_interaction()
 
 
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group("jugador"):
-		DialogueManager.show_dialogue_balloon(MiDialogo, "start")
-		await DialogueManager.dialogue_ended
-		_handle_interaction()
+#func _on_area_2d_2_body_entered(body: Node2D) -> void:
+#	if body.is_in_group("jugador"):
+#		DialogueManager.show_dialogue_balloon(MiDialogo, "start")
+#		await DialogueManager.dialogue_ended
+#		_handle_interaction()
 		
-	pass # Replace with function body.
+#	pass # Replace with function body.

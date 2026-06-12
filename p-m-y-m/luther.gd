@@ -16,6 +16,7 @@ class_name personaje
 var longitud_lengua := 1.0
 var recurso_objetivo = null
 var objeto_atrapado = null
+var cayendo := false
 
 enum EstadoLengua { INACTIVA, EXTENDIENDO, RETRAYENDO }
 var estado_lengua := EstadoLengua.INACTIVA
@@ -36,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
+	prints(velocity.x,velocity.y)
 
 func _physics_process(_delta: float) -> void:
 	if recolectando:
@@ -125,12 +127,21 @@ func _finalizar_recoleccion() -> void:
 	nav_agent.target_position = global_position
 
 func actualizar_animacion() -> void:
-	if velocity.length() > 0:
-		if abs(velocity.y) > abs(velocity.x):
-			animation_player.play("walk_up" if velocity.y < 0 else "walk")
+	# Si el personaje está cayendo, abortamos esta función para no pisar la animación
+	if cayendo:
+		return
+
+	# Obtenemos la velocidad real a la que se desplazó el cuerpo tras chocar
+	var velocidad_real = get_real_velocity()
+
+	# Usamos un pequeño margen de tolerancia (ej: 10.0) en vez de 0 
+	# para ignorar la micro-fricción contra las paredes
+	if velocidad_real.length() > 10.0:
+		if abs(velocidad_real.y) > abs(velocidad_real.x):
+			animation_player.play("walk_up" if velocidad_real.y < 0 else "walk")
 		else:
 			animation_player.play("walk")
-			animation_player.flip_h = velocity.x < 0
+			animation_player.flip_h = velocidad_real.x < 0
 	else:
 		animation_player.play("idle")
 
@@ -139,3 +150,20 @@ func seleccionar_recurso(recurso) -> void:
 		return
 	recurso_objetivo = recurso
 	nav_agent.target_position = recurso.global_position
+	
+func recibir_aviso_del_area() -> void:
+	# Bloqueamos las otras animaciones
+	cayendo = true 
+	
+	# Opcional: frenar al personaje para que no patine mientras cae
+	velocity = Vector2.ZERO 
+	
+	# 1. Reproducimos la animación
+	animation_player.play("caida")
+	
+	# 2. Esperamos a que termine
+	await animation_player.animation_finished
+	
+	# 3. Liberamos el bloqueo y volvemos a idle
+	cayendo = false
+	animation_player.play("idle")

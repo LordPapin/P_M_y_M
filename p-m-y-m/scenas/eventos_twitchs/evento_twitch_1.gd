@@ -41,5 +41,6 @@ func ganar_juego():
 	emit_signal("minijuego_ganado")
 	#get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
 	NPCstates.npcs["npc1"]["current_state"] = "robado"
+	NPCstates.npcs["npc_barman"]["current_state"] = "_billetes"
 	get_tree().call_group("evento_1","JuegoTerminado")
 	queue_free()

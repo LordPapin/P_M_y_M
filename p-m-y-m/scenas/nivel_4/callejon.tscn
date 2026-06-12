@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjpyjw3ifvkqo"]
+[gd_scene load_steps=22 format=3 uid="uid://bjpyjw3ifvkqo"]
 
 [ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="1_0iobx"]
+[ext_resource type="Script" uid="uid://4jyj2sa3cdl7" path="res://scenas/nivel_4/callejon.gd" id="1_rm82d"]
 [ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="2_0f57m"]
 [ext_resource type="Texture2D" uid="uid://biujodytic2ed" path="res://assets/nivel_4/npc_mapache.png" id="3_aufdi"]
 [ext_resource type="Texture2D" uid="uid://c5cibh4ntkj3t" path="res://assets/nivel_4/Bolsas_d_basura.png" id="4_0jrpg"]
@@ -9,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="7_4o0vk"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="8_aufdi"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="9_0jrpg"]
+[ext_resource type="Script" uid="uid://bki2fgxwyl1v4" path="res://scenas/nivel_4/area_2d.gd" id="10_0jrpg"]
+[ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="12_h7pse"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
 vertices = PackedVector2Array(2651.1016, 483.97656, 2652.8906, 653, 21.359375, 654.9922, 27.640625, 480.0078)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 11, 665, 2663, 663, 2661, 474)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 11, 665, 2663, 663, 2661, 474, 224, 479)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4gqp"]
 size = Vector2(42.5, 90)
@@ -36,7 +39,11 @@ size = Vector2(61, 58.666656)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpm0r"]
 size = Vector2(70.5, 78.5)
 
-[node name="callejon" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm82d"]
+size = Vector2(122, 54)
+
+[node name="callejon" type="Node2D" groups=["nivel_3"]]
+script = ExtResource("1_rm82d")
 
 [node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
 position = Vector2(1337, 358)
@@ -104,7 +111,7 @@ position = Vector2(-8, 51.333324)
 shape = SubResource("RectangleShape2D_f4awm")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura"]
-position = Vector2(0, 57.333336)
+position = Vector2(0, 41.333336)
 texture = ExtResource("6_h7pse")
 
 [node name="BoteDeBasura2" type="StaticBody2D" parent="."]
@@ -112,11 +119,11 @@ position = Vector2(291, 398)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura2"]
-position = Vector2(6.6666665, 56.66668)
+position = Vector2(19.333334, 24.000011)
 shape = SubResource("RectangleShape2D_dppi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura2"]
-position = Vector2(0, 58.666668)
+position = Vector2(6, 34)
 texture = ExtResource("6_h7pse")
 
 [node name="BoteDeBasura3" type="StaticBody2D" parent="."]
@@ -124,15 +131,15 @@ position = Vector2(193, 439)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura3"]
-position = Vector2(4, 56)
+position = Vector2(14, 26)
 shape = SubResource("RectangleShape2D_hpm0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura3"]
-position = Vector2(2.6666667, 56)
+position = Vector2(11.333333, 17.333328)
 texture = ExtResource("6_h7pse")
 
-[node name="Luther" parent="." instance=ExtResource("7_4o0vk")]
-position = Vector2(101, 672)
+[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("7_4o0vk")]
+position = Vector2(128, 690)
 scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
@@ -144,3 +151,21 @@ limit_bottom = 720
 [node name="boton_escenarios" parent="." instance=ExtResource("8_aufdi")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("9_0jrpg")]
+
+[node name="Area2D" type="Area2D" parent="." groups=["nivel_3"]]
+script = ExtResource("10_0jrpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2070, 649)
+shape = SubResource("RectangleShape2D_rm82d")
+
+[node name="banana" parent="." instance=ExtResource("12_h7pse")]
+position = Vector2(654, 609)
+scale = Vector2(2, 2)
+
+[node name="banana2" parent="." instance=ExtResource("12_h7pse")]
+position = Vector2(1411, 592)
+scale = Vector2(2, 2)
+
+[connection signal="body_entered" from="Area2D" to="Luther" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

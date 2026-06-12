@@ -1,6 +1,8 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var luther = $Luther
+
+signal finalizar
 
 @onready var grafiti1 = $Grafitis/grafiti1
 @onready var grafiti2 = $Grafitis/grafiti2
@@ -73,7 +75,7 @@ func _on_prueba_superada():
 		2:
 			luther.ir_a_grafiti(grafiti3, 2)
 		3:
-			finalizar_minijuego()
+			_on_finalizar()
 
 
 func _on_prueba_fallida():
@@ -88,8 +90,13 @@ func _on_alertados():
 
 	# Aquí pondrás las viñetas
 
+func eliminar():
+	queue_free()
 
-func finalizar_minijuego():
+
+func _on_finalizar() -> void:
 	luther.cambiar_estado("aliviado")
 	print("MINIJUEGO SUPERADO")
 	DialogueManager.show_dialogue_balloon(dialogo)
+	get_tree().call_group("nivel_3","quitar_pausa")
+	eliminar()

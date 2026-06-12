@@ -1,0 +1,7 @@
+~ start
+if NPCstates.npcs["npc_barman"]["current_state"] == "no_interactuado_sin_billetes":
+	Barman: ¿Qué pensas que hago? ¿Atiendo boludos? Si no tenes plata, no tenes por qué hablarme.
+if NPCstates.npcs["npc_barman"]["current_state"] == "interactuado_sin_billetes":
+	Barman: Ya sabes, si no tenes plata, ni me dirijas la palabra.
+if NPCstates.npcs["npc_barman"]["current_state"] == "con_billetes":
+	Barman: ¿En serio tan poca plata? No tengo nada para venderte, una pena.
