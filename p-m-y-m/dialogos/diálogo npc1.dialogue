@@ -13,12 +13,12 @@ if NPCstates.npcs["npc1"]["current_state"] == "robado":
 	Soplón: ¡Que rápido crece la economía!
 	Luther: Sueltalo, vamos.
 	Soplón: Ya te dije, no lo sé.
-	Luther: Me estafaste.
+	Luther: ¿Me estafaste?
 	Soplón: No, te dije que no sabía, pero presta atención. Esto te puede interesar.
 	Luther: Habla.
 	Soplón: He estado viendo a una Laucha y un Mapache.
 	Luther: No me interesa tu salida del viernes.
-	Soplón: Son matones, y de los agresivos. Quizá puedas encontrarlos ahora en el callejón.
+	Soplón: Son matones. Quizá puedas encontrarlos ahora en el callejón.
 	Luther: Bien, entonces debo irme.
 	Soplón: Espera.
 	(El soplón te dio dinero)
