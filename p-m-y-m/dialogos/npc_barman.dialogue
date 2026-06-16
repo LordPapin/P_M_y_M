@@ -4,4 +4,5 @@ if NPCstates.npcs["npc_barman"]["current_state"] == "no_interactuado_sin_billete
 if NPCstates.npcs["npc_barman"]["current_state"] == "interactuado_sin_billetes":
 	Barman: Ya sabes, si no tenes plata, ni me dirijas la palabra.
 if NPCstates.npcs["npc_barman"]["current_state"] == "con_billetes":
-	Barman: ¿En serio tan poca plata? No tengo nada para venderte, una pena.
+	Barman: ¿En serio tan poca plata? No tengo nada para venderte.
+	Barman: Para cosas de pobres, quizá puedas comprar algo en el muelle.
