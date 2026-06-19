@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dg0ajttq5u25d"]
+
+[ext_resource type="Texture2D" uid="uid://4ul06r24glw1" path="res://scenas/recursos/billetes.png" id="1_fwy7h"]
+[ext_resource type="Script" uid="uid://c8q0hsc6hoo4d" path="res://ItemData.gd" id="2_jgne6"]
+
+[resource]
+script = ExtResource("2_jgne6")
+id = "billete"
+icon = ExtResource("1_fwy7h")
+metadata/_custom_type_script = "uid://c8q0hsc6hoo4d"
