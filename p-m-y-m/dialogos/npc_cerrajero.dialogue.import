@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://xtwpiqcmv1ev"
+path="res://.godot/imported/npc_cerrajero.dialogue-1daeda9c80e9f455ad9b0820f5007a0a.tres"
+
+[deps]
+
+source_file="res://dialogos/npc_cerrajero.dialogue"
+dest_files=["res://.godot/imported/npc_cerrajero.dialogue-1daeda9c80e9f455ad9b0820f5007a0a.tres"]
+
+[params]
+
+defaults=true

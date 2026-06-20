@@ -1,0 +1,18 @@
+~ start
+
+if NPCstates.npcs["npc_cerrajero"]["current_state"] == "no_interactuado":
+	Cerrajero: ¿Necesitas algo?
+	Luther: No lo sé.
+	Luther: ¿A qué te dedicas?
+	Cerrajero: Soy cerrajero.
+	Luther: Vaya.
+	Cerrajero: Abro cerraduras.
+	Cerrajero: También las cierro.
+	Luther: ¿La gente te paga por ambas cosas?
+	Cerrajero: Principalmente por una.
+	do NPCstates.npcs["npc_cerrajero"]["current_state"] = "interactuado"
+	=> END
+
+if NPCstates.npcs["npc_cerrajero"]["current_state"] == "interactuado":
+	Cerrajero: Si tienes una puerta...
+	Cerrajero: Yo tengo una opinión profesional sobre ella.
