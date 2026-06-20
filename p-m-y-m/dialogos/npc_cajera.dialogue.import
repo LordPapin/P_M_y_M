@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cpaxcdj3o5cl7"
+path="res://.godot/imported/npc_cajera.dialogue-cf4a29730ba5da3dd3dcf52bcdb184f8.tres"
+
+[deps]
+
+source_file="res://dialogos/npc_cajera.dialogue"
+dest_files=["res://.godot/imported/npc_cajera.dialogue-cf4a29730ba5da3dd3dcf52bcdb184f8.tres"]
+
+[params]
+
+defaults=true

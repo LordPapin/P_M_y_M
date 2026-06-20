@@ -1,0 +1,21 @@
+~ start
+
+if NPCstates.npcs["npc_cajera"]["current_state"] == "no_interactuado":
+	Cajera: Siguiente.
+	Luther: Necesito investigar una amenaza contra el banco.
+	Cajera: ¿Trajo dinero?
+	Luther: No.
+	Cajera: Qué lástima.
+	Cajera: ¿Joyas?
+	Luther: Tampoco.
+	Cajera: Qué doble lástima.
+	do NPCstates.npcs["npc_cajera"]["current_state"] = "interactuado"
+	=> END
+
+if NPCstates.npcs["npc_cajera"]["current_state"] == "interactuado":
+	Luther: Necesito entrar al banco.
+	Cajera: No.
+	Luther: Soy detective.
+	Cajera: Y yo cajera, todos nos esforzamos, cariño.
+	Cajera: ¿O acaso me ves cubierta de joyas?
+	Cajera: Siguiente.

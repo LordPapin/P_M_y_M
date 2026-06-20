@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://cf2iy235iob7v"]
+
+[ext_resource type="Script" uid="uid://cngykyho3ldwb" path="res://scenas/personajes/npc_vendedor.gd" id="1_ieopd"]
+[ext_resource type="Texture2D" uid="uid://bqc7ga7csrret" path="res://assets/nivel_2/npc_barman-Sheet.png" id="2_6xe5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kqd4"]
+atlas = ExtResource("2_6xe5s")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx1lb"]
+atlas = ExtResource("2_6xe5s")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpmdd"]
+atlas = ExtResource("2_6xe5s")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o1va"]
+atlas = ExtResource("2_6xe5s")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdems"]
+atlas = ExtResource("2_6xe5s")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woddq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kqd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx1lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpmdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o1va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdems")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
+size = Vector2(48.5, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
+size = Vector2(194, 168)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
+radius = 90.824005
+
+[node name="npc_vendedor" type="CharacterBody2D"]
+script = ExtResource("1_ieopd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_woddq")
+animation = &"idle"
+frame_progress = 0.34593257
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="area clickeable" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.25, 0)
+shape = SubResource("RectangleShape2D_34iv8")
+
+[node name="cuerpo físico" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 1)
+shape = SubResource("RectangleShape2D_34iv8")
+
+[node name="cercanía de conv" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cercanía de conv"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_m6nua")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_m6nua")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="body_entered" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_entered"]
+[connection signal="body_exited" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

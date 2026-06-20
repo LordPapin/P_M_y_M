@@ -1,0 +1,39 @@
+~ start
+
+if NPCstates.npcs["npc_vendedor_muelle"]["current_state"] == "sin_dinero_no_conversado":
+	Vendedor: Bienvenido a la tienda del muelle.
+	Vendedor: ¿Vienes a comprar algo?
+	Luther: Depende, ¿Cuánto cuesta?
+	Vendedor: Más de lo que tienes.
+	Luther: ¿Cómo supiste que no traigo dinero?
+	Vendedor: Nunca lo traes.
+	Luther: También es cierto.
+	do NPCstates.npcs["npc_vendedor_muelle"]["current_state"] = "sin_dinero_conversado"
+	=> END
+
+if NPCstates.npcs["npc_vendedor_muelle"]["current_state"] == "sin_dinero_conversado":
+	Vendedor: Sigo aceptando dinero.
+	Vendedor: Avísame si consigues algo.
+
+if NPCstates.npcs["npc_vendedor_muelle"]["current_state"] == "con_dinero_sin_comprar":
+	Vendedor: Bienvenido a la tienda del muelle.
+	Vendedor: Puedes comprar una caña profesional.
+	Vendedor: Un anzuelo reforzado.
+	Vendedor: Un bote.
+	Vendedor: O...
+	Luther: ¿O?
+	Vendedor: Un frasco con hormigas.
+	Luther: ¿Cuánto cuestan las hormigas?
+	Vendedor: Exactamente todo el dinero que llevas encima.
+	Luther: Qué casualidad.
+	Vendedor: Son hormigas de primera calidad.
+	Luther: ¿Qué hacen?
+	Vendedor: Están dentro del frasco.
+	Luther: Me convenciste.
+	(Compraste un frasco con hormigas.)
+	do NPCstates.npcs["npc_vendedor_muelle"]["current_state"] = "ya_comprado"
+	=> END
+
+if NPCstates.npcs["npc_vendedor_muelle"]["current_state"] == "ya_comprado":
+	Vendedor: No acepto devoluciones.
+	Vendedor: Especialmente de las hormigas.

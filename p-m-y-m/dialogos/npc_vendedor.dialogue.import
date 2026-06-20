@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dxb6y3rbnsp3"
+path="res://.godot/imported/npc_vendedor.dialogue-fed7a8b539052a3684cc375beecb923f.tres"
+
+[deps]
+
+source_file="res://dialogos/npc_vendedor.dialogue"
+dest_files=["res://.godot/imported/npc_vendedor.dialogue-fed7a8b539052a3684cc375beecb923f.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,91 @@
+~ start
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_no_conversado":
+	Pescador: ¿Qué miras? ¿Tengo cara de cerveza?
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_sin_info_conversado"
+	=> END
+	
+if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_conversado":
+	Pescador: Lo que daría por una buena cerveza.
+	Pescador: En cambio, tengo a este acosador verde al lado mío.
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_con_info_no_conversado":
+	Pescador: ¿Qué quieres?
+	Luther: Tengo razones para creer que tienes información sobre el banco.
+	Pescador: Ah, por un momento me emocioné pensando que me traerías una cerveza.
+	Pescador: Seguiré con mi pesca.
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_con_info_conversado"
+	=> END
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_con_info_conversado":
+	Pescador: ¿De nuevo?
+	Pescador: ¿Y sin cerveza?
+	Pescador: No puedo hablar si se me secan los labios.
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_sin_info":
+	Pescador: Hey, Bob... HIP...
+	Pescador: Gracias por esa fresca.
+	Luther: ¿Sabes algo sobre el banco?
+	Pescador: ¿Cuál zapallo anco?
+		
+if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_sin_ayuda_no_conversado":
+	Pescador: Hey, Bob... HIP...
+	Pescador: Qué rica cerveza.
+	Luther: ¿Quién es...? No importa.
+	Luther: Creo que sabes cosas sobre el banco que yo no.
+	Pescador: No... HIP... No de nuevo, no otra vez...
+	Luther: ¿Qué sucede?
+	Pescador: No logro pescar nada.
+	Pescador: ¿Podrías ayudar-HIP-me?
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_sin_ayuda_conversado"
+	=> END
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_sin_ayuda_conversado":
+	Pescador: Estoy muy borra-HIP-cho para pescar.
+	Pescador: ¿Puedes ayudarme?
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_con_ayuda":
+	Pescador: Muchas gra-HIP-cias por los peces, detective. Te debo un favor.
+	Luther: Entonces hablemos del banco.
+	Luther: ¿"LDP" te suena de algo?
+	Pescador: Sí...
+	Pescador: Mi hermano era detective.
+	Pescador: Investigó el robo del banco de hace años.
+	Luther: ¿El que nunca resolvieron?
+	Pescador: Ese mismo.
+	Pescador: Durante la investigación recibió una carta firmada por "LDP".
+	Luther: ¿Qué decía?
+	Pescador: Que dejara de investigar.
+	Luther: ¿La llevó a la comisaría?
+	Pescador: Sí, pero nadie... HIP... le dio importancia.
+	Pescador: Decían que eran solo tres letras en un papel.
+	Luther: ¿Y qué descubrió?
+	Pescador: Que el banco no era tan seguro como todos creían.
+	Luther: ¿Cómo que no?
+	Pescador: Después del robo remodelaron el edificio para recuperar la confianza de la gente.
+	Pescador: Pero construyeron sobre lo viejo.
+	Pescador: Las instalaciones antiguas siguen ahí abajo.
+	Luther: Entonces alguien que las conozca podría entrar al banco.
+	Pescador: Exactamente.
+	Pescador: Mi hermano estaba convencido de que esa era la... HIP... clave del caso.
+	Pescador: Y entre sus cosas encontré esto.
+	(El pescador te mostró un papel arrugado.)
+	Pescador: Un código.
+	Pescador: Nunca descubrí para qué sirve.
+	Pescador: Quizá tú tengas más suerte.
+	(El pescador te entregó un papel con un código escrito.)
+	Luther: ¿Y qué pasó con tu hermano?
+	Pescador: ...
+	Pescador: Siguió investigando.
+	Pescador: Hasta que un día lo encontré tirado en el suelo de su casa.
+	Pescador: Y no volvió a... levantarse.
+	Luther: Lo lamento.
+	Pescador: Si alguien volvió a usar el nombre de "LDP" después de tantos años...
+	Pescador: Ten cuidado, detective.
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "ya_conversado"
+	=> END
+
+
+if NPCstates.npcs["npc_pescador"]["current_state"] == "ya_conversado":
+	Pescador: Si alguien volvió a usar el nombre de "LDP" después de tantos años...
+	Pescador: Ten cuidado, detective.
