@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=13 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_och76"]
 [ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 [ext_resource type="PackedScene" uid="uid://cv7h2lngqyfq" path="res://scenas/objetos/jarron.tscn" id="8_867q3"]
+[ext_resource type="PackedScene" uid="uid://br68qrsnqy0yj" path="res://scenas/personajes/npc_pescador.tscn" id="10_l3rr3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
 vertices = PackedVector2Array(1535.6484, 712.2969, -430.28906, 718.8828, -84.078125, 499.97656, 983.65625, 622.09375, 678.97656, 496.04688, 673.21875, 555.60156, 1076.4375, 612.1094, 828.90625, 594.78906)
@@ -76,3 +77,6 @@ limit_right = 3060
 limit_bottom = 717
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
+
+[node name="npc_pescador" parent="." instance=ExtResource("10_l3rr3")]
+position = Vector2(1234, 437)

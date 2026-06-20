@@ -30,5 +30,20 @@ var npcs = {
 			"interactuado_sin_billetes" : {"location" : "bar"},
 			"con_billetes": {"location" : "bar"}
 				}
+			},
+			
+			"npc_pescador": {
+		"current_state" : "sobrio_sin_info_no_conversado",
+		"states": {
+			"sobrio_sin_info_no_conversado" : {},
+			"sobrio_sin_info_conversado" : {},
+			"sobrio_con_info_no_conversado": {},
+			"sobrio_con_info_conversado": {},
+			"borracho_sin_info" : {},
+			"borracho_con_info_sin_ayuda_no_conversado" : {},
+			"borracho_con_info_sin_ayuda_conversado": {},
+			"borracho_con_info_con_ayuda": {},
+			"ya_conversado": {}
+				}
 			}
 }
