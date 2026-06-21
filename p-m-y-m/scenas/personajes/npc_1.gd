@@ -1,9 +1,15 @@
 extends CharacterBody2D
 var miniJuego = "res://scenas/eventos_twitchs/evento_twitch_1.tscn"
 var conversable = false
+var estado_local = "no_interactuado"
 
 
 @onready var MiDialogo = preload ("res://dialogos/diálogo npc1.dialogue")
+
+@export var billete_item: ItemData
+
+
+
 func _ready() -> void:
 	
 	conversable = false
@@ -11,22 +17,29 @@ func _ready() -> void:
 
 
 func _handle_interaction():
-	var state = NPCstates.npcs ["npc1"]["current_state"]
-	match state:
+	# Usamos nuestra variable en lugar del diccionario problemático
+	match estado_local:
 		"no_interactuado":
-			print("diálogo inicial")
-			get_tree().call_group("evento_1","minijuego")
-			#get_tree().change_scene_to_file("res://scenas/eventos_twitchs/evento_twitch_1.tscn")
+			print("Entregando billete...")
+			get_tree().call_group("evento_1", "minijuego")
 
-			NPCstates.npcs["npc1"]["current_state"] = "no_sobornado"
+			if billete_item != null:
+				Inventory.add_item(billete_item)
+			
+			# Cambiamos nuestra variable local
+			estado_local = "no_sobornado" 
+			print("Estado cambiado a no_sobornado")
+			
 		"no_sobornado":
-			print("pide el soborno")
-		"robado":
-			print("es robado")
-		"sobornado":
-			print("información muy importante")
-
-		
+			print("Intentando consumir el billete...")
+			var soborno_exitoso = Inventory.consume_item(billete_item.id)
+			
+			if soborno_exitoso:
+				estado_local = "sobornado"
+				print("¡Billete consumido! Pasando a sobornado")
+			else:
+				print("No se encontró el billete")
+				
 
 func _on_cercanía_de_conv_body_entered(body: Node2D) -> void:
 	if body is personaje:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpjyj6b00reey"]
+[gd_scene load_steps=7 format=3 uid="uid://dpjyj6b00reey"]
 
 [ext_resource type="Script" uid="uid://cwxds02pw3gyx" path="res://scenas/personajes/npc_1.gd" id="1_34iv8"]
 [ext_resource type="Texture2D" uid="uid://f1sgl2f15ica" path="res://scenas/personajes/NPC1_bar.png" id="2_34iv8"]
+[ext_resource type="Resource" uid="uid://dg0ajttq5u25d" path="res://scenas/recursos/billete.tres" id="2_m6nua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
 size = Vector2(48.5, 86)
@@ -14,6 +15,7 @@ radius = 90.824005
 
 [node name="NPC1" type="CharacterBody2D"]
 script = ExtResource("1_34iv8")
+billete_item = ExtResource("2_m6nua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
