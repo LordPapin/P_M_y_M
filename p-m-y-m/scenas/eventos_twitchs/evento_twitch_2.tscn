@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=29 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 [ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
@@ -6,11 +6,14 @@
 [ext_resource type="Script" uid="uid://71olh57g0thw" path="res://scenas/eventos_twitchs/boton.gd" id="2_piq6c"]
 [ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="2_se7m7"]
 [ext_resource type="Texture2D" uid="uid://bfr1a8aulqfcd" path="res://assets/luther/sigiloso.png" id="3_nm4vf"]
-[ext_resource type="Texture2D" uid="uid://dsl7j67kg3kou" path="res://assets/luther/Luther_golpeado.png" id="4_se7m7"]
-[ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="5_x4d7s"]
+[ext_resource type="Texture2D" uid="uid://cs6ecnitmjwoa" path="res://assets/nivel_4/MESSI1.png" id="3_nost8"]
+[ext_resource type="Texture2D" uid="uid://ok0y1mx4p4c" path="res://assets/nivel_4/grafiti12.png" id="4_8v3t1"]
+[ext_resource type="Texture2D" uid="uid://ccdffmirixdvp" path="res://assets/nivel_4/grafiti3.png" id="5_7v56u"]
 [ext_resource type="Texture2D" uid="uid://c7bcc1xyoetrl" path="res://assets/nivel_4/bote_de_basura.png" id="6_nd8ra"]
 [ext_resource type="Texture2D" uid="uid://biujodytic2ed" path="res://assets/nivel_4/npc_mapache.png" id="8_d655e"]
+[ext_resource type="Texture2D" uid="uid://cf57p1crygoq5" path="res://assets/nivel_4/pared-Sheet.png" id="8_nost8"]
 [ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="9_svngd"]
+[ext_resource type="Texture2D" uid="uid://bqkj8xtf8d15j" path="res://assets/nivel_4/cartel.png" id="14_nost8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqoae"]
 atlas = ExtResource("3_nm4vf")
@@ -35,6 +38,34 @@ region = Rect2(400, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nost8"]
 atlas = ExtResource("3_nm4vf")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v3t1"]
+atlas = ExtResource("8_nost8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v56u"]
+atlas = ExtResource("8_nost8")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prodv"]
+atlas = ExtResource("8_nost8")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4m3g"]
+atlas = ExtResource("8_nost8")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2tf7"]
+atlas = ExtResource("8_nost8")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w17yw"]
+atlas = ExtResource("8_nost8")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6cqf"]
+atlas = ExtResource("8_nost8")
+region = Rect2(600, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8v3t1"]
 animations = [{
@@ -63,7 +94,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_se7m7")
+"texture": SubResource("AtlasTexture_8v3t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v56u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prodv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4m3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2tf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w17yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6cqf")
 }],
 "loop": false,
 "name": &"idle",
@@ -79,6 +128,32 @@ position = Vector2(791.00006, 364.00003)
 scale = Vector2(2.4859376, 3.0208333)
 texture = ExtResource("2_se7m7")
 
+[node name="Grafitis" type="Node2D" parent="."]
+
+[node name="grafiti1" type="Marker2D" parent="Grafitis"]
+position = Vector2(300, 400)
+
+[node name="Messi1" type="Sprite2D" parent="Grafitis/grafiti1"]
+position = Vector2(-186, -81.99997)
+scale = Vector2(1.8217391, 1.8217391)
+texture = ExtResource("3_nost8")
+
+[node name="grafiti2" type="Marker2D" parent="Grafitis"]
+position = Vector2(600, 400)
+
+[node name="Grafiti12" type="Sprite2D" parent="Grafitis/grafiti2"]
+position = Vector2(-136.99997, -81)
+scale = Vector2(1.8090909, 1.8090909)
+texture = ExtResource("4_8v3t1")
+
+[node name="grafiti3" type="Marker2D" parent="Grafitis"]
+position = Vector2(900, 400)
+
+[node name="Grafiti3" type="Sprite2D" parent="Grafitis/grafiti3"]
+position = Vector2(-220, -75)
+scale = Vector2(1.9090909, 1.9090909)
+texture = ExtResource("5_7v56u")
+
 [node name="Luther" type="CharacterBody2D" parent="."]
 position = Vector2(70, 400)
 script = ExtResource("1_7dgbb")
@@ -87,17 +162,6 @@ script = ExtResource("1_7dgbb")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8v3t1")
 animation = &"caminar"
-
-[node name="Grafitis" type="Node2D" parent="."]
-
-[node name="grafiti1" type="Marker2D" parent="Grafitis"]
-position = Vector2(300, 400)
-
-[node name="grafiti2" type="Marker2D" parent="Grafitis"]
-position = Vector2(600, 400)
-
-[node name="grafiti3" type="Marker2D" parent="Grafitis"]
-position = Vector2(900, 400)
 
 [node name="BoteDeBasura" type="Sprite2D" parent="."]
 position = Vector2(907, 452)
@@ -123,7 +187,8 @@ position = Vector2(615, 242)
 script = ExtResource("2_piq6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boton"]
-position = Vector2(-23, -31)
-texture = ExtResource("5_x4d7s")
+position = Vector2(26.000023, -21)
+scale = Vector2(1.3695652, 1.3695652)
+texture = ExtResource("14_nost8")
 
 [connection signal="finalizar" from="." to="." method="_on_finalizar"]

@@ -60,7 +60,7 @@ func _on_inicio_vigilancia():
 
 	luther.cambiar_estado("invisible")
 
-	boton.global_position = luther.global_position + Vector2(0, -80)
+	boton.global_position = luther.global_position + Vector2(0, 80)
 
 	boton.iniciar_prueba(objetivos[fase_actual])
 
