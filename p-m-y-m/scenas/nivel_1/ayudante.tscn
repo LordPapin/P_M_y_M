@@ -1,15 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://byn1xfqscpaqn"]
+[gd_scene load_steps=9 format=3 uid="uid://byn1xfqscpaqn"]
 
-[ext_resource type="Texture2D" uid="uid://c6t3ikogbkjbi" path="res://scenas/personajes/icon.svg" id="1_2tvba"]
+[ext_resource type="Texture2D" uid="uid://c7l40mdnc2thl" path="res://assets/nivel_1/ayudante-Sheet.png" id="1_2tvba"]
+[ext_resource type="Script" uid="uid://bxh1ew2j2t4in" path="res://scenas/nivel_1/ayudante.gd" id="1_8fve2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fve2"]
 size = Vector2(120, 119)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tvba"]
+atlas = ExtResource("1_2tvba")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fve2"]
+atlas = ExtResource("1_2tvba")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jb7x"]
+atlas = ExtResource("1_2tvba")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8cp2"]
+atlas = ExtResource("1_2tvba")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjtuw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tvba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fve2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jb7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8cp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ayudante" type="StaticBody2D"]
+script = ExtResource("1_8fve2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_8fve2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2tvba")
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gjtuw")
+frame_progress = 0.38874972
+flip_h = true

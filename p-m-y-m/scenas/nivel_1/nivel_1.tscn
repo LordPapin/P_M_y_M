@@ -30,7 +30,7 @@ position = Vector2(1619.0001, 478)
 scale = Vector2(4, 4)
 
 [node name="ayudante" parent="." instance=ExtResource("2_s7pnb")]
-position = Vector2(1771, 505)
+position = Vector2(1660, 427)
 
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
 position = Vector2(790, -9)

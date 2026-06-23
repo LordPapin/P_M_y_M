@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqgg8syvntfy8"]
+
+[ext_resource type="Script" uid="uid://b18d00iy0151x" path="res://scenas/nivel_6/banco.gd" id="1_08kfc"]
+[ext_resource type="Texture2D" uid="uid://dunb18r0t85li" path="res://assets/nivel_6/banco (2).png" id="1_tyf7j"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_p30yp"]
+[ext_resource type="Texture2D" uid="uid://cmmb7mnjgi5qh" path="res://assets/nivel_6/puerta_banco1.png" id="4_v6pe2"]
+[ext_resource type="Texture2D" uid="uid://bno37hkh75ama" path="res://assets/nivel_6/puerta_banco2.png" id="5_ms0t8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gtx1b"]
+vertices = PackedVector2Array(1241.4375, 688.0078, 17.789063, 689.97656, 27.25, 567.0781, 355.64844, 570.03906, 425.6797, 486, 973.0078, 574.96094, 1246.5313, 576.9219, 890.64844, 486, 914.4375, 497.89063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 6, 0), PackedInt32Array(5, 4, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(18, 557, 351, 560, 421, 476, 893, 476, 921, 490, 978, 565, 1257, 567, 1251, 698, 7, 700)])
+
+[node name="banco" type="Node2D"]
+script = ExtResource("1_08kfc")
+
+[node name="Banco" type="Sprite2D" parent="."]
+position = Vector2(641.00006, 354.5)
+scale = Vector2(1.0150675, 0.64156085)
+texture = ExtResource("1_tyf7j")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_gtx1b")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 484.0
+offset_top = 261.0
+offset_right = 862.0
+offset_bottom = 497.0
+texture_normal = ExtResource("4_v6pe2")
+texture_pressed = ExtResource("5_ms0t8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Luther" parent="." instance=ExtResource("2_p30yp")]
+position = Vector2(150, 619)
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
