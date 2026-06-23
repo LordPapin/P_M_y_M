@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxpnoosd4sj13"]
 
-[ext_resource type="Texture2D" uid="uid://cru3xuhmt4egx" path="res://assets/nivel_5/Muelle_1.png" id="1_35nha"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
+[ext_resource type="Texture2D" uid="uid://cifl1o4b8qphe" path="res://assets/nivel_5/Muelle_21.png" id="2_priya"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_priya"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
 
@@ -12,10 +12,10 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(360, 710, 1211, 499, 20
 
 [node name="muelle" type="Node2D"]
 
-[node name="Muelle1" type="Sprite2D" parent="."]
-position = Vector2(2083.9998, 358)
-scale = Vector2(2.1718748, 1.0083333)
-texture = ExtResource("1_35nha")
+[node name="Muelle21" type="Sprite2D" parent="."]
+position = Vector2(2087, 362)
+scale = Vector2(2.1687498, 1)
+texture = ExtResource("2_priya")
 
 [node name="Luther" parent="." instance=ExtResource("2_el811")]
 position = Vector2(1187, 675)
