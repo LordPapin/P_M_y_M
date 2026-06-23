@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=31 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 [ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cf57p1crygoq5" path="res://assets/nivel_4/pared-Sheet.png" id="8_nost8"]
 [ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="9_svngd"]
 [ext_resource type="Texture2D" uid="uid://bqkj8xtf8d15j" path="res://assets/nivel_4/cartel.png" id="14_nost8"]
+[ext_resource type="Texture2D" uid="uid://hieimbk5jumq" path="res://assets/nivel_4/boton_reintentar.png" id="15_7v56u"]
+[ext_resource type="Texture2D" uid="uid://bmah547fg3ny" path="res://assets/nivel_4/boton_reintentar2.png" id="16_prodv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqoae"]
 atlas = ExtResource("3_nm4vf")
@@ -191,4 +193,38 @@ position = Vector2(26.000023, -21)
 scale = Vector2(1.3695652, 1.3695652)
 texture = ExtResource("14_nost8")
 
-[connection signal="finalizar" from="." to="." method="_on_finalizar"]
+[node name="pantalla_reintentar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="pantalla_reintentar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1250.0
+offset_bottom = 684.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.80784315)
+
+[node name="reintentar_btn" type="TextureButton" parent="pantalla_reintentar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 506.0
+offset_top = 344.0
+offset_right = 782.0
+offset_bottom = 533.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_7v56u")
+texture_pressed = ExtResource("16_prodv")
+
+[connection signal="alertados" from="LauchaMapache" to="." method="_on_alertados"]
+[connection signal="pressed" from="pantalla_reintentar/reintentar_btn" to="." method="_on_reintentar_btn_pressed"]
