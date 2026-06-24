@@ -85,6 +85,8 @@ shape = SubResource("RectangleShape2D_m6nua")
 shape = SubResource("CircleShape2D_m6nua")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="body_entered" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_entered"]
 [connection signal="body_exited" from="cercanía de conv" to="." method="_on_cercanía_de_conv_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

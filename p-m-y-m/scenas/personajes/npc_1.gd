@@ -66,4 +66,14 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		await DialogueManager.dialogue_ended
 		_handle_interaction()
 		
-	pass # Replace with function body.
+
+func _on_area_2d_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_area_2d_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7amdwa17ude1" path="res://scenas/recursos/jarron.png" id="2_mli5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mli5y"]
-size = Vector2(32, 37)
+size = Vector2(64, 65)
 
 [node name="Jarron" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_mli5y")
@@ -19,3 +19,5 @@ position = Vector2(43, 26.5)
 shape = SubResource("RectangleShape2D_mli5y")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
