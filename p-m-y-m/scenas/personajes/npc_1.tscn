@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dg0ajttq5u25d" path="res://scenas/recursos/billete.tres" id="2_m6nua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
-size = Vector2(48.5, 86)
+size = Vector2(143, 198)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
 size = Vector2(194, 168)
