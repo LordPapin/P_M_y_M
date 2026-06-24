@@ -55,7 +55,7 @@ size = Vector2(194, 168)
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
 radius = 90.824005
 
-[node name="npc_pescador" type="CharacterBody2D"]
+[node name="npc_pescador" type="CharacterBody2D" groups=["npc"]]
 script = ExtResource("1_4q8ul")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

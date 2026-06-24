@@ -108,4 +108,4 @@ script = ExtResource("1_1o7yo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cpqb7")
-animation = &"walk"
+animation = &"lengua"

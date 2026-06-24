@@ -13,7 +13,7 @@ size = Vector2(194, 168)
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
 radius = 90.824005
 
-[node name="NPC1" type="CharacterBody2D"]
+[node name="NPC1" type="CharacterBody2D" groups=["npc"]]
 script = ExtResource("1_34iv8")
 billete_item = ExtResource("2_m6nua")
 
