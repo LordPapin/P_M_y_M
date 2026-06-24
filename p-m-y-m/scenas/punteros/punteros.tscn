@@ -101,11 +101,11 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="pointers" type="Node2D"]
+[node name="pointers" type="Node2D" groups=["cursor"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_1o7yo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cpqb7")
-animation = &"lengua"
+animation = &"walk"

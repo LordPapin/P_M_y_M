@@ -10,6 +10,8 @@ var obj_debajo_mouse : Node = null
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_set_estado(estado_actual)
+	print(anim)
+	print("ready")
 
 
 func _process(delta: float):
@@ -36,6 +38,7 @@ func _set_estado(nuevo_estado : EstadoPuntero):
 
 
 func _on_mouse_entered(objeto):
+	print("ENTRO", objeto.name)
 	obj_debajo_mouse = objeto
 	if objeto.is_in_group("npc"):
 		_set_estado(EstadoPuntero.HABLAR)
