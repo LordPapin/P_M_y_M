@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dod48m1mbmkvl" path="res://scenas/recursos/llave.png" id="2_nyreu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usp67"]
+size = Vector2(32, 32)
 
 [node name="llave" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_mhrpi")

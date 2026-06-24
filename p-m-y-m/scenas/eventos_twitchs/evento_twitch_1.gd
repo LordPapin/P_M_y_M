@@ -4,11 +4,14 @@ var puntuacion = 0
 var max_billetes = 5
 @onready var timer_castigo = $TimerCastigo
 @onready var mi_npc = $NPC
+@onready var cursor = get_tree().get_first_node_in_group("cursor")
 
 signal minijuego_ganado
+
 func _ready():
 	$NPC.parte_tocada.connect(_al_tocar_npc)
 	timer_castigo.start()
+	cursor.animacion_forzada = "lengua"
 
 func _al_tocar_npc(parte):
 	match parte:
@@ -29,6 +32,7 @@ func _on_timer_castigo_timeout():
 
 func derrota(tipo):
 	timer_castigo.stop()
+	cursor.animacion_forzada = ""
 	if tipo == "SLAP":
 		print("Animación de bofetada y enojo")
 	else:
@@ -36,11 +40,9 @@ func derrota(tipo):
 
 func ganar_juego():
 	print("ganaste")
-	#mi_npc.call_deferred("queue_free")
-	#await get_tree().create_timer(1.0).timeout
 	emit_signal("minijuego_ganado")
-	#get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
 	NPCstates.npcs["npc1"]["current_state"] = "robado"
 	NPCstates.npcs["npc_barman"]["current_state"] = "con_billetes"
-	get_tree().call_group("evento_1","JuegoTerminado")
+	get_tree().call_group("evento_1", "JuegoTerminado")
+	cursor.animacion_forzada = ""
 	queue_free()

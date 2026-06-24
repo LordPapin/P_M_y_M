@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmyeii6o5bgwd" path="res://scenas/recursos/piedra.png" id="2_rn2sl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhdj"]
+size = Vector2(44, 44)
 
 [node name="piedra" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_v7xym")

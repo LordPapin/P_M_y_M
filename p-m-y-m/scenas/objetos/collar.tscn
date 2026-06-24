@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://brxjr5pix4qmc" path="res://scenas/objetos/collar.gd" id="1_dwpbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwpbr"]
+size = Vector2(50, 40)
 
 [node name="collar" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_dwpbr")
