@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://b7oaayuvw14ey" path="res://scenas/punteros/punteros.gd" id="1_1o7yo"]
 [ext_resource type="Texture2D" uid="uid://do8auyag0b16y" path="res://assets/punteeros/Cursores.png" id="2_epcrr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1o7yo"]
-atlas = ExtResource("2_epcrr")
-region = Rect2(0, 64, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_epcrr"]
 atlas = ExtResource("2_epcrr")
 region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o7yo"]
+atlas = ExtResource("2_epcrr")
+region = Rect2(0, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpqb7"]
 atlas = ExtResource("2_epcrr")
@@ -47,10 +47,10 @@ region = Rect2(16, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1o7yo")
+"texture": SubResource("AtlasTexture_epcrr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_epcrr")
+"texture": SubResource("AtlasTexture_1o7yo")
 }],
 "loop": true,
 "name": &"lengua",
@@ -101,7 +101,7 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="pointers" type="Node2D"]
+[node name="pointers" type="Node2D" groups=["cursor"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_1o7yo")
 

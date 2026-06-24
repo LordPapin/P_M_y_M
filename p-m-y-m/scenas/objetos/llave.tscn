@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dod48m1mbmkvl" path="res://scenas/recursos/llave.png" id="2_nyreu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usp67"]
+size = Vector2(32, 32)
 
 [node name="llave" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_mhrpi")
@@ -15,3 +16,5 @@ texture = ExtResource("2_nyreu")
 shape = SubResource("RectangleShape2D_usp67")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=25 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="7_h0pjf"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="7_x6e1x"]
 [ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="8_x6e1x"]
+[ext_resource type="PackedScene" uid="uid://cb1y6h6vo8ory" path="res://scenas/punteros/punteros.tscn" id="10_qxq3v"]
 
 [sub_resource type="GDScript" id="GDScript_0oqla"]
 script/source = "extends Area2D
@@ -200,6 +201,8 @@ texture = ExtResource("8_x6e1x")
 [node name="TimerCastigo" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="pointers" parent="." instance=ExtResource("10_qxq3v")]
 
 [connection signal="input_event" from="NPC/Area2Dbilletes" to="NPC" method="_on_area_2_dbilletes_input_event"]
 [connection signal="input_event" from="NPC/Area2Dculo" to="NPC" method="_on_area_2_dculo_input_event"]

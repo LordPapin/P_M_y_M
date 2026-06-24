@@ -39,6 +39,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 recursos=""
 jugador=""
+npc=""
+cursor=""
 
 [input]
 

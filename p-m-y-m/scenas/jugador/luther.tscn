@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://duw8s1jsg4i1c"]
+[gd_scene load_steps=39 format=3 uid="uid://duw8s1jsg4i1c"]
 
 [ext_resource type="Script" uid="uid://bdf4fkva7foyd" path="res://luther.gd" id="1_p2y8e"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="2_p2y8e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bh2f4w3wsn7e4" path="res://assets/luther/Luther_walk_3.png" id="4_d3t8w"]
 [ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="5_t0yjg"]
 [ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="6_hg65m"]
+[ext_resource type="PackedScene" uid="uid://cb1y6h6vo8ory" path="res://scenas/punteros/punteros.tscn" id="9_dsp73"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuavq"]
 atlas = ExtResource("2_rwq8c")
@@ -261,5 +262,8 @@ texture = ExtResource("6_hg65m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lengua/PuntaLengua/Area2D"]
 shape = SubResource("RectangleShape2D_t0yjg")
+
+[node name="pointers" parent="." instance=ExtResource("9_dsp73")]
+scale = Vector2(1, 1)
 
 [connection signal="area_entered" from="Lengua/PuntaLengua/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://doebx0qwev4qp" path="res://scenas/recursos/cerbeza.png" id="2_vmjxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skr57"]
+size = Vector2(44, 42)
 
 [node name="cerbeza" type="Area2D" groups=["recursos"]]
 script = ExtResource("1_kba3h")
@@ -17,3 +18,5 @@ position = Vector2(73, 34)
 shape = SubResource("RectangleShape2D_skr57")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
