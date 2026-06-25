@@ -25,10 +25,10 @@ func _on_cercanía_de_conv_body_exited(body: Node2D) -> void:
 		print(conversable)
 
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton && event.pressed && conversable == true:
-		DialogueManager.show_dialogue_balloon(MiDialogo, "start")
-		await DialogueManager.dialogue_ended
+#func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	#if event is InputEventMouseButton && event.pressed && conversable == true:
+	#	DialogueManager.show_dialogue_balloon(MiDialogo, "start")
+	#	await DialogueManager.dialogue_ended
 
 
 func _on_area_2d_mouse_entered() -> void:
