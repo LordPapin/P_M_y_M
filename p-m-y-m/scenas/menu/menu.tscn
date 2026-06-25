@@ -1,50 +1,39 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1t81e71vj413"]
 
-[ext_resource type="Texture2D" uid="uid://bh4ckbwe70pt" path="res://assets/menu/Menu.jpeg" id="1_gujd1"]
 [ext_resource type="Script" uid="uid://blfwxla55x41y" path="res://scenas/menu/menu.gd" id="1_jnsrb"]
-[ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="2_5llyq"]
+[ext_resource type="Texture2D" uid="uid://dgveh0t0j16qi" path="res://assets/menu/menu_principal.png" id="2_jnsrb"]
+[ext_resource type="FontFile" uid="uid://iywowh7uraxc" path="res://fuentes/HARNGTON.TTF" id="3_1ie7u"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_jnsrb")
 
 [node name="Menu" type="Sprite2D" parent="."]
 position = Vector2(641.5, 364.5)
-scale = Vector2(6.445, 7.3899994)
-texture = ExtResource("1_gujd1")
+texture = ExtResource("2_jnsrb")
 
 [node name="jugar" type="Button" parent="."]
-offset_left = 244.0
-offset_top = 399.0
-offset_right = 435.0
-offset_bottom = 457.0
+offset_left = 240.0
+offset_top = 472.0
+offset_right = 431.0
+offset_bottom = 530.0
 theme_override_colors/font_color = Color(0.93101174, 0.8535803, 0.8578796, 1)
 theme_override_colors/font_hover_color = Color(0.33426186, 0.78491503, 0.89299864, 1)
-theme_override_fonts/font = ExtResource("2_5llyq")
+theme_override_fonts/font = ExtResource("3_1ie7u")
 theme_override_font_sizes/font_size = 45
 text = "jugar"
 flat = true
 
 [node name="salir" type="Button" parent="."]
-offset_left = 241.0
-offset_top = 482.0
-offset_right = 432.0
-offset_bottom = 540.0
+offset_left = 237.0
+offset_top = 555.0
+offset_right = 428.0
+offset_bottom = 613.0
 theme_override_colors/font_color = Color(0.93101174, 0.8535803, 0.8578796, 1)
 theme_override_colors/font_hover_color = Color(0.33333334, 0.78431374, 0.89411765, 1)
-theme_override_fonts/font = ExtResource("2_5llyq")
+theme_override_fonts/font = ExtResource("3_1ie7u")
 theme_override_font_sizes/font_size = 45
 text = "salir"
 flat = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 53.0
-offset_top = 31.0
-offset_right = 1100.0
-offset_bottom = 140.0
-theme_override_colors/font_color = Color(0.11764706, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_5llyq")
-theme_override_font_sizes/font_size = 100
-text = "pistas moscas y misterios"
 
 [connection signal="button_down" from="jugar" to="." method="_on_jugar_button_down"]
 [connection signal="button_down" from="salir" to="." method="_on_salir_button_down"]

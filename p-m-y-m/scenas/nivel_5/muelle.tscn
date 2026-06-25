@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxpnoosd4sj13"]
+[gd_scene load_steps=12 format=3 uid="uid://cxpnoosd4sj13"]
 
+[ext_resource type="Script" uid="uid://ckqit3okxj852" path="res://scenas/nivel_5/muelle.gd" id="1_befke"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
 [ext_resource type="Texture2D" uid="uid://cifl1o4b8qphe" path="res://assets/nivel_5/Muelle_21.png" id="2_priya"]
 [ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_priya"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
+[ext_resource type="PackedScene" uid="uid://br68qrsnqy0yj" path="res://scenas/personajes/npc_pescador.tscn" id="5_el811"]
+[ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="6_qj2we"]
+[ext_resource type="Texture2D" uid="uid://d2x4832kj06wg" path="res://assets/botones/flecha_der2.png" id="7_wi1qx"]
+[ext_resource type="Texture2D" uid="uid://bisx2gpjqxnei" path="res://assets/nivel_5/puerta_muelle2.png" id="8_wi1qx"]
+[ext_resource type="Texture2D" uid="uid://b6s2mwiwhj082" path="res://assets/nivel_5/puerta_muelle1.png" id="9_w1lxh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_befke"]
 vertices = PackedVector2Array(2617.0234, 703, 441.46094, 700.10156, 1212.2031, 509, 2013.8984, 515.0078, 2349.4219, 451.34375, 2416.6406, 395.14063, 2762.0938, 314.03125, 3076.0781, 517.02344, 4150.039, 509.0703, 4150.953, 705.97656, 2475.6016, 316.97656, 2409.0234, 338.0078)
@@ -11,13 +17,48 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(360, 710, 1211, 499, 2013, 505, 2345, 442, 2406, 391, 2398, 331, 2474, 307, 2765, 304, 3079, 507, 4160, 499, 4161, 716, 2617, 713)])
 
 [node name="muelle" type="Node2D"]
+script = ExtResource("1_befke")
 
 [node name="Muelle21" type="Sprite2D" parent="."]
 position = Vector2(2087, 362)
 scale = Vector2(2.1687498, 1)
 texture = ExtResource("2_priya")
 
-[node name="Luther" parent="." instance=ExtResource("2_el811")]
+[node name="npc_pescador" parent="." instance=ExtResource("5_el811")]
+position = Vector2(2742, 245.00002)
+scale = Vector2(2.016423, 2.016423)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_befke")
+
+[node name="boton_escenarios" parent="." instance=ExtResource("3_priya")]
+visible = false
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_da1rf")]
+
+[node name="calle" type="TextureButton" parent="."]
+offset_left = 3808.0
+offset_top = 428.0
+offset_right = 4208.0
+offset_bottom = 828.0
+scale = Vector2(0.5356116, 0.64685905)
+texture_normal = ExtResource("6_qj2we")
+texture_pressed = ExtResource("7_wi1qx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="tienda" type="TextureButton" parent="."]
+offset_left = 493.0
+offset_top = 157.0
+offset_right = 520.6209
+offset_bottom = 189.76274
+scale = Vector2(15.169671, 15.169671)
+texture_normal = ExtResource("9_w1lxh")
+texture_pressed = ExtResource("8_wi1qx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Luther" parent="." groups=["npc"] instance=ExtResource("2_el811")]
 position = Vector2(1187, 675)
 scale = Vector2(6, 6)
 
@@ -27,9 +68,5 @@ limit_top = 0
 limit_right = 4165
 limit_bottom = 720
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_befke")
-
-[node name="boton_escenarios" parent="." instance=ExtResource("3_priya")]
-
-[node name="InventoryUI" parent="." instance=ExtResource("4_da1rf")]
+[connection signal="pressed" from="calle" to="." method="_on_calle_pressed"]
+[connection signal="pressed" from="tienda" to="." method="_on_tienda_pressed"]

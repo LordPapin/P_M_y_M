@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqgg8syvntfy8"]
+[gd_scene load_steps=9 format=3 uid="uid://cqgg8syvntfy8"]
 
 [ext_resource type="Script" uid="uid://b18d00iy0151x" path="res://scenas/nivel_6/banco.gd" id="1_08kfc"]
 [ext_resource type="Texture2D" uid="uid://dunb18r0t85li" path="res://assets/nivel_6/banco (2).png" id="1_tyf7j"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_p30yp"]
 [ext_resource type="Texture2D" uid="uid://cmmb7mnjgi5qh" path="res://assets/nivel_6/puerta_banco1.png" id="4_v6pe2"]
+[ext_resource type="Texture2D" uid="uid://bvg6sxr5y5icf" path="res://assets/botones/flecha_izq.png" id="5_7mj4j"]
 [ext_resource type="Texture2D" uid="uid://bno37hkh75ama" path="res://assets/nivel_6/puerta_banco2.png" id="5_ms0t8"]
+[ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="6_meg7h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gtx1b"]
 vertices = PackedVector2Array(1241.4375, 688.0078, 17.789063, 689.97656, 27.25, 567.0781, 355.64844, 570.03906, 425.6797, 486, 973.0078, 574.96094, 1246.5313, 576.9219, 890.64844, 486, 914.4375, 497.89063)
@@ -22,7 +24,7 @@ texture = ExtResource("1_tyf7j")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_gtx1b")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="puerta" type="TextureButton" parent="."]
 offset_left = 484.0
 offset_top = 261.0
 offset_right = 862.0
@@ -32,7 +34,19 @@ texture_pressed = ExtResource("5_ms0t8")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Luther" parent="." instance=ExtResource("2_p30yp")]
-position = Vector2(150, 619)
+[node name="calle_tbn" type="TextureButton" parent="."]
+offset_left = 19.000004
+offset_top = 546.00006
+offset_right = 59.000004
+offset_bottom = 586.00006
+scale = Vector2(2.3600173, 2.3600173)
+texture_normal = ExtResource("5_7mj4j")
+texture_pressed = ExtResource("6_meg7h")
+ignore_texture_size = true
+stretch_mode = 0
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="Luther" parent="." instance=ExtResource("2_p30yp")]
+position = Vector2(217, 640)
+
+[connection signal="pressed" from="puerta" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="calle_tbn" to="." method="_on_calle_tbn_pressed"]

@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://casgo813l1mpo" path="res://assets/nivel_6/interior_banco (2).png" id="1_3cp35"]
 [ext_resource type="Script" uid="uid://yr6k8uv0tvh2" path="res://scenas/nivel_6/interior_banco.gd" id="1_gb3gd"]
-[ext_resource type="Texture2D" uid="uid://chcdcqyptbot7" path="res://assets/npc/cajerax2.png" id="2_rmgqd"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="3_vpad3"]
 [ext_resource type="Texture2D" uid="uid://cmmb7mnjgi5qh" path="res://assets/nivel_6/puerta_banco1.png" id="4_vpad3"]
 [ext_resource type="Texture2D" uid="uid://bno37hkh75ama" path="res://assets/nivel_6/puerta_banco2.png" id="5_gb3gd"]
+[ext_resource type="PackedScene" uid="uid://dnl385y7lqi5l" path="res://scenas/personajes/npc_cajera.tscn" id="6_gb3gd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gb3gd"]
 vertices = PackedVector2Array(977.53125, 593.9375, 996.1797, 705.0078, 10.2578125, 705.97656, 655.8906, 591.9375, 14.75, 530.9531, 649.8906, 528.03906)
@@ -30,16 +30,15 @@ texture_pressed = ExtResource("5_gb3gd")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Cajera" type="Sprite2D" parent="."]
-position = Vector2(842, 391.00003)
-scale = Vector2(1.775, 1.775)
-texture = ExtResource("2_rmgqd")
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_gb3gd")
+
+[node name="npc_cajera" parent="." instance=ExtResource("6_gb3gd")]
+position = Vector2(878, 420)
+scale = Vector2(1.655, 1.655)
 
 [node name="Luther" parent="." instance=ExtResource("3_vpad3")]
 position = Vector2(102, 614)
 scale = Vector2(6.02, 6.02)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_gb3gd")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
