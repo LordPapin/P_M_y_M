@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxpnoosd4sj13"]
+[gd_scene load_steps=11 format=3 uid="uid://cxpnoosd4sj13"]
 
 [ext_resource type="Script" uid="uid://ckqit3okxj852" path="res://scenas/nivel_5/muelle.gd" id="1_befke"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
 [ext_resource type="Texture2D" uid="uid://cifl1o4b8qphe" path="res://assets/nivel_5/Muelle_21.png" id="2_priya"]
-[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_priya"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
 [ext_resource type="PackedScene" uid="uid://br68qrsnqy0yj" path="res://scenas/personajes/npc_pescador.tscn" id="5_el811"]
 [ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="6_qj2we"]
@@ -30,9 +29,6 @@ scale = Vector2(2.016423, 2.016423)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_befke")
-
-[node name="boton_escenarios" parent="." instance=ExtResource("3_priya")]
-visible = false
 
 [node name="InventoryUI" parent="." instance=ExtResource("4_da1rf")]
 

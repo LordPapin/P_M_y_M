@@ -2,12 +2,16 @@
 
 if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_no_conversado":
 	Pescador: ¿Qué miras? ¿Tengo cara de cerveza?
-	do NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_sin_info_conversado"
+	#aca verifica o cambia el estado
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_sin_info_conversado" 
 	=> END
 	
 if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_conversado":
 	Pescador: Lo que daría por una buena cerveza.
 	Pescador: En cambio, tengo a este acosador verde al lado mío.
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_con_info_no_conversado"
+	=> END 
+	#aca ´pide el minijuego 3
 
 if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_con_info_no_conversado":
 	Pescador: ¿Qué quieres?
@@ -21,6 +25,18 @@ if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_con_info_conversad
 	Pescador: ¿De nuevo?
 	Pescador: ¿Y sin cerveza?
 	Pescador: No puedo hablar si se me secan los labios.
+	
+	
+	if Inventory.tiene_item("cerveza")
+		- [Darle la cerveza]
+			Luther: Toma. Espero que esto suelte tu lengua.
+			do Inventory.eliminar_item("cerveza")
+			do NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_sin_ayuda_no_conversado"
+			=> END
+		- [No darle nada]
+			=> END
+	else:
+		=> END
 
 if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_sin_info":
 	Pescador: Hey, Bob... HIP...
@@ -43,9 +59,12 @@ if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_sin_ayu
 if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_sin_ayuda_conversado":
 	Pescador: Estoy muy borra-HIP-cho para pescar.
 	Pescador: ¿Puedes ayudarme?
+	do NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
+	=> END
+	
 
 if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_con_info_con_ayuda":
-	Pescador: Muchas gra-HIP-cias por los peces, detective. Te debo un favor.
+	Pescador: Muchas gra-HIP-cias, detective. Te debo un favor.
 	Luther: Entonces hablemos del banco.
 	Luther: ¿"LDP" te suena de algo?
 	Pescador: Sí...

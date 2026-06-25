@@ -12,3 +12,7 @@ func _on_tienda_pressed() -> void:
 	print(distancia)
 	if distancia <900:
 		get_tree().change_scene_to_file("res://scenas/nivel_5/tienda_muelle.tscn")
+		
+func visible():
+	$npc_pescador.visible = true
+	pass

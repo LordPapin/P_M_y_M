@@ -1,5 +1,10 @@
 extends Node2D
 @onready var minijuego2 = preload("res://scenas/eventos_twitchs/evento_twitch_2.tscn")
+
+
+func _ready() -> void:
+	$moscas.play("default")
+	pass
 func instance():
 	var minijuego = minijuego2.instantiate()
 	get_tree().paused = true
@@ -23,3 +28,4 @@ func _on_salida_bar_pressed() -> void:
 	print(distancia)
 	if distancia < 220:
 		get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
+		

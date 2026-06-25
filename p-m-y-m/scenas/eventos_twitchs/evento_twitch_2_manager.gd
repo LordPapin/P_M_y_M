@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var luther = $Luther
 
+@onready var npc_laucha: StaticBody2D = $NpcLaucha
+@onready var npc_mapache: StaticBody2D = $NpcMapache
 
 @onready var grafiti1 = $Grafitis/grafiti1
 @onready var grafiti2 = $Grafitis/grafiti2
@@ -94,8 +96,15 @@ func _on_finalizar() -> void:
 	luther.cambiar_estado("aliviado")
 	print("MINIJUEGO SUPERADO")
 	DialogueManager.show_dialogue_balloon(dialogo)
+	await DialogueManager.dialogue_ended
 	get_tree().call_group("nivel_3","quitar_pausa")
-	await get_tree().create_timer(0.7).timeout
+	#await get_tree().create_timer(0.7).timeout
+	if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_no_conversado":
+		NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_con_info_no_conversado"
+	if NPCstates.npcs["npc_pescador"]["current_state"] == "sobrio_sin_info_conversado":
+		NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_con_info_conversado"
+	if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_sin_info":
+		NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
 	eliminar()
 
 

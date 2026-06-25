@@ -46,3 +46,31 @@ func consume_item(item_id: String) -> bool:
 			
 	print("FRACASO: El inventario recorrió los 4 slots y no encontró coincidencia.")
 	return false
+# 1. Función para saber si el jugador tiene el ítem
+func tiene_item(item_id: String) -> bool:
+	for i in range(MAX_SLOTS):
+		# Verificamos que el slot no esté vacío Y que el ID coincida
+		if items[i] != null and items[i].id == item_id:
+			return true
+	
+	return false # Si revisa todo y no lo encuentra, devuelve falso
+
+# 2. Tu función consume_item adaptada para llamarse eliminar_item
+func eliminar_item(item_id: String) -> bool:
+	print("=== INTENTANDO CONSUMIR ===")
+	print("El NPC busca el ID exacto: '", item_id, "'")
+	
+	for i in range(MAX_SLOTS):
+		if items[i] != null:
+			print("En el slot ", i, " el inventario tiene: '", items[i].id, "'")
+			
+			if items[i].id == item_id:
+				items[i] = null 
+				inventory_updated.emit() 
+				print("¡ÉXITO! ID coincidente. Ítem borrado.")
+				return true 
+		else:
+			print("Slot ", i, " está vacío.")
+			
+	print("FRACASO: El inventario recorrió los 5 slots y no encontró coincidencia.")
+	return false

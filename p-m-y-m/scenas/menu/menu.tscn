@@ -8,7 +8,8 @@
 script = ExtResource("1_jnsrb")
 
 [node name="Menu" type="Sprite2D" parent="."]
-position = Vector2(641.5, 364.5)
+position = Vector2(640.25, 361.75)
+scale = Vector2(1.0019531, 1.0076389)
 texture = ExtResource("2_jnsrb")
 
 [node name="jugar" type="Button" parent="."]

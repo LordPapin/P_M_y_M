@@ -8,5 +8,5 @@ func _on_salir_button_down() -> void:
 
 
 func _on_jugar_button_down() -> void:
-	get_tree().change_scene_to_file("res://scenas/nivel_1/nivel_1.tscn")
+	get_tree().change_scene_to_file("res://scenas/intro/intro.tscn")
 	pass # Replace with function body.

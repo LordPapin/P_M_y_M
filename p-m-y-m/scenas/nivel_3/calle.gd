@@ -13,7 +13,7 @@ func _on_callejon_btn_pressed() -> void:
 	var distancia : int = $Luther.global_position.distance_to($callejon_btn.global_position)
 	print(distancia)
 	if distancia < 400:
-		get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
+		get_tree().change_scene_to_file("res://scenas/nivel_4/callejon.tscn")
 
 
 func _on_muelle_btn_pressed() -> void:
