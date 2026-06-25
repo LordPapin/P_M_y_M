@@ -37,6 +37,7 @@ position = Vector2(790, -9)
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
 [node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
+visible = false
 
 [node name="tablero" type="Area2D" parent="."]
 position = Vector2(363, 349)
