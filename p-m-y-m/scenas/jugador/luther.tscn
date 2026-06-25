@@ -264,6 +264,6 @@ texture = ExtResource("6_hg65m")
 shape = SubResource("RectangleShape2D_t0yjg")
 
 [node name="pointers" parent="." instance=ExtResource("9_dsp73")]
-scale = Vector2(1, 1)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="area_entered" from="Lengua/PuntaLengua/Area2D" to="." method="_on_area_2d_area_entered"]

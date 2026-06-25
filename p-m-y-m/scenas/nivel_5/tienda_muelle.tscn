@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwrifr01vxc48"]
+
+[ext_resource type="Script" uid="uid://cyprr8xxq1ul5" path="res://scenas/nivel_5/tienda_muelle.gd" id="1_0rxv8"]
+[ext_resource type="Texture2D" uid="uid://m4nobn5vac0s" path="res://assets/nivel_5/tienda_muelle.png" id="2_0uoil"]
+[ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="3_1hc7j"]
+[ext_resource type="Texture2D" uid="uid://d2x4832kj06wg" path="res://assets/botones/flecha_der2.png" id="4_ljpcq"]
+[ext_resource type="PackedScene" uid="uid://cb1y6h6vo8ory" path="res://scenas/punteros/punteros.tscn" id="5_0uoil"]
+
+[node name="tienda muelle" type="Node2D"]
+script = ExtResource("1_0rxv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639, 360)
+texture = ExtResource("2_0uoil")
+
+[node name="salida_muelle" type="TextureButton" parent="."]
+offset_left = 1076.0
+offset_top = 307.0
+offset_right = 1116.0
+offset_bottom = 347.0
+scale = Vector2(3.6324153, 3.6324153)
+texture_normal = ExtResource("3_1hc7j")
+texture_pressed = ExtResource("4_ljpcq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="pointers" parent="." instance=ExtResource("5_0uoil")]
+
+[connection signal="pressed" from="salida_muelle" to="." method="_on_salida_muelle_pressed"]

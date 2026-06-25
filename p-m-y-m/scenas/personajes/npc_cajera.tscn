@@ -1,45 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnl385y7lqi5l"]
+[gd_scene load_steps=7 format=3 uid="uid://dnl385y7lqi5l"]
 
 [ext_resource type="Script" uid="uid://cubgnoiiaw83s" path="res://scenas/personajes/npc_cajera.gd" id="1_dboq0"]
-[ext_resource type="Texture2D" uid="uid://bqc7ga7csrret" path="res://assets/nivel_2/npc_barman-Sheet.png" id="2_oxn2g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kqd4"]
-atlas = ExtResource("2_oxn2g")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cx1lb"]
-atlas = ExtResource("2_oxn2g")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jpmdd"]
-atlas = ExtResource("2_oxn2g")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4o1va"]
-atlas = ExtResource("2_oxn2g")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdems"]
-atlas = ExtResource("2_oxn2g")
-region = Rect2(400, 0, 100, 100)
+[ext_resource type="Texture2D" uid="uid://chcdcqyptbot7" path="res://assets/npc/cajerax2.png" id="2_dboq0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_woddq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1kqd4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cx1lb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jpmdd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4o1va")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdems")
+"texture": ExtResource("2_dboq0")
 }],
 "loop": true,
 "name": &"idle",
@@ -47,10 +15,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
-size = Vector2(102, 134)
+size = Vector2(145.5, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
-size = Vector2(194, 168)
+size = Vector2(187, 168)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
 radius = 90.824005
@@ -66,7 +34,7 @@ frame_progress = 0.34593257
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="area clickeable" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3.5, 3.5)
+position = Vector2(-18.25, 3.5)
 shape = SubResource("RectangleShape2D_34iv8")
 
 [node name="cuerpo físico" type="CollisionShape2D" parent="."]
@@ -76,7 +44,7 @@ shape = SubResource("RectangleShape2D_34iv8")
 [node name="cercanía de conv" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cercanía de conv"]
-position = Vector2(0, 1)
+position = Vector2(3.5, 1)
 shape = SubResource("RectangleShape2D_m6nua")
 
 [node name="Area2D2" type="Area2D" parent="."]

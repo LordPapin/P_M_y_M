@@ -5,7 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		get_tree().call_group("nivel_3", "instance")
-	pass # Replace with function body.
+	pass 
 
 func quitar_pausa():
 	queue_free()
