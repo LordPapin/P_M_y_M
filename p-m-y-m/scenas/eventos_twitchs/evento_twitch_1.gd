@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var puntuacion = 0
-var max_billetes = 5
+var max_billetes = 2
 @onready var timer_castigo = $TimerCastigo
 @onready var mi_npc = $NPC
 @onready var cursor = get_tree().get_first_node_in_group("cursor")

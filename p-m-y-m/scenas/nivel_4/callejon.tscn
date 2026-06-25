@@ -2,31 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="1_0iobx"]
 [ext_resource type="Script" uid="uid://4jyj2sa3cdl7" path="res://scenas/nivel_4/callejon.gd" id="1_rm82d"]
-[ext_resource type="Texture2D" uid="uid://cy1qgakblt15m" path="res://assets/nivel_4/npc_laucha.png" id="2_0f57m"]
-[ext_resource type="Texture2D" uid="uid://biujodytic2ed" path="res://assets/nivel_4/npc_mapache.png" id="3_aufdi"]
 [ext_resource type="Texture2D" uid="uid://c5cibh4ntkj3t" path="res://assets/nivel_4/Bolsas_d_basura.png" id="4_0jrpg"]
 [ext_resource type="Texture2D" uid="uid://c4135hp1yp141" path="res://assets/nivel_4/basuratirada.png" id="5_rm82d"]
 [ext_resource type="Texture2D" uid="uid://c7bcc1xyoetrl" path="res://assets/nivel_4/bote_de_basura.png" id="6_h7pse"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="7_4o0vk"]
-[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="8_aufdi"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="9_0jrpg"]
 [ext_resource type="Script" uid="uid://bki2fgxwyl1v4" path="res://scenas/nivel_4/area_2d.gd" id="10_0jrpg"]
 [ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="12_h7pse"]
+[ext_resource type="Texture2D" uid="uid://l3p2skoeilv0" path="res://scenas/objetos/moscas-Sheet.png" id="13_4o0vk"]
 [ext_resource type="Texture2D" uid="uid://bvg6sxr5y5icf" path="res://assets/botones/flecha_izq.png" id="13_t57pb"]
 [ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="14_j54c3"]
-[ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="15_f4awm"]
-[ext_resource type="Texture2D" uid="uid://d2x4832kj06wg" path="res://assets/botones/flecha_der2.png" id="16_dppi0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
 vertices = PackedVector2Array(2651.1016, 483.97656, 2652.8906, 653, 21.359375, 654.9922, 27.640625, 480.0078)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 11, 665, 2663, 663, 2661, 474, 224, 479)])
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4gqp"]
-size = Vector2(42.5, 90)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqef"]
-size = Vector2(60.00003, 82.33334)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dppi0"]
+size = Vector2(61, 58.666656)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57pb"]
 size = Vector2(169.5, 81)
@@ -37,14 +30,54 @@ size = Vector2(72.66667, 22.666672)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4awm"]
 size = Vector2(53.33333, 65.33331)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dppi0"]
-size = Vector2(61, 58.666656)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpm0r"]
 size = Vector2(70.5, 78.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm82d"]
-size = Vector2(122, 54)
+size = Vector2(122, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4gqp"]
+atlas = ExtResource("13_4o0vk")
+region = Rect2(0, 0, 50, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uqef"]
+atlas = ExtResource("13_4o0vk")
+region = Rect2(50, 0, 50, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t57pb"]
+atlas = ExtResource("13_4o0vk")
+region = Rect2(100, 0, 50, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j54c3"]
+atlas = ExtResource("13_4o0vk")
+region = Rect2(150, 0, 50, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4awm"]
+atlas = ExtResource("13_4o0vk")
+region = Rect2(200, 0, 50, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dppi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4gqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uqef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t57pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j54c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4awm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="callejon" type="Node2D" groups=["nivel_3"]]
 script = ExtResource("1_rm82d")
@@ -58,45 +91,35 @@ texture = ExtResource("1_0iobx")
 position = Vector2(-4, 56)
 navigation_polygon = SubResource("NavigationPolygon_wtw07")
 
-[node name="NpcLaucha" type="StaticBody2D" parent="."]
-position = Vector2(2319, 401)
-scale = Vector2(2, 2)
+[node name="BoteDeBasura4" type="StaticBody2D" parent="."]
+position = Vector2(1962.0001, 437)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLaucha"]
-position = Vector2(-2, 39.5)
-shape = SubResource("RectangleShape2D_x4gqp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura4"]
+position = Vector2(19.333334, 24.000011)
+shape = SubResource("RectangleShape2D_dppi0")
 
-[node name="Sprite2D" type="Sprite2D" parent="NpcLaucha"]
-position = Vector2(2, 43)
-texture = ExtResource("2_0f57m")
-
-[node name="NpcMapache" type="StaticBody2D" parent="."]
-position = Vector2(2516, 382.00003)
-scale = Vector2(3, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcMapache"]
-position = Vector2(2.0000203, 19.333328)
-shape = SubResource("RectangleShape2D_8uqef")
-
-[node name="Sprite2D" type="Sprite2D" parent="NpcMapache"]
-position = Vector2(6.3333335, 24.333324)
-texture = ExtResource("3_aufdi")
+[node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura4"]
+position = Vector2(6, 34)
+texture = ExtResource("6_h7pse")
 
 [node name="BolsasDBasura" type="StaticBody2D" parent="."]
 position = Vector2(1895, 424)
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BolsasDBasura"]
-position = Vector2(15.5, 10.5)
+position = Vector2(94.5, 98.5)
 shape = SubResource("RectangleShape2D_t57pb")
 
 [node name="Sprite2D" type="Sprite2D" parent="BolsasDBasura"]
-position = Vector2(8.5, 21.5)
+position = Vector2(91, 84.5)
 texture = ExtResource("4_0jrpg")
 
 [node name="Basuratirada" type="StaticBody2D" parent="."]
 position = Vector2(1127, 587)
 scale = Vector2(3, 3)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
 position = Vector2(8, 23.333328)
@@ -119,8 +142,9 @@ position = Vector2(0, 41.333336)
 texture = ExtResource("6_h7pse")
 
 [node name="BoteDeBasura2" type="StaticBody2D" parent="."]
-position = Vector2(291, 398)
+position = Vector2(297, 395)
 scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura2"]
 position = Vector2(19.333334, 24.000011)
@@ -153,36 +177,13 @@ texture_pressed = ExtResource("14_j54c3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="salida bar" type="TextureButton" parent="."]
-offset_left = 2107.0
-offset_top = 481.99997
-offset_right = 2147.0
-offset_bottom = 522.0
-scale = Vector2(2.8041239, 2.8041239)
-texture_normal = ExtResource("15_f4awm")
-texture_pressed = ExtResource("16_dppi0")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("7_4o0vk")]
-position = Vector2(370, 652)
-scale = Vector2(6, 6)
-
-[node name="Camera2D" type="Camera2D" parent="Luther"]
-limit_left = 0
-limit_top = 0
-limit_right = 2667
-limit_bottom = 720
-
-[node name="boton_escenarios" parent="." instance=ExtResource("8_aufdi")]
-
 [node name="InventoryUI" parent="." instance=ExtResource("9_0jrpg")]
 
 [node name="Area2D" type="Area2D" parent="." groups=["nivel_3"]]
 script = ExtResource("10_0jrpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1652, 569)
+position = Vector2(1864, 617)
 shape = SubResource("RectangleShape2D_rm82d")
 
 [node name="banana" parent="." instance=ExtResource("12_h7pse")]
@@ -193,7 +194,20 @@ scale = Vector2(2, 2)
 position = Vector2(1411, 592)
 scale = Vector2(2, 2)
 
+[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("7_4o0vk")]
+position = Vector2(486, 681)
+scale = Vector2(6, 6)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_top = 0
+limit_right = 2667
+limit_bottom = 720
+
+[node name="moscas" type="AnimatedSprite2D" parent="."]
+position = Vector2(1989, 381)
+sprite_frames = SubResource("SpriteFrames_dppi0")
+
 [connection signal="pressed" from="salida calle" to="." method="_on_salida_calle_pressed"]
-[connection signal="pressed" from="salida bar" to="." method="_on_salida_bar_pressed"]
-[connection signal="body_entered" from="Area2D" to="Luther" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Luther" method="_on_area_2d_body_entered"]

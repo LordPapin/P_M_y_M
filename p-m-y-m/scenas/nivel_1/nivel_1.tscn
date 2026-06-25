@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=14 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="Script" uid="uid://j45vaai7h6re" path="res://scenas/nivel_1/nivel_1.gd" id="1_tq52u"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
 [ext_resource type="PackedScene" uid="uid://byn1xfqscpaqn" path="res://scenas/nivel_1/ayudante.tscn" id="2_s7pnb"]
-[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_p6foy"]
 [ext_resource type="PackedScene" uid="uid://culg6816a4j1e" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
 [ext_resource type="Texture2D" uid="uid://cih0411mg17m4" path="res://assets/nivel_1/tablero.png" id="5_och76"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_och76"]
@@ -39,9 +38,6 @@ position = Vector2(1660, 427)
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
 position = Vector2(790, -9)
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
-
-[node name="boton_escenarios" parent="." instance=ExtResource("3_p6foy")]
-visible = false
 
 [node name="tablero" type="Area2D" parent="."]
 position = Vector2(363, 349)

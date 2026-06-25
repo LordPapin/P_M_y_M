@@ -136,7 +136,7 @@ texture = ExtResource("2_se7m7")
 position = Vector2(300, 400)
 
 [node name="Messi1" type="Sprite2D" parent="Grafitis/grafiti1"]
-position = Vector2(-186, -81.99997)
+position = Vector2(-29.999998, -85)
 scale = Vector2(1.8217391, 1.8217391)
 texture = ExtResource("3_nost8")
 
@@ -144,7 +144,7 @@ texture = ExtResource("3_nost8")
 position = Vector2(600, 400)
 
 [node name="Grafiti12" type="Sprite2D" parent="Grafitis/grafiti2"]
-position = Vector2(-136.99997, -81)
+position = Vector2(-17.999985, -69)
 scale = Vector2(1.8090909, 1.8090909)
 texture = ExtResource("4_8v3t1")
 
@@ -152,7 +152,7 @@ texture = ExtResource("4_8v3t1")
 position = Vector2(900, 400)
 
 [node name="Grafiti3" type="Sprite2D" parent="Grafitis/grafiti3"]
-position = Vector2(-220, -75)
+position = Vector2(-17, -71)
 scale = Vector2(1.9090909, 1.9090909)
 texture = ExtResource("5_7v56u")
 
@@ -200,6 +200,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="pantalla_reintentar"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

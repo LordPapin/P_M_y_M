@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://28551t5u55wj"]
+[gd_scene load_steps=15 format=3 uid="uid://28551t5u55wj"]
 
 [ext_resource type="Script" uid="uid://btyqjhwmwv4p" path="res://scenas/nivel_2/nivel_2.gd" id="1_uik70"]
 [ext_resource type="Texture2D" uid="uid://dq5j5kspmr3si" path="res://assets/nivel_2/bar_escene2-export.png" id="2_1dr2i"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_e64c6"]
-[ext_resource type="PackedScene" uid="uid://le27n0xf4g4n" path="res://boton_escenarios.tscn" id="3_0ls8r"]
 [ext_resource type="Texture2D" uid="uid://bnf730ujhp87q" path="res://assets/nivel_2/asiento.png" id="3_oa34d"]
 [ext_resource type="PackedScene" uid="uid://3y6wtihriuw4" path="res://scenas/personajes/npc_barman.tscn" id="3_sbju3"]
 [ext_resource type="PackedScene" uid="uid://dpjyj6b00reey" path="res://scenas/personajes/npc_1.tscn" id="4_mg47c"]
@@ -44,32 +43,32 @@ offset_bottom = 578.0
 texture_normal = ExtResource("13_xk80i")
 texture_pressed = ExtResource("14_rm7di")
 
-[node name="asientos" type="Node" parent="."]
-
-[node name="Asiento" type="Sprite2D" parent="asientos"]
+[node name="Asiento" type="Sprite2D" parent="."]
 position = Vector2(687.00006, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
-[node name="Asiento2" type="Sprite2D" parent="asientos"]
+[node name="Asiento2" type="Sprite2D" parent="."]
 position = Vector2(952, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
-[node name="Asiento3" type="Sprite2D" parent="asientos"]
+[node name="Asiento3" type="Sprite2D" parent="."]
 position = Vector2(1318, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
-[node name="Asiento4" type="Sprite2D" parent="asientos"]
+[node name="Asiento4" type="Sprite2D" parent="."]
 position = Vector2(1881, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
-[node name="Asiento5" type="Sprite2D" parent="asientos"]
+[node name="Asiento5" type="Sprite2D" parent="."]
 position = Vector2(2322, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
+
+[node name="asientos" type="Node" parent="."]
 
 [node name="banana" parent="." instance=ExtResource("8_sbju3")]
 position = Vector2(1196, 652)
@@ -78,8 +77,6 @@ scale = Vector2(2, 2)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(29, 70)
 navigation_polygon = SubResource("NavigationPolygon_e64c6")
-
-[node name="boton_escenarios" parent="." instance=ExtResource("3_0ls8r")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_48d3o")]
 
@@ -91,10 +88,6 @@ scale = Vector2(2, 2)
 position = Vector2(1540, 256)
 scale = Vector2(3, 3)
 
-[node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
-position = Vector2(2725, 544)
-scale = Vector2(2, 2)
-
 [node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_e64c6")]
 position = Vector2(384, 675)
 scale = Vector2(7, 7)
@@ -104,6 +97,10 @@ limit_left = 0
 limit_top = 0
 limit_right = 2877
 limit_bottom = 720
+
+[node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
+position = Vector2(2478, 540)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="puerta entrada" to="." method="_on_puerta_entrada_pressed"]
 [connection signal="pressed" from="puerta salida" to="." method="_on_puerta_salida_pressed"]

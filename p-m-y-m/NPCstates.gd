@@ -45,5 +45,12 @@ var npcs = {
 			"borracho_con_info_con_ayuda": {},
 			"ya_conversado": {}
 				}
+			},
+			"npc_cajera": {
+		"current_state" : "no_interactuado",
+		"states": {
+			"no_interactuado" : {"location" : "bar"},
+			"interactuado" : {"location" : "bar"}
+				}
 			}
 }
