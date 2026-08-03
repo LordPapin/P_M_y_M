@@ -27,13 +27,10 @@ func disparar_lengua(target_pos):
 	
 	
 	var tween = create_tween()
-	
 	tween.tween_property(punta,"global_position",target_pos,0.2).set_trans(Tween.TRANS_SINE)\
 	.set_ease(Tween.EASE_OUT)
-	
 	tween.tween_property(punta, "global_position", boca.global_position, 0.2)\
 	.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	
 	tween.tween_callback(anim_lengua_finalizada) 
 	#aca es cuando termina la animacion llama a la otra funcion
  
