@@ -24,17 +24,17 @@ size = Vector2(61, 58.666656)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57pb"]
 size = Vector2(169.5, 81)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j54c3"]
-size = Vector2(72.66667, 22.666672)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4awm"]
 size = Vector2(53.33333, 65.33331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpm0r"]
-size = Vector2(70.5, 78.5)
+size = Vector2(69.25, 75.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm82d"]
 size = Vector2(122, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j54c3"]
+size = Vector2(63.33333, 7.666667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4gqp"]
 atlas = ExtResource("13_4o0vk")
@@ -116,19 +116,6 @@ shape = SubResource("RectangleShape2D_t57pb")
 position = Vector2(91, 84.5)
 texture = ExtResource("4_0jrpg")
 
-[node name="Basuratirada" type="StaticBody2D" parent="."]
-position = Vector2(1127, 587)
-scale = Vector2(3, 3)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
-position = Vector2(8, 23.333328)
-shape = SubResource("RectangleShape2D_j54c3")
-
-[node name="Sprite2D" type="Sprite2D" parent="Basuratirada"]
-position = Vector2(8.666667, 23)
-texture = ExtResource("5_rm82d")
-
 [node name="BoteDeBasura" type="StaticBody2D" parent="."]
 position = Vector2(118, 394)
 scale = Vector2(1.5, 1.5)
@@ -159,7 +146,7 @@ position = Vector2(193, 439)
 scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoteDeBasura3"]
-position = Vector2(14, 26)
+position = Vector2(13.375, 24.375)
 shape = SubResource("RectangleShape2D_hpm0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoteDeBasura3"]
@@ -203,6 +190,19 @@ limit_left = 0
 limit_top = 0
 limit_right = 2667
 limit_bottom = 720
+
+[node name="Basuratirada" type="StaticBody2D" parent="."]
+position = Vector2(1127, 587)
+scale = Vector2(3, 3)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
+position = Vector2(7.6666565, 30.833328)
+shape = SubResource("RectangleShape2D_j54c3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basuratirada"]
+position = Vector2(8.666667, 23)
+texture = ExtResource("5_rm82d")
 
 [node name="moscas" type="AnimatedSprite2D" parent="."]
 position = Vector2(1989, 381)
