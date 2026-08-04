@@ -223,7 +223,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3t8w"]
-size = Vector2(21, 16.5)
+size = Vector2(18.75, 6.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0yjg"]
 size = Vector2(12.235293, 14.000008)
@@ -239,7 +239,7 @@ sprite_frames = SubResource("SpriteFrames_tbgj0")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -8.75)
+position = Vector2(0.125, -3.625)
 shape = SubResource("RectangleShape2D_d3t8w")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
