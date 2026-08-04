@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://28551t5u55wj"]
+[gd_scene load_steps=17 format=3 uid="uid://28551t5u55wj"]
 
 [ext_resource type="Script" uid="uid://btyqjhwmwv4p" path="res://scenas/nivel_2/nivel_2.gd" id="1_uik70"]
 [ext_resource type="Texture2D" uid="uid://dq5j5kspmr3si" path="res://assets/nivel_2/bar_escene2-export.png" id="2_1dr2i"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bnf730ujhp87q" path="res://assets/nivel_2/asiento.png" id="3_oa34d"]
 [ext_resource type="PackedScene" uid="uid://3y6wtihriuw4" path="res://scenas/personajes/npc_barman.tscn" id="3_sbju3"]
 [ext_resource type="PackedScene" uid="uid://dpjyj6b00reey" path="res://scenas/personajes/npc_1.tscn" id="4_mg47c"]
+[ext_resource type="Texture2D" uid="uid://5nuxav1q3a5r" path="res://assets/nivel_2/puerta111.png" id="5_1dr2i"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_48d3o"]
+[ext_resource type="Texture2D" uid="uid://bpsi7d3ri3rgv" path="res://assets/nivel_2/puerta222.png" id="8_oa34d"]
 [ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="8_sbju3"]
 [ext_resource type="PackedScene" uid="uid://be3jshksqnkxs" path="res://scenas/objetos/cerbeza.tscn" id="9_ret4i"]
 [ext_resource type="Texture2D" uid="uid://rnsx671l56oe" path="res://assets/nivel_2/puerta1.png" id="11_30s1o"]
@@ -34,6 +36,7 @@ offset_right = 402.0
 offset_bottom = 575.0
 texture_normal = ExtResource("11_30s1o")
 texture_pressed = ExtResource("12_fs502")
+texture_hover = ExtResource("5_1dr2i")
 
 [node name="puerta salida" type="TextureButton" parent="."]
 offset_left = 2640.0
@@ -42,6 +45,7 @@ offset_right = 3140.0
 offset_bottom = 578.0
 texture_normal = ExtResource("13_xk80i")
 texture_pressed = ExtResource("14_rm7di")
+texture_hover = ExtResource("8_oa34d")
 
 [node name="Asiento" type="Sprite2D" parent="."]
 position = Vector2(687.00006, 542.00006)

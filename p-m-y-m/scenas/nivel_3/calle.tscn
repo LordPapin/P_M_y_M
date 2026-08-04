@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cof22jy8xrre6" path="res://assets/botones/banco_btn2.png" id="16_x8cbe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
-vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.3828, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2038.3828, 502, 2128.2188, 450.40625, 3292.6172, 501.54688, 2124.2578, 502, 2036.3594, 450.52344)
+vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.3828, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.25, 450.14844, 3292.6172, 501.54688, 2099.4531, 468, 2041.9609, 450.79688)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 9), PackedInt32Array(5, 10, 6), PackedInt32Array(3, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3303, 492, 2119, 440, 2115, 492, 2048, 492, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3303, 492, 2119, 440, 2096, 458, 2065, 458, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
 
 [node name="calle" type="Node2D"]
 script = ExtResource("1_vac77")

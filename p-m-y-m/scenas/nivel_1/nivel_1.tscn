@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=15 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="Script" uid="uid://j45vaai7h6re" path="res://scenas/nivel_1/nivel_1.gd" id="1_tq52u"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
 [ext_resource type="PackedScene" uid="uid://cv7h2lngqyfq" path="res://scenas/objetos/jarron.tscn" id="8_867q3"]
 [ext_resource type="Texture2D" uid="uid://4querswbooc7" path="res://assets/nivel_1/puerta oficina1.png" id="10_j0fpl"]
+[ext_resource type="Texture2D" uid="uid://2butkxdvwi4j" path="res://assets/nivel_1/puerta oficina3-export.png" id="11_s7pnb"]
 [ext_resource type="Texture2D" uid="uid://spqqhk4f26xh" path="res://assets/nivel_1/puerta oficina2.png" id="11_tq52u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
@@ -76,6 +77,7 @@ offset_bottom = 231.4044
 scale = Vector2(5.089271, 11.015587)
 texture_normal = ExtResource("10_j0fpl")
 texture_pressed = ExtResource("11_tq52u")
+texture_hover = ExtResource("11_s7pnb")
 ignore_texture_size = true
 stretch_mode = 0
 

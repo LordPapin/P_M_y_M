@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqgg8syvntfy8"]
+[gd_scene load_steps=10 format=3 uid="uid://cqgg8syvntfy8"]
 
 [ext_resource type="Script" uid="uid://b18d00iy0151x" path="res://scenas/nivel_6/banco.gd" id="1_08kfc"]
 [ext_resource type="Texture2D" uid="uid://dunb18r0t85li" path="res://assets/nivel_6/banco (2).png" id="1_tyf7j"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_p30yp"]
 [ext_resource type="Texture2D" uid="uid://cmmb7mnjgi5qh" path="res://assets/nivel_6/puerta_banco1.png" id="4_v6pe2"]
 [ext_resource type="Texture2D" uid="uid://bvg6sxr5y5icf" path="res://assets/botones/flecha_izq.png" id="5_7mj4j"]
+[ext_resource type="Texture2D" uid="uid://djtl5s2hxk0n3" path="res://assets/nivel_6/puerta_banco3.png" id="5_meg7h"]
 [ext_resource type="Texture2D" uid="uid://bno37hkh75ama" path="res://assets/nivel_6/puerta_banco2.png" id="5_ms0t8"]
 [ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="6_meg7h"]
 
@@ -31,6 +32,7 @@ offset_right = 862.0
 offset_bottom = 497.0
 texture_normal = ExtResource("4_v6pe2")
 texture_pressed = ExtResource("5_ms0t8")
+texture_hover = ExtResource("5_meg7h")
 ignore_texture_size = true
 stretch_mode = 0
 
