@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rcep0w1chc6m"]
+[gd_scene load_steps=13 format=3 uid="uid://rcep0w1chc6m"]
 
 [ext_resource type="Script" uid="uid://crudbren0iinv" path="res://scenas/intro/intro.gd" id="1_exu88"]
 [ext_resource type="Texture2D" uid="uid://drb6kyfh4i8s5" path="res://assets/intro/intro_1.png" id="2_3f2k2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bi7r1urcuf0h7" path="res://assets/intro/intro_3.png" id="6_u57ct"]
 [ext_resource type="Texture2D" uid="uid://b8svw47366edu" path="res://assets/intro/intro_4.png" id="7_p8v21"]
 [ext_resource type="Texture2D" uid="uid://bwi2mi5tethqm" path="res://assets/intro/intro_9.png" id="8_b35o2"]
+[ext_resource type="Texture2D" uid="uid://66ye4sy86sqk" path="res://assets/botones/flecha_der3.png" id="11_u57ct"]
 
 [node name="intro" type="Control"]
 layout_mode = 3
@@ -59,6 +60,7 @@ offset_right = 1225.0
 offset_bottom = 441.0
 texture_normal = ExtResource("2_oui6q")
 texture_pressed = ExtResource("3_kwbai")
+texture_hover = ExtResource("11_u57ct")
 ignore_texture_size = true
 stretch_mode = 0
 
