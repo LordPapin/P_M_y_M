@@ -11,8 +11,6 @@ var animacion_forzada : String = ""
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_set_estado(estado_actual)
-	print(anim)
-	print("ready")
 
 func _process(delta: float):
 	global_position = get_global_mouse_position()
@@ -24,7 +22,6 @@ func _input(event):
 		emit_signal("accion_disparada", estado_actual, get_global_mouse_position(), obj_debajo_mouse)
 
 func _set_estado(nuevo_estado : EstadoPuntero):
-	print("CAMBIO A:", nuevo_estado)
 	estado_actual = nuevo_estado
 	match estado_actual:
 		EstadoPuntero.CAMINAR:
@@ -40,18 +37,14 @@ func _set_estado(nuevo_estado : EstadoPuntero):
 func _on_mouse_entered(objeto):
 	if bloqueado:
 		return
-	print("ENTRO", objeto.name)
 	obj_debajo_mouse = objeto
 	if objeto.is_in_group("npc"):
 		_set_estado(EstadoPuntero.HABLAR)
-		print("soy hablar")
 	else:
 		_set_estado(EstadoPuntero.LENGUA)
-		print("soy lengua")
 
 func _on_mouse_exited():
 	if bloqueado:
 		return
 	obj_debajo_mouse = null
 	_set_estado(EstadoPuntero.CAMINAR)
-	print("soy caminar")
