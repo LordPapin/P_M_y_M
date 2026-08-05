@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wl5oibbu2ey8"]
+[gd_scene load_steps=16 format=3 uid="uid://wl5oibbu2ey8"]
 
 [ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
 [ext_resource type="Script" uid="uid://j45vaai7h6re" path="res://scenas/nivel_1/nivel_1.gd" id="1_tq52u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4querswbooc7" path="res://assets/nivel_1/puerta oficina1.png" id="10_j0fpl"]
 [ext_resource type="Texture2D" uid="uid://2butkxdvwi4j" path="res://assets/nivel_1/puerta oficina3-export.png" id="11_s7pnb"]
 [ext_resource type="Texture2D" uid="uid://spqqhk4f26xh" path="res://assets/nivel_1/puerta oficina2.png" id="11_tq52u"]
+[ext_resource type="Script" uid="uid://1m8axf1u533w" path="res://scripts puertas/calle_btn.gd" id="12_s7pnb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
 vertices = PackedVector2Array(1556.6719, 712.22656, -430.28906, 718.8828, -84.078125, 499.97656, 985.8906, 622.4922, 678.97656, 496.04688, 673.21875, 555.60156, 1070.3672, 572.78906, 828.90625, 594.78906)
@@ -80,6 +81,7 @@ texture_pressed = ExtResource("11_tq52u")
 texture_hover = ExtResource("11_s7pnb")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("12_s7pnb")
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
 position = Vector2(610, 697)
@@ -91,4 +93,6 @@ limit_top = -3
 limit_right = 3060
 limit_bottom = 717
 
+[connection signal="mouse_entered" from="calle_btn" to="calle_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="calle_btn" to="calle_btn" method="_on_mouse_exited"]
 [connection signal="pressed" from="calle_btn" to="." method="_on_calle_btn_pressed"]

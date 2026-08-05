@@ -40,8 +40,10 @@ func _on_mouse_entered(objeto):
 	obj_debajo_mouse = objeto
 	if objeto.is_in_group("npc"):
 		_set_estado(EstadoPuntero.HABLAR)
-	else:
+	elif objeto.is_in_group("recursos"):
 		_set_estado(EstadoPuntero.LENGUA)
+	else:
+		_set_estado(EstadoPuntero.USAR)
 
 func _on_mouse_exited():
 	if bloqueado:

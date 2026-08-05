@@ -27,13 +27,13 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_epcrr")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwwkk"]
-atlas = ExtResource("2_epcrr")
-region = Rect2(0, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wddvq"]
 atlas = ExtResource("2_epcrr")
 region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwwkk"]
+atlas = ExtResource("2_epcrr")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2t5e"]
 atlas = ExtResource("2_epcrr")
@@ -80,10 +80,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mwwkk")
+"texture": SubResource("AtlasTexture_wddvq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wddvq")
+"texture": SubResource("AtlasTexture_mwwkk")
 }],
 "loop": true,
 "name": &"usar",
@@ -109,4 +109,4 @@ script = ExtResource("1_1o7yo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cpqb7")
-animation = &"walk"
+animation = &"usar"

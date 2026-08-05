@@ -43,4 +43,6 @@ scale = Vector2(1.655, 1.655)
 position = Vector2(102, 614)
 scale = Vector2(6.02, 6.02)
 
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

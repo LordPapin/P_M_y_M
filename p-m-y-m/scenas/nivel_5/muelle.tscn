@@ -68,5 +68,9 @@ limit_top = 0
 limit_right = 4165
 limit_bottom = 720
 
+[connection signal="mouse_entered" from="calle" to="." method="_on_calle_mouse_entered"]
+[connection signal="mouse_exited" from="calle" to="." method="_on_calle_mouse_exited"]
 [connection signal="pressed" from="calle" to="." method="_on_calle_pressed"]
+[connection signal="mouse_entered" from="tienda" to="." method="_on_tienda_mouse_entered"]
+[connection signal="mouse_exited" from="tienda" to="." method="_on_tienda_mouse_exited"]
 [connection signal="pressed" from="tienda" to="." method="_on_tienda_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1t81e71vj413"]
+[gd_scene load_steps=6 format=3 uid="uid://b1t81e71vj413"]
 
 [ext_resource type="Script" uid="uid://blfwxla55x41y" path="res://scenas/menu/menu.gd" id="1_jnsrb"]
 [ext_resource type="Texture2D" uid="uid://dgveh0t0j16qi" path="res://assets/menu/menu_principal.png" id="2_jnsrb"]
 [ext_resource type="FontFile" uid="uid://iywowh7uraxc" path="res://fuentes/HARNGTON.TTF" id="3_1ie7u"]
+[ext_resource type="Script" uid="uid://dtjhlnxtkv2e2" path="res://scripts puertas/jugar.gd" id="4_1ie7u"]
+[ext_resource type="Script" uid="uid://by3kj5e84onch" path="res://scripts puertas/salir.gd" id="5_qclcd"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_jnsrb")
@@ -23,6 +25,7 @@ theme_override_fonts/font = ExtResource("3_1ie7u")
 theme_override_font_sizes/font_size = 45
 text = "jugar"
 flat = true
+script = ExtResource("4_1ie7u")
 
 [node name="salir" type="Button" parent="."]
 offset_left = 237.0
@@ -35,6 +38,11 @@ theme_override_fonts/font = ExtResource("3_1ie7u")
 theme_override_font_sizes/font_size = 45
 text = "salir"
 flat = true
+script = ExtResource("5_qclcd")
 
 [connection signal="button_down" from="jugar" to="." method="_on_jugar_button_down"]
+[connection signal="mouse_entered" from="jugar" to="jugar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="jugar" to="jugar" method="_on_mouse_exited"]
 [connection signal="button_down" from="salir" to="." method="_on_salir_button_down"]
+[connection signal="mouse_entered" from="salir" to="salir" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="salir" to="salir" method="_on_mouse_exited"]
