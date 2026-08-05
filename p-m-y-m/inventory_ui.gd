@@ -38,7 +38,6 @@ func _on_slot_gui_input(event: InputEvent, index: int):
 		
 		# Solo hacemos algo si hay un objeto en ese espacio
 		if Inventory.items[index] != null:
-			print("Sacando objeto del espacio: ", index)
 			
 			# Aquí podrías añadir lógica si quieres soltar el objeto en el mundo de nuevo
 			# ...

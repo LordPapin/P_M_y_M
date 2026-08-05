@@ -29,3 +29,15 @@ func _on_salida_bar_pressed() -> void:
 	if distancia < 220:
 		get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
 		
+
+
+func _on_salida_calle_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_salida_calle_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()

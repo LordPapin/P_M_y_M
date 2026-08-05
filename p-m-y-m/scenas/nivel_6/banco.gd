@@ -13,3 +13,27 @@ func _on_calle_tbn_pressed() -> void:
 	print(distancia)
 	if distancia < 400:
 		get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
+
+
+func _on_puerta_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_puerta_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()
+
+
+func _on_calle_tbn_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_calle_tbn_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()

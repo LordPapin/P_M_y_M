@@ -17,7 +17,6 @@ func _al_tocar_npc(parte):
 	match parte:
 		"billetes":
 			puntuacion += 1
-			print("¡Billetes! Puntos: ", puntuacion)
 			if puntuacion >= max_billetes:
 				ganar_juego()
 		"culo":
@@ -28,7 +27,6 @@ func _al_tocar_npc(parte):
 func _on_timer_castigo_timeout():
 	if puntuacion > 0:
 		puntuacion -= 1
-		print("Penalización por tiempo. Puntos: ", puntuacion)
 
 func derrota(tipo):
 	timer_castigo.stop()
@@ -39,7 +37,6 @@ func derrota(tipo):
 		print("Lengua en el ojo")
 
 func ganar_juego():
-	print("ganaste")
 	emit_signal("minijuego_ganado")
 	NPCstates.npcs["npc1"]["current_state"] = "robado"
 	NPCstates.npcs["npc_barman"]["current_state"] = "con_billetes"

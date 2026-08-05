@@ -16,3 +16,27 @@ func _on_tienda_pressed() -> void:
 func visible():
 	$npc_pescador.visible = true
 	pass
+
+
+func _on_calle_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_calle_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()
+
+
+func _on_tienda_mouse_entered() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_entered(self)
+
+
+func _on_tienda_mouse_exited() -> void:
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	if cursor:
+		cursor._on_mouse_exited()

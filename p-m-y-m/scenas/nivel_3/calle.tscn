@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=22 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="Script" uid="uid://ci3qcaop57vu7" path="res://scenas/nivel_3/calle.gd" id="1_vac77"]
@@ -11,16 +11,20 @@
 [ext_resource type="Texture2D" uid="uid://dmbhyo0adpbs1" path="res://assets/botones/flecha_up.png" id="8_5xu6i"]
 [ext_resource type="Texture2D" uid="uid://cjvwws0dthx8i" path="res://assets/nivel_3/puerta bar afuera1.png" id="8_r25s7"]
 [ext_resource type="Texture2D" uid="uid://d2bnrgvdesjmj" path="res://assets/botones/oficina2.png" id="8_vg3jp"]
+[ext_resource type="Texture2D" uid="uid://dowgsr6sie3kb" path="res://assets/nivel_3/puerta bar afuera3.png" id="9_a152c"]
 [ext_resource type="Texture2D" uid="uid://cj65vi7p31twy" path="res://assets/botones/flecha_up2.png" id="9_vac77"]
 [ext_resource type="Texture2D" uid="uid://bvg6sxr5y5icf" path="res://assets/botones/flecha_izq.png" id="11_ic812"]
 [ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="12_536q0"]
+[ext_resource type="Texture2D" uid="uid://d37f21wl016p3" path="res://assets/botones/flecha_up3.png" id="12_x8cbe"]
 [ext_resource type="Texture2D" uid="uid://c55xxen8qyb1o" path="res://assets/botones/banco_btn.png" id="15_a152c"]
+[ext_resource type="Texture2D" uid="uid://6v7aq1a3fvqa" path="res://assets/botones/flecha_izq3.png" id="15_huow2"]
 [ext_resource type="Texture2D" uid="uid://cof22jy8xrre6" path="res://assets/botones/banco_btn2.png" id="16_x8cbe"]
+[ext_resource type="Texture2D" uid="uid://d34v6s25gdnbo" path="res://assets/botones/banco_btn3.png" id="18_brtqh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
-vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.3828, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2038.3828, 502, 2128.2188, 450.40625, 3292.6172, 501.54688, 2124.2578, 502, 2036.3594, 450.52344)
+vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.3828, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.25, 450.14844, 3292.6172, 501.54688, 2099.4531, 468, 2041.9609, 450.79688)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 9), PackedInt32Array(5, 10, 6), PackedInt32Array(3, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3303, 492, 2119, 440, 2115, 492, 2048, 492, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3303, 492, 2119, 440, 2096, 458, 2065, 458, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
 
 [node name="calle" type="Node2D"]
 script = ExtResource("1_vac77")
@@ -66,8 +70,9 @@ offset_top = 124.0
 offset_right = 3201.6099
 offset_bottom = 510.8971
 scale = Vector2(2.0209656, 0.9640807)
-texture_normal = ExtResource("7_wthiv")
-texture_pressed = ExtResource("8_r25s7")
+texture_normal = ExtResource("8_r25s7")
+texture_pressed = ExtResource("7_wthiv")
+texture_hover = ExtResource("9_a152c")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -79,6 +84,7 @@ offset_bottom = 445.5827
 scale = Vector2(2.0209656, 0.9640807)
 texture_normal = ExtResource("8_5xu6i")
 texture_pressed = ExtResource("9_vac77")
+texture_hover = ExtResource("12_x8cbe")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -89,6 +95,7 @@ offset_right = 149.0
 offset_bottom = 391.0
 texture_normal = ExtResource("11_ic812")
 texture_pressed = ExtResource("12_536q0")
+texture_hover = ExtResource("15_huow2")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -99,6 +106,7 @@ offset_right = 3283.0
 offset_bottom = 708.0
 texture_normal = ExtResource("15_a152c")
 texture_pressed = ExtResource("16_x8cbe")
+texture_hover = ExtResource("18_brtqh")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -112,8 +120,18 @@ texture_pressed = ExtResource("8_vg3jp")
 ignore_texture_size = true
 stretch_mode = 0
 
+[connection signal="mouse_entered" from="puerta_bar" to="." method="_on_puerta_bar_mouse_entered"]
+[connection signal="mouse_exited" from="puerta_bar" to="." method="_on_puerta_bar_mouse_exited"]
 [connection signal="pressed" from="puerta_bar" to="." method="_on_puerta_bar_pressed"]
+[connection signal="mouse_entered" from="callejon_btn" to="." method="_on_callejon_btn_mouse_entered"]
+[connection signal="mouse_exited" from="callejon_btn" to="." method="_on_callejon_btn_mouse_exited"]
 [connection signal="pressed" from="callejon_btn" to="." method="_on_callejon_btn_pressed"]
+[connection signal="mouse_entered" from="muelle_btn" to="." method="_on_muelle_btn_mouse_entered"]
+[connection signal="mouse_exited" from="muelle_btn" to="." method="_on_muelle_btn_mouse_exited"]
 [connection signal="pressed" from="muelle_btn" to="." method="_on_muelle_btn_pressed"]
+[connection signal="mouse_entered" from="banco_tbn" to="." method="_on_banco_tbn_mouse_entered"]
+[connection signal="mouse_exited" from="banco_tbn" to="." method="_on_banco_tbn_mouse_exited"]
 [connection signal="pressed" from="banco_tbn" to="." method="_on_banco_tbn_pressed"]
+[connection signal="mouse_entered" from="oficina_btn" to="." method="_on_oficina_btn_mouse_entered"]
+[connection signal="mouse_exited" from="oficina_btn" to="." method="_on_oficina_btn_mouse_exited"]
 [connection signal="pressed" from="oficina_btn" to="." method="_on_oficina_btn_pressed"]

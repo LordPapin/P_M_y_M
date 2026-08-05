@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjpyjw3ifvkqo"]
+[gd_scene load_steps=27 format=3 uid="uid://bjpyjw3ifvkqo"]
 
 [ext_resource type="Texture2D" uid="uid://b0sdbyh48d2cp" path="res://assets/nivel_4/escenario_minijuego2.png" id="1_0iobx"]
 [ext_resource type="Script" uid="uid://4jyj2sa3cdl7" path="res://scenas/nivel_4/callejon.gd" id="1_rm82d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4135hp1yp141" path="res://assets/nivel_4/basuratirada.png" id="5_rm82d"]
 [ext_resource type="Texture2D" uid="uid://c7bcc1xyoetrl" path="res://assets/nivel_4/bote_de_basura.png" id="6_h7pse"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="7_4o0vk"]
+[ext_resource type="Texture2D" uid="uid://6v7aq1a3fvqa" path="res://assets/botones/flecha_izq3.png" id="7_x4gqp"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="9_0jrpg"]
 [ext_resource type="Script" uid="uid://bki2fgxwyl1v4" path="res://scenas/nivel_4/area_2d.gd" id="10_0jrpg"]
 [ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="12_h7pse"]
@@ -161,6 +162,7 @@ offset_bottom = 516.0
 scale = Vector2(2.8041239, 2.8041239)
 texture_normal = ExtResource("13_t57pb")
 texture_pressed = ExtResource("14_j54c3")
+texture_hover = ExtResource("7_x4gqp")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -208,6 +210,8 @@ texture = ExtResource("5_rm82d")
 position = Vector2(1989, 381)
 sprite_frames = SubResource("SpriteFrames_dppi0")
 
+[connection signal="mouse_entered" from="salida calle" to="." method="_on_salida_calle_mouse_entered"]
+[connection signal="mouse_exited" from="salida calle" to="." method="_on_salida_calle_mouse_exited"]
 [connection signal="pressed" from="salida calle" to="." method="_on_salida_calle_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Luther" method="_on_area_2d_body_entered"]

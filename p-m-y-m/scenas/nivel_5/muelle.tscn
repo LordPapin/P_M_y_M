@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxpnoosd4sj13"]
+[gd_scene load_steps=13 format=3 uid="uid://cxpnoosd4sj13"]
 
 [ext_resource type="Script" uid="uid://ckqit3okxj852" path="res://scenas/nivel_5/muelle.gd" id="1_befke"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
 [ext_resource type="PackedScene" uid="uid://br68qrsnqy0yj" path="res://scenas/personajes/npc_pescador.tscn" id="5_el811"]
 [ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="6_qj2we"]
+[ext_resource type="Texture2D" uid="uid://66ye4sy86sqk" path="res://assets/botones/flecha_der3.png" id="7_w1lxh"]
 [ext_resource type="Texture2D" uid="uid://d2x4832kj06wg" path="res://assets/botones/flecha_der2.png" id="7_wi1qx"]
 [ext_resource type="Texture2D" uid="uid://bisx2gpjqxnei" path="res://assets/nivel_5/puerta_muelle2.png" id="8_wi1qx"]
 [ext_resource type="Texture2D" uid="uid://b6s2mwiwhj082" path="res://assets/nivel_5/puerta_muelle1.png" id="9_w1lxh"]
+[ext_resource type="Texture2D" uid="uid://d1sn8bvaxvloh" path="res://assets/nivel_5/puerta_muelle3.png" id="9_wi1qx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_befke"]
 vertices = PackedVector2Array(2617.0234, 703, 441.46094, 700.10156, 1212.2031, 509, 2013.8984, 515.0078, 2349.4219, 451.34375, 2416.6406, 395.14063, 2762.0938, 314.03125, 3076.0781, 517.02344, 4150.039, 509.0703, 4150.953, 705.97656, 2475.6016, 316.97656, 2409.0234, 338.0078)
@@ -40,6 +42,7 @@ offset_bottom = 828.0
 scale = Vector2(0.5356116, 0.64685905)
 texture_normal = ExtResource("6_qj2we")
 texture_pressed = ExtResource("7_wi1qx")
+texture_hover = ExtResource("7_w1lxh")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -51,6 +54,7 @@ offset_bottom = 189.76274
 scale = Vector2(15.169671, 15.169671)
 texture_normal = ExtResource("9_w1lxh")
 texture_pressed = ExtResource("8_wi1qx")
+texture_hover = ExtResource("9_wi1qx")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -64,5 +68,9 @@ limit_top = 0
 limit_right = 4165
 limit_bottom = 720
 
+[connection signal="mouse_entered" from="calle" to="." method="_on_calle_mouse_entered"]
+[connection signal="mouse_exited" from="calle" to="." method="_on_calle_mouse_exited"]
 [connection signal="pressed" from="calle" to="." method="_on_calle_pressed"]
+[connection signal="mouse_entered" from="tienda" to="." method="_on_tienda_mouse_entered"]
+[connection signal="mouse_exited" from="tienda" to="." method="_on_tienda_mouse_exited"]
 [connection signal="pressed" from="tienda" to="." method="_on_tienda_pressed"]

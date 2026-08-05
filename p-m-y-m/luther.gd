@@ -37,7 +37,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
-	prints(velocity.x,velocity.y)
 
 func _physics_process(_delta: float) -> void:
 	if recolectando:
@@ -69,7 +68,6 @@ func _process(delta: float) -> void:
 	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
 		var dir = recurso_objetivo.global_position - lengua.global_position
 		lengua.rotation = dir.angle()
-		print("dir: ", dir, " | angle: ", rad_to_deg(dir.angle()), " | lengua.rotation: ", rad_to_deg(lengua.rotation))
 	else:
 		var dir = get_global_mouse_position() - lengua.global_position
 		lengua.rotation = dir.angle()
@@ -100,8 +98,6 @@ func _process(delta: float) -> void:
 
 			if longitud_lengua <= 1.0:
 				_finalizar_recoleccion()
-	if estado_lengua == EstadoLengua.EXTENDIENDO:
-		print("punta: ", punta_lengua.global_position, " | objetivo: ", recurso_objetivo.global_position, " | distancia: ", punta_lengua.global_position.distance_to(recurso_objetivo.global_position))
 
 func _aplicar_longitud() -> void:
 	cuerpo_lengua.scale.x = longitud_lengua
