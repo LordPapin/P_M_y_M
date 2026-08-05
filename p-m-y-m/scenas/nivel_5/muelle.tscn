@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxpnoosd4sj13"]
+[gd_scene load_steps=13 format=3 uid="uid://cxpnoosd4sj13"]
 
 [ext_resource type="Script" uid="uid://ckqit3okxj852" path="res://scenas/nivel_5/muelle.gd" id="1_befke"]
 [ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_el811"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_da1rf"]
 [ext_resource type="PackedScene" uid="uid://br68qrsnqy0yj" path="res://scenas/personajes/npc_pescador.tscn" id="5_el811"]
 [ext_resource type="Texture2D" uid="uid://b1bffv17t5u33" path="res://assets/botones/flecha_der.png" id="6_qj2we"]
+[ext_resource type="Texture2D" uid="uid://66ye4sy86sqk" path="res://assets/botones/flecha_der3.png" id="7_w1lxh"]
 [ext_resource type="Texture2D" uid="uid://d2x4832kj06wg" path="res://assets/botones/flecha_der2.png" id="7_wi1qx"]
 [ext_resource type="Texture2D" uid="uid://bisx2gpjqxnei" path="res://assets/nivel_5/puerta_muelle2.png" id="8_wi1qx"]
 [ext_resource type="Texture2D" uid="uid://b6s2mwiwhj082" path="res://assets/nivel_5/puerta_muelle1.png" id="9_w1lxh"]
@@ -41,6 +42,7 @@ offset_bottom = 828.0
 scale = Vector2(0.5356116, 0.64685905)
 texture_normal = ExtResource("6_qj2we")
 texture_pressed = ExtResource("7_wi1qx")
+texture_hover = ExtResource("7_w1lxh")
 ignore_texture_size = true
 stretch_mode = 0
 
