@@ -15,15 +15,18 @@
 [ext_resource type="Script" uid="uid://1m8axf1u533w" path="res://scripts puertas/calle_btn.gd" id="12_s7pnb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
-vertices = PackedVector2Array(1556.6719, 712.22656, -430.28906, 718.8828, -84.078125, 499.97656, 985.8906, 622.4922, 678.97656, 496.04688, 673.21875, 555.60156, 1070.3672, 572.78906, 828.90625, 594.78906)
+vertices = PackedVector2Array(1555.3672, 711.8594, -450.92188, 708.0625, -101.13281, 476.09375, 985.8906, 622.4922, 657.8594, 501.71875, 668.5078, 551.0469, 1070.3672, 572.78906, 828.8125, 594.77344)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 6, 0), PackedInt32Array(7, 3, 2), PackedInt32Array(2, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-87, 490, -465, 729, 1627, 722, 1069, 562, 984, 612, 831, 585, 684, 548, 690, 486)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 466, -484, 718, 1627, 722, 1069, 562, 984, 612, 831, 585, 677, 543, 666, 492)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rr3"]
 size = Vector2(364, 133)
 
 [node name="nivel_1" type="Node2D"]
 script = ExtResource("1_tq52u")
+metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [595.0, 335.0]
+metadata/_edit_horizontal_guides_ = [508.0, 352.0]
 
 [node name="BocetoEscenario1" type="Sprite2D" parent="."]
 position = Vector2(1533.0001, 357)
@@ -38,7 +41,7 @@ scale = Vector2(4, 4)
 position = Vector2(1660, 427)
 
 [node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
-position = Vector2(790, -9)
+position = Vector2(800, -8)
 navigation_polygon = SubResource("NavigationPolygon_eqivl")
 
 [node name="tablero" type="Area2D" parent="."]
@@ -70,6 +73,10 @@ position = Vector2(1491, 404)
 
 [node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
 
+[node name="posicion" type="Node2D" parent="."]
+position = Vector2(597.12384, 532.09656)
+scale = Vector2(5.089271, 11.015587)
+
 [node name="calle_btn" type="TextureButton" parent="."]
 offset_left = 496.0
 offset_top = 196.00003
@@ -84,7 +91,7 @@ stretch_mode = 0
 script = ExtResource("12_s7pnb")
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(610, 697)
+position = Vector2(634, 612)
 scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]

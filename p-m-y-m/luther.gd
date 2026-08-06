@@ -17,6 +17,8 @@ var longitud_lengua := 1.0
 var recurso_objetivo = null
 var objeto_atrapado = null
 var cayendo := false
+var puerta_objetivo = null
+var quiere_viajar = false
 
 enum EstadoLengua { INACTIVA, EXTENDIENDO, RETRAYENDO }
 var estado_lengua := EstadoLengua.INACTIVA
@@ -163,3 +165,7 @@ func recibir_aviso_del_area() -> void:
 	# 3. Liberamos el bloqueo y volvemos a idle
 	cayendo = false
 	animation_player.play("idle")
+
+func ir_hacia_puerta(puerta):
+	puerta_objetivo = puerta
+	nav_agent.target_position = puerta.global_position
