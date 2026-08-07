@@ -52,6 +52,12 @@ stretch_mode = 0
 [node name="Luther" parent="." instance=ExtResource("2_p30yp")]
 position = Vector2(217, 640)
 
+[node name="posicion_puerta" type="Node2D" parent="."]
+position = Vector2(664, 477)
+
+[node name="posicion_calle_btn" type="Node2D" parent="."]
+position = Vector2(27, 594)
+
 [connection signal="mouse_entered" from="puerta" to="." method="_on_puerta_mouse_entered"]
 [connection signal="mouse_exited" from="puerta" to="." method="_on_puerta_mouse_exited"]
 [connection signal="pressed" from="puerta" to="." method="_on_texture_button_pressed"]

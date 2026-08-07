@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dnl385y7lqi5l" path="res://scenas/personajes/npc_cajera.tscn" id="6_gb3gd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gb3gd"]
-vertices = PackedVector2Array(977.53125, 593.9375, 996.1797, 705.0078, 10.2578125, 705.97656, 655.8906, 591.9375, 14.75, 530.9531, 649.8906, 528.03906)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(5, 521, 659, 518, 665, 582, 986, 584, 1008, 715, 0, 716)])
+vertices = PackedVector2Array(977.53125, 593.9375, 996.1797, 705.0078, 10, 705.9922, 655.71094, 591.9375, 10, 499, 212.02344, 499, 648.71094, 497.03906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 489, 212, 489, 658, 487, 665, 582, 986, 584, 1008, 715, 0, 716)])
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gb3gd")
@@ -42,6 +42,9 @@ scale = Vector2(1.655, 1.655)
 [node name="Luther" parent="." instance=ExtResource("3_vpad3")]
 position = Vector2(102, 614)
 scale = Vector2(6.02, 6.02)
+
+[node name="posicion_puerta" type="Node2D" parent="."]
+position = Vector2(19, 484)
 
 [connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]

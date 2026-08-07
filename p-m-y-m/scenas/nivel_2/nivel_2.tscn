@@ -19,9 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://2qr4peu3i25x" path="res://assets/nivel_2/puerta22.png" id="14_rm7di"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_e64c6"]
-vertices = PackedVector2Array(2865, 562.9297, 2865, 637.96875, 25.28125, 632.02344, 35.851563, 545.0469)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(27, 535, 14, 642, 2875, 648, 2875, 553)])
+vertices = PackedVector2Array(2853.0703, 548.1797, 2856.0078, 572.9219, 2863.7266, 637.97656, -13.09375, 633.0078, -14, 533.90625, -14, 495.20313, 272.77344, 500.9922, 272.77344, 501, 2847.1563, 500.9375, 2853.0703, 548.1719, 2661.3672, 502.0078, 316.90625, 502, 2684.3828, 500, 1995.9063, 493)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 0, 4, 10), PackedInt32Array(4, 7, 11), PackedInt32Array(10, 12, 8), PackedInt32Array(13, 10, 4, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-24, 534, -23, 643, 2875, 648, 2865.94, 571.7444, 2863, 547, 2856, 491, 2684, 490, 2661, 492, 1996, 483, 317, 492, 273, 491, -24, 485)])
 
 [node name="nivel2" type="Node2D" groups=["evento_1"]]
 script = ExtResource("1_uik70")
@@ -109,6 +109,12 @@ limit_bottom = 720
 [node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
 position = Vector2(2478, 540)
 scale = Vector2(2, 2)
+
+[node name="posicion_entrada" type="Node2D" parent="."]
+position = Vector2(139, 554)
+
+[node name="posicion_salida" type="Node2D" parent="."]
+position = Vector2(2851, 566)
 
 [connection signal="mouse_entered" from="puerta entrada" to="puerta entrada" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="puerta entrada" to="puerta entrada" method="_on_mouse_exited"]
