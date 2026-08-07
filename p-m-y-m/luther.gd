@@ -170,4 +170,4 @@ func recibir_aviso_del_area() -> void:
 
 func ir_hacia_puerta(puerta):
 	puerta_objetivo = puerta
-	nav_agent.target_position = puerta.global_position
+	nav_agent.target_position = puerta

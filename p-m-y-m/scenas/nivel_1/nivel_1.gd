@@ -5,7 +5,6 @@ extends Node2D
 @onready var posicion_puerta: Node2D = $posicion
 
 
-
 func _on_calle_btn_pressed() -> void:
 	luther.quiere_viajar = true
 

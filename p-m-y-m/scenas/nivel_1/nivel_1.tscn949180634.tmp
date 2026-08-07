@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://wl5oibbu2ey8"]
+
+[ext_resource type="Texture2D" uid="uid://b8w8fovgbl7b1" path="res://assets/nivel_1/boceto escenario 1.png" id="1_p6foy"]
+[ext_resource type="Script" uid="uid://j45vaai7h6re" path="res://scenas/nivel_1/nivel_1.gd" id="1_tq52u"]
+[ext_resource type="PackedScene" uid="uid://duw8s1jsg4i1c" path="res://scenas/jugador/luther.tscn" id="2_eqivl"]
+[ext_resource type="PackedScene" uid="uid://byn1xfqscpaqn" path="res://scenas/nivel_1/ayudante.tscn" id="2_s7pnb"]
+[ext_resource type="PackedScene" uid="uid://culg6816a4j1e" path="res://scenas/nivel_1/escritorio.tscn" id="4_qkwb7"]
+[ext_resource type="Texture2D" uid="uid://cih0411mg17m4" path="res://assets/nivel_1/tablero.png" id="5_och76"]
+[ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_och76"]
+[ext_resource type="FontFile" uid="uid://pvbcgefx6j7t" path="res://fuentes/retropix.otf" id="7_oeh3s"]
+[ext_resource type="PackedScene" uid="uid://cv7h2lngqyfq" path="res://scenas/objetos/jarron.tscn" id="8_867q3"]
+[ext_resource type="Texture2D" uid="uid://4querswbooc7" path="res://assets/nivel_1/puerta oficina1.png" id="10_j0fpl"]
+[ext_resource type="Texture2D" uid="uid://2butkxdvwi4j" path="res://assets/nivel_1/puerta oficina3-export.png" id="11_s7pnb"]
+[ext_resource type="Texture2D" uid="uid://spqqhk4f26xh" path="res://assets/nivel_1/puerta oficina2.png" id="11_tq52u"]
+[ext_resource type="Script" uid="uid://1m8axf1u533w" path="res://scripts puertas/calle_btn.gd" id="12_s7pnb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eqivl"]
+vertices = PackedVector2Array(1555.3672, 711.8594, -450.92188, 708.0625, -101.13281, 476.09375, 985.8906, 622.4922, 657.8594, 501.71875, 668.5078, 551.0469, 1070.3672, 572.78906, 828.8125, 594.77344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 6, 0), PackedInt32Array(7, 3, 2), PackedInt32Array(2, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 466, -484, 718, 1627, 722, 1069, 562, 984, 612, 831, 585, 677, 543, 666, 492)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rr3"]
+size = Vector2(364, 133)
+
+[node name="nivel_1" type="Node2D"]
+script = ExtResource("1_tq52u")
+metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [595.0, 335.0]
+metadata/_edit_horizontal_guides_ = [508.0, 352.0]
+
+[node name="BocetoEscenario1" type="Sprite2D" parent="."]
+position = Vector2(1533.0001, 357)
+scale = Vector2(2.0470002, 0.9972222)
+texture = ExtResource("1_p6foy")
+
+[node name="escritorio" parent="." instance=ExtResource("4_qkwb7")]
+position = Vector2(1619.0001, 478)
+scale = Vector2(4, 4)
+
+[node name="ayudante" parent="." instance=ExtResource("2_s7pnb")]
+position = Vector2(1660, 427)
+
+[node name="NavigationLink2D" type="NavigationRegion2D" parent="."]
+position = Vector2(800, -8)
+navigation_polygon = SubResource("NavigationPolygon_eqivl")
+
+[node name="tablero" type="Area2D" parent="."]
+position = Vector2(363, 349)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="tablero"]
+position = Vector2(983.5, -54.000008)
+scale = Vector2(2.9513888, 2.1041665)
+texture = ExtResource("5_och76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tablero"]
+position = Vector2(981, -52.5)
+shape = SubResource("RectangleShape2D_l3rr3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1201.0
+offset_top = 263.0
+offset_right = 1472.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_oeh3s")
+theme_override_font_sizes/font_size = 54
+text = "debo ir al bar"
+
+[node name="Jarron" parent="." instance=ExtResource("8_867q3")]
+position = Vector2(1491, 404)
+
+[node name="InventoryUI" parent="." instance=ExtResource("7_och76")]
+
+[node name="posicion" type="Node2D" parent="."]
+position = Vector2(597.12384, 532.09656)
+scale = Vector2(5.089271, 11.015587)
+
+[node name="calle_btn" type="TextureButton" parent="."]
+offset_left = 496.0
+offset_top = 196.00003
+offset_right = 531.565
+offset_bottom = 231.4044
+scale = Vector2(5.089271, 11.015587)
+texture_normal = ExtResource("10_j0fpl")
+texture_pressed = ExtResource("11_tq52u")
+texture_hover = ExtResource("11_s7pnb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("12_s7pnb")
+
+[node name="Luther" parent="." instance=ExtResource("2_eqivl")]
+position = Vector2(634, 612)
+scale = Vector2(6, 6)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_top = -3
+limit_right = 3060
+limit_bottom = 717
+
+[connection signal="mouse_entered" from="calle_btn" to="calle_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="calle_btn" to="calle_btn" method="_on_mouse_exited"]
+[connection signal="pressed" from="calle_btn" to="." method="_on_calle_btn_pressed"]

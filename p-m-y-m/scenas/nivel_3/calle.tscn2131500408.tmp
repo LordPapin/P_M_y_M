@@ -22,9 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://d34v6s25gdnbo" path="res://assets/botones/banco_btn3.png" id="18_brtqh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
-vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.5625, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.3516, 450.0703, 3298.4063, 473.78906, 2099.4531, 468, 2041.9609, 450.79688)
+vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.3828, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.25, 450.14844, 3292.6172, 501.54688, 2099.4531, 468, 2041.9609, 450.79688)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 9), PackedInt32Array(5, 10, 6), PackedInt32Array(3, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3309, 464, 2119, 440, 2096, 458, 2065, 458, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3303, 492, 2119, 440, 2096, 458, 2065, 458, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
 
 [node name="calle" type="Node2D"]
 script = ExtResource("1_vac77")
@@ -36,6 +36,8 @@ texture = ExtResource("1_8rw0t")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_47044")
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
 
 [node name="piedra" parent="." instance=ExtResource("5_gf5te")]
 position = Vector2(633, 607)
@@ -52,6 +54,15 @@ scale = Vector2(2, 2)
 [node name="banana3" parent="." instance=ExtResource("6_vtwhg")]
 position = Vector2(2425, 599)
 scale = Vector2(2, 2)
+
+[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_wjdaa")]
+position = Vector2(405, 493)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_top = 0
+limit_right = 3294
+limit_bottom = 720
 
 [node name="puerta_bar" type="TextureButton" parent="."]
 offset_left = 3069.0
@@ -109,15 +120,6 @@ texture_pressed = ExtResource("8_vg3jp")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_wjdaa")]
-position = Vector2(405, 493)
-
-[node name="Camera2D" type="Camera2D" parent="Luther"]
-limit_left = 0
-limit_top = 0
-limit_right = 3294
-limit_bottom = 720
-
 [node name="posicion_bar" type="Node2D" parent="."]
 position = Vector2(3197, 490)
 
@@ -132,8 +134,6 @@ position = Vector2(3221, 674)
 
 [node name="posicion_oficina" type="Node2D" parent="."]
 position = Vector2(129, 492)
-
-[node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
 
 [connection signal="mouse_entered" from="puerta_bar" to="." method="_on_puerta_bar_mouse_entered"]
 [connection signal="mouse_exited" from="puerta_bar" to="." method="_on_puerta_bar_mouse_exited"]
