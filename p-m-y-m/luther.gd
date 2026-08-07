@@ -39,6 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
+	if quiere_viajar:
+		quiere_viajar = false
 
 func _physics_process(_delta: float) -> void:
 	if recolectando:
