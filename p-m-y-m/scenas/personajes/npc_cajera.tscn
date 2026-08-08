@@ -15,13 +15,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34iv8"]
-size = Vector2(145.5, 134)
+size = Vector2(130.5, 105)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
-size = Vector2(187, 168)
+size = Vector2(335, 274)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
-radius = 90.824005
+radius = 148.16545
 
 [node name="npc_cajera" type="CharacterBody2D" groups=["npc"]]
 script = ExtResource("1_dboq0")
