@@ -210,6 +210,9 @@ texture = ExtResource("5_rm82d")
 position = Vector2(1989, 381)
 sprite_frames = SubResource("SpriteFrames_dppi0")
 
+[node name="posicion_salida_cjn" type="Node2D" parent="."]
+position = Vector2(9, 560)
+
 [connection signal="mouse_entered" from="salida calle" to="." method="_on_salida_calle_mouse_entered"]
 [connection signal="mouse_exited" from="salida calle" to="." method="_on_salida_calle_mouse_exited"]
 [connection signal="pressed" from="salida calle" to="." method="_on_salida_calle_pressed"]

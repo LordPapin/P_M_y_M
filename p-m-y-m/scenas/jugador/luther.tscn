@@ -233,19 +233,20 @@ scale = Vector2(4, 4)
 script = ExtResource("1_p2y8e")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -24)
+position = Vector2(0.75, -10.75)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_tbgj0")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.125, -3.625)
+position = Vector2(-0.25, 8.75)
 shape = SubResource("RectangleShape2D_d3t8w")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Lengua" type="Node2D" parent="."]
-position = Vector2(0, -34)
+position = Vector2(0.25, -20)
+metadata/_edit_group_ = true
 
 [node name="CuerpoLengua" type="Sprite2D" parent="Lengua"]
 scale = Vector2(0.375, 0.171875)

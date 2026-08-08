@@ -1,6 +1,18 @@
 extends Node2D
 @onready var minijuego2 = preload("res://scenas/eventos_twitchs/evento_twitch_2.tscn")
 
+#conseguimos referencia a Luther
+@onready var luther: personaje = $Luther
+
+#conseguimos referencia a puertas
+@onready var salida_calle: TextureButton = $"salida calle"
+
+#conseguimos referencia a la posicion de las puertas(un nodo 2D personalizado)
+@onready var posicion_salida_cjn = $posicion_salida_cjn.global_position
+
+func _process(delta):
+	verificar_distancia()
+
 
 func _ready() -> void:
 	$moscas.play("default")
@@ -17,17 +29,15 @@ func quitar_pausa():
 
 
 func _on_salida_calle_pressed() -> void:
-	var distancia : int = $Luther.global_position.distance_to($"salida calle".global_position)
-	print(distancia)
-	if distancia < 300:
-		get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
+	luther.quiere_viajar = true
 
 
-func _on_salida_bar_pressed() -> void:
-	var distancia : int = $Luther.global_position.distance_to($"salida bar".global_position)
-	print(distancia)
-	if distancia < 220:
-		get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
+#esta puerta no existe
+#func _on_salida_bar_pressed() -> void:
+#	var distancia : int = $Luther.global_position.distance_to($"salida bar".global_position)
+#	print(distancia)
+#	if distancia < 220:
+#		get_tree().change_scene_to_file("res://scenas/nivel_2/nivel_2.tscn")
 		
 
 
@@ -41,3 +51,15 @@ func _on_salida_calle_mouse_exited() -> void:
 	var cursor = get_tree().get_first_node_in_group("cursor")
 	if cursor:
 		cursor._on_mouse_exited()
+
+
+func verificar_distancia():
+	if not luther.quiere_viajar:
+		return
+	if luther.quiere_viajar:
+		var distancia_salida_cjn : float = luther.global_position.distance_to(posicion_salida_cjn)
+		if distancia_salida_cjn > 100:
+			luther.ir_hacia_puerta(posicion_salida_cjn)
+		else: # Esto equivale a <= 100
+			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
+			luther.quiere_viajar = false

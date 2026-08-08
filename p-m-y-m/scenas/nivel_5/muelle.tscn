@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://d1sn8bvaxvloh" path="res://assets/nivel_5/puerta_muelle3.png" id="9_wi1qx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_befke"]
-vertices = PackedVector2Array(2617.0234, 703, 441.46094, 700.10156, 1212.2031, 509, 2013.8984, 515.0078, 2349.4219, 451.34375, 2416.6406, 395.14063, 2762.0938, 314.03125, 3076.0781, 517.02344, 4150.039, 509.0703, 4150.953, 705.97656, 2475.6016, 316.97656, 2409.0234, 338.0078)
+vertices = PackedVector2Array(2616.8516, 702.9922, 441.46094, 700.10156, 1212.2031, 509, 2013.8984, 515.0078, 2349.4219, 451.34375, 2416.6406, 395.14063, 2762.0938, 314.03125, 3076.0938, 517.03125, 3972.2969, 509.07813, 3977.6797, 681.15625, 2475.6016, 316.97656, 2409.0234, 338.0078)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(0, 4, 5, 6, 7), PackedInt32Array(8, 9, 0, 7), PackedInt32Array(10, 6, 5, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(360, 710, 1211, 499, 2013, 505, 2345, 442, 2406, 391, 2398, 331, 2474, 307, 2765, 304, 3079, 507, 4160, 499, 4161, 716, 2617, 713)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(360, 710, 1211, 499, 2013, 505, 2345, 442, 2406, 391, 2398, 331, 2474, 307, 2765, 304, 3079, 507, 3982, 499, 3988, 691, 2617, 713)])
 
 [node name="muelle" type="Node2D"]
 script = ExtResource("1_befke")
@@ -35,10 +35,10 @@ navigation_polygon = SubResource("NavigationPolygon_befke")
 [node name="InventoryUI" parent="." instance=ExtResource("4_da1rf")]
 
 [node name="calle" type="TextureButton" parent="."]
-offset_left = 3808.0
-offset_top = 428.0
-offset_right = 4208.0
-offset_bottom = 828.0
+offset_left = 3786.0
+offset_top = 451.99997
+offset_right = 4186.0
+offset_bottom = 852.0
 scale = Vector2(0.5356116, 0.64685905)
 texture_normal = ExtResource("6_qj2we")
 texture_pressed = ExtResource("7_wi1qx")
@@ -59,14 +59,21 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Luther" parent="." groups=["npc"] instance=ExtResource("2_el811")]
-position = Vector2(1187, 675)
+position = Vector2(1191, 629)
 scale = Vector2(6, 6)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 4165
 limit_bottom = 720
+
+[node name="posicion_calle" type="Node2D" parent="."]
+position = Vector2(3964, 577)
+
+[node name="posicion_tienda" type="Node2D" parent="."]
+position = Vector2(728, 613)
 
 [connection signal="mouse_entered" from="calle" to="." method="_on_calle_mouse_entered"]
 [connection signal="mouse_exited" from="calle" to="." method="_on_calle_mouse_exited"]
