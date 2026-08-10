@@ -15,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="14_j54c3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wtw07"]
-vertices = PackedVector2Array(2651.1016, 483.97656, 2652.8906, 653, 21.359375, 654.9922, 27.640625, 480.0078)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 11, 665, 2663, 663, 2661, 474, 224, 479)])
+vertices = PackedVector2Array(35.546875, 636.0625, 28.476563, 480.46094, 223.78906, 489, 2652.8906, 652.9297, 2651.1016, 484.02344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(18, 470, 26, 646, 2663, 634, 2661, 474, 224, 479)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dppi0"]
 size = Vector2(61, 58.666656)
@@ -35,7 +35,7 @@ size = Vector2(69.25, 75.25)
 size = Vector2(122, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j54c3"]
-size = Vector2(63.33333, 7.666667)
+size = Vector2(63.33333, 32.333336)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4gqp"]
 atlas = ExtResource("13_4o0vk")
@@ -184,7 +184,7 @@ position = Vector2(1411, 592)
 scale = Vector2(2, 2)
 
 [node name="Luther" parent="." groups=["jugador"] instance=ExtResource("7_4o0vk")]
-position = Vector2(486, 681)
+position = Vector2(484, 627)
 scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
@@ -194,12 +194,12 @@ limit_right = 2667
 limit_bottom = 720
 
 [node name="Basuratirada" type="StaticBody2D" parent="."]
-position = Vector2(1127, 587)
+position = Vector2(1120, 618)
 scale = Vector2(3, 3)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basuratirada"]
-position = Vector2(7.6666565, 30.833328)
+position = Vector2(7.6666565, 40.16667)
 shape = SubResource("RectangleShape2D_j54c3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Basuratirada"]
