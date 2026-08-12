@@ -19,6 +19,7 @@ var objeto_atrapado = null
 var cayendo := false
 var puerta_objetivo = null
 var quiere_viajar = false
+var quiere_escritorio = false
 
 enum EstadoLengua { INACTIVA, EXTENDIENDO, RETRAYENDO }
 var estado_lengua := EstadoLengua.INACTIVA
@@ -41,6 +42,7 @@ func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
 	if quiere_viajar:
 		quiere_viajar = false
+		quiere_escritorio = false
 
 func _physics_process(_delta: float) -> void:
 	if recolectando:
