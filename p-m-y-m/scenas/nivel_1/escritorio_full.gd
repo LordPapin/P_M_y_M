@@ -7,7 +7,21 @@ extends Sprite2D
 @onready var nota_2: Label = $Label2
 @onready var salir_de_papel: TextureButton = $salir_de_papel
 
-var luther = preload("res://scenas/jugador/luther.tscn")
+# En el script de "escritorio"
+var mi_oficina = preload("res://scenas/nivel_1/nivel_1.tscn")
+
+func cambiar_a_oficina():
+	# 1. Instanciar en memoria
+	var instancia_oficina = mi_oficina.instantiate() # En Godot 3 usa .instance()
+	
+	# 2. Modificar tu variable
+	instancia_oficina.luther_escritorio = true
+	
+	# 3. Cambiar la escena de la pantalla por la nueva instancia
+	get_tree().root.add_child(instancia_oficina) # Añade la nueva escena al root
+	get_tree().current_scene = instancia_oficina # La vuelve la escena activa
+	queue_free() # Elimina por completo la escena del "escritorio"
+
 
 func _on_papel_1_mouse_entered() -> void:
 	var cursor = get_tree().get_first_node_in_group("cursor")
@@ -86,4 +100,4 @@ func _on_salir_btn_mouse_exited() -> void:
 
 
 func _on_salir_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenas/nivel_1/nivel_1.tscn")
+	cambiar_a_oficina()

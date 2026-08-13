@@ -51,7 +51,7 @@ stretch_mode = 0
 script = ExtResource("12_s7pnb")
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(138.00006, 624)
+position = Vector2(711.99994, 613)
 scale = Vector2(5, 5)
 metadata/_edit_group_ = true
 
