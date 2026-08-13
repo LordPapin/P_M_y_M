@@ -51,11 +51,11 @@ stretch_mode = 0
 script = ExtResource("12_s7pnb")
 
 [node name="Luther" parent="." instance=ExtResource("2_eqivl")]
-position = Vector2(221.00006, 627.00006)
+position = Vector2(711.99994, 613)
 scale = Vector2(5, 5)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="Luther"]
+[node name="Camera2D2" type="Camera2D" parent="Luther"]
 zoom = Vector2(1.15, 1.15)
 limit_left = 0
 limit_top = -3
