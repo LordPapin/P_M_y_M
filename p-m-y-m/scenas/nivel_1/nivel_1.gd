@@ -6,6 +6,9 @@ extends Node2D
 @onready var posicion_escritorio: Node2D = $posicion_escritorio
 @onready var escritorio_btn: TextureButton = $escritorio_btn
 
+var luther_escritorio = false
+var luther_calle = false
+
 
 
 func _on_calle_btn_pressed() -> void:
@@ -27,6 +30,9 @@ func _process(delta):
 			get_tree().change_scene_to_file("res://scenas/nivel_1/escritorio_full.tscn")
 			luther.quiere_viajar = false
 			luther.quiere_escritorio = false
+	if luther_escritorio == true:
+		luther.global_position = Vector2(917, 617)
+		luther_escritorio = false
 
 
 func _on_escritorio_btn_pressed() -> void:
