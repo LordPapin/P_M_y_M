@@ -22,6 +22,15 @@ extends Node2D
 var quiere_entrada = false
 var quiere_salida = false
 
+
+
+
+func _ready() -> void:
+	if get_tree().has_meta("posicion_inicial_luther"):
+		luther.global_position = get_tree().get_meta("posicion_inicial_luther")
+		get_tree().remove_meta("posicion_inicial_luther")
+		
+		
 func minijuego():
 	var evento = MiniJuego.instantiate()
 	get_tree().paused = true
