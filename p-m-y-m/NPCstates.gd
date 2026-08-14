@@ -32,7 +32,7 @@ var npcs = {
 				}
 			},
 			
-			"npc_pescador": {
+		"npc_pescador": {
 		"current_state" : "sobrio_sin_info_no_conversado",
 		"states": {
 			"sobrio_sin_info_no_conversado" : {},
@@ -46,7 +46,7 @@ var npcs = {
 			"ya_conversado": {}
 				}
 			},
-			"npc_cajera": {
+		"npc_cajera": {
 		"current_state" : "no_interactuado",
 		"states": {
 			"no_interactuado" : {"location" : "bar"},

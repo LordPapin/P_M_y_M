@@ -29,6 +29,7 @@ texture = ExtResource("2_priya")
 [node name="npc_pescador" parent="." instance=ExtResource("5_el811")]
 position = Vector2(2742, 245.00002)
 scale = Vector2(2.016423, 2.016423)
+distancia_conversacion = 100.0
 
 [node name="tienda" type="TextureButton" parent="."]
 offset_left = 493.0
