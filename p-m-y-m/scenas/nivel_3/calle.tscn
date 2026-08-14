@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=23 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="Script" uid="uid://ci3qcaop57vu7" path="res://scenas/nivel_3/calle.gd" id="1_vac77"]
@@ -6,18 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="4_47044"]
 [ext_resource type="PackedScene" uid="uid://3fne2invt1ep" path="res://scenas/objetos/piedra.tscn" id="5_gf5te"]
 [ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="6_vtwhg"]
-[ext_resource type="Texture2D" uid="uid://bdtum6wqa4tue" path="res://assets/botones/oficina.png" id="7_536q0"]
 [ext_resource type="Texture2D" uid="uid://dydem7k7x8aai" path="res://assets/nivel_3/puerta bar afuera.png" id="7_wthiv"]
 [ext_resource type="Texture2D" uid="uid://dmbhyo0adpbs1" path="res://assets/botones/flecha_up.png" id="8_5xu6i"]
 [ext_resource type="Texture2D" uid="uid://cjvwws0dthx8i" path="res://assets/nivel_3/puerta bar afuera1.png" id="8_r25s7"]
-[ext_resource type="Texture2D" uid="uid://d2bnrgvdesjmj" path="res://assets/botones/oficina2.png" id="8_vg3jp"]
 [ext_resource type="Texture2D" uid="uid://dowgsr6sie3kb" path="res://assets/nivel_3/puerta bar afuera3.png" id="9_a152c"]
 [ext_resource type="Texture2D" uid="uid://cj65vi7p31twy" path="res://assets/botones/flecha_up2.png" id="9_vac77"]
 [ext_resource type="Texture2D" uid="uid://bvg6sxr5y5icf" path="res://assets/botones/flecha_izq.png" id="11_ic812"]
 [ext_resource type="Texture2D" uid="uid://cc3v5ww0jw7da" path="res://assets/botones/flecha_izq2.png" id="12_536q0"]
 [ext_resource type="Texture2D" uid="uid://d37f21wl016p3" path="res://assets/botones/flecha_up3.png" id="12_x8cbe"]
 [ext_resource type="Texture2D" uid="uid://c55xxen8qyb1o" path="res://assets/botones/banco_btn.png" id="15_a152c"]
+[ext_resource type="Texture2D" uid="uid://ddpwkonr7hefx" path="res://assets/nivel_3/puerta oficina de calle.png" id="15_brtqh"]
+[ext_resource type="Texture2D" uid="uid://qpdswgkdp0kf" path="res://assets/nivel_3/puerta oficina de calle 2.png" id="15_e0nnv"]
 [ext_resource type="Texture2D" uid="uid://6v7aq1a3fvqa" path="res://assets/botones/flecha_izq3.png" id="15_huow2"]
+[ext_resource type="Texture2D" uid="uid://cgt4rvl6o2kg7" path="res://assets/nivel_3/puerta oficina de calle 3.png" id="16_mg38b"]
 [ext_resource type="Texture2D" uid="uid://cof22jy8xrre6" path="res://assets/botones/banco_btn2.png" id="16_x8cbe"]
 [ext_resource type="Texture2D" uid="uid://d34v6s25gdnbo" path="res://assets/botones/banco_btn3.png" id="18_brtqh"]
 
@@ -30,6 +31,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294,
 script = ExtResource("1_vac77")
 
 [node name="Calle" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1650, 364)
 scale = Vector2(1.8333334, 1)
 texture = ExtResource("1_8rw0t")
@@ -38,10 +40,12 @@ texture = ExtResource("1_8rw0t")
 navigation_polygon = SubResource("NavigationPolygon_47044")
 
 [node name="piedra" parent="." instance=ExtResource("5_gf5te")]
+texture_filter = 1
 position = Vector2(633, 607)
 scale = Vector2(2, 2)
 
 [node name="banana" parent="." instance=ExtResource("6_vtwhg")]
+texture_filter = 1
 position = Vector2(1338, 508)
 scale = Vector2(2, 2)
 
@@ -88,7 +92,20 @@ texture_hover = ExtResource("18_brtqh")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="oficina_btn" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 617.0
+offset_top = 229.0
+offset_right = 797.0
+offset_bottom = 383.0
+texture_normal = ExtResource("15_brtqh")
+texture_pressed = ExtResource("15_e0nnv")
+texture_hover = ExtResource("16_mg38b")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_wjdaa")]
+texture_filter = 1
 position = Vector2(405, 493)
 
 [node name="Camera2D" type="Camera2D" parent="Luther"]
@@ -96,16 +113,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 3294
 limit_bottom = 720
-
-[node name="oficina_btn" type="TextureButton" parent="."]
-offset_left = 76.0
-offset_top = 402.0
-offset_right = 191.0
-offset_bottom = 517.0
-texture_normal = ExtResource("7_536q0")
-texture_pressed = ExtResource("8_vg3jp")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="muelle_btn" type="TextureButton" parent="."]
 offset_left = 29.0
@@ -131,7 +138,7 @@ position = Vector2(34, 340)
 position = Vector2(3221, 674)
 
 [node name="posicion_oficina" type="Node2D" parent="."]
-position = Vector2(129, 492)
+position = Vector2(697, 387)
 
 [node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
 
