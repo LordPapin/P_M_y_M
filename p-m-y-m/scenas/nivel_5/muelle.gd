@@ -18,6 +18,11 @@ var quiere_calle = false
 var quiere_tienda = false
 
 
+func _ready() -> void:
+	if get_tree().has_meta("posicion_inicial_luther"):
+		luther.global_position = get_tree().get_meta("posicion_inicial_luther")
+		get_tree().remove_meta("posicion_inicial_luther")
+
 func _process(delta):
 	verificar_distancia()
 
@@ -73,6 +78,7 @@ func verificar_distancia():
 		if distancia_calle > 100:
 			luther.ir_hacia_puerta(posicion_calle)
 		else: # Esto equivale a <= 100
+			get_tree().set_meta("posicion_inicial_luther", Vector2(200, 400))
 			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 			luther.quiere_viajar = false
 			

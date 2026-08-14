@@ -17,6 +17,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(18, 557, 351, 560, 421,
 
 [node name="banco" type="Node2D"]
 script = ExtResource("1_08kfc")
+metadata/_edit_vertical_guides_ = [665.0]
+metadata/_edit_horizontal_guides_ = [536.0]
 
 [node name="Banco" type="Sprite2D" parent="."]
 position = Vector2(641.00006, 354.5)

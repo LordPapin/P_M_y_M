@@ -8,6 +8,14 @@ extends Node2D
 @onready var puerta: TextureButton = $puerta
 @onready var posicion_puerta = $posicion_puerta.global_position
 
+
+
+func _ready() -> void:
+	if get_tree().has_meta("posicion_inicial_luther"):
+		luther.global_position = get_tree().get_meta("posicion_inicial_luther")
+		get_tree().remove_meta("posicion_inicial_luther")
+		
+		
 func _on_calle_btn_pressed() -> void:
 	luther.quiere_viajar = true
 	
@@ -71,5 +79,6 @@ func verificar_distancia():
 		if distancia_calle > 100:
 			luther.ir_hacia_puerta(posicion_calle_btn)
 		else: # Esto equivale a <= 100
+			get_tree().set_meta("posicion_inicial_luther", Vector2(3125, 610))
 			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 			luther.quiere_viajar = false

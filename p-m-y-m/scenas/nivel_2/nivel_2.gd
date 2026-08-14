@@ -55,6 +55,7 @@ func verificar_distancia():
 		if distancia_entrada > 100:
 			luther.ir_hacia_puerta(posicion_entrada)
 		else: # Esto equivale a <= 100
+			get_tree().set_meta("posicion_inicial_luther", Vector2(3200, 530))
 			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 			luther.quiere_viajar = false
 			

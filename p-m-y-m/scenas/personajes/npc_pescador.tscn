@@ -18,7 +18,7 @@ animations = [{
 size = Vector2(138, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
-size = Vector2(194, 168)
+size = Vector2(322, 326)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
 radius = 90.824005
