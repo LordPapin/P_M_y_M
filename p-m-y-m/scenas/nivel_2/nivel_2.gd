@@ -22,6 +22,15 @@ extends Node2D
 var quiere_entrada = false
 var quiere_salida = false
 
+
+
+
+func _ready() -> void:
+	if get_tree().has_meta("posicion_inicial_luther"):
+		luther.global_position = get_tree().get_meta("posicion_inicial_luther")
+		get_tree().remove_meta("posicion_inicial_luther")
+		
+		
 func minijuego():
 	var evento = MiniJuego.instantiate()
 	get_tree().paused = true
@@ -55,6 +64,7 @@ func verificar_distancia():
 		if distancia_entrada > 100:
 			luther.ir_hacia_puerta(posicion_entrada)
 		else: # Esto equivale a <= 100
+			get_tree().set_meta("posicion_inicial_luther", Vector2(3200, 530))
 			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 			luther.quiere_viajar = false
 			

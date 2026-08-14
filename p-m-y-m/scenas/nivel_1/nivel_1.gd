@@ -21,6 +21,7 @@ func _process(delta):
 		if (distancia >100):
 			luther.ir_hacia_puerta(posicion_puerta.global_position)
 		if (distancia <=100):
+			get_tree().set_meta("posicion_inicial_luther", Vector2(700, 430))
 			get_tree().change_scene_to_file("res://scenas/nivel_3/calle.tscn")
 			luther.quiere_viajar = false
 	if luther.quiere_viajar and luther.quiere_escritorio == true:

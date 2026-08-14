@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://28551t5u55wj"]
+[gd_scene load_steps=18 format=3 uid="uid://28551t5u55wj"]
 
 [ext_resource type="Script" uid="uid://btyqjhwmwv4p" path="res://scenas/nivel_2/nivel_2.gd" id="1_uik70"]
 [ext_resource type="Texture2D" uid="uid://dq5j5kspmr3si" path="res://assets/nivel_2/bar_escene2-export.png" id="2_1dr2i"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://bsbc007i3fwbs" path="res://scripts puertas/puerta_entrada.gd" id="6_30s1o"]
 [ext_resource type="PackedScene" uid="uid://cq6xijo36cclu" path="res://scenas/inventory/inventory_ui.tscn" id="7_48d3o"]
 [ext_resource type="Texture2D" uid="uid://bpsi7d3ri3rgv" path="res://assets/nivel_2/puerta222.png" id="8_oa34d"]
-[ext_resource type="PackedScene" uid="uid://chl7t0bin8nmt" path="res://scenas/objetos/banana.tscn" id="8_sbju3"]
 [ext_resource type="PackedScene" uid="uid://be3jshksqnkxs" path="res://scenas/objetos/cerbeza.tscn" id="9_ret4i"]
 [ext_resource type="Script" uid="uid://cr6cm736ajcfo" path="res://scripts puertas/puerta_salida.gd" id="10_fs502"]
 [ext_resource type="Texture2D" uid="uid://rnsx671l56oe" path="res://assets/nivel_2/puerta1.png" id="11_30s1o"]
@@ -77,10 +76,6 @@ scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
 [node name="asientos" type="Node" parent="."]
-
-[node name="banana" parent="." instance=ExtResource("8_sbju3")]
-position = Vector2(1196, 652)
-scale = Vector2(2, 2)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(29, 70)

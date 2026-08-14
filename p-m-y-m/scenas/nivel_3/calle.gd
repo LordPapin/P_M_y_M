@@ -24,6 +24,11 @@ var quiere_muelle = false
 var quiere_banco = false
 var quiere_oficina = false
 
+func _ready() -> void:
+	if get_tree().has_meta("posicion_inicial_luther"):
+		luther.global_position = get_tree().get_meta("posicion_inicial_luther")
+		get_tree().remove_meta("posicion_inicial_luther")
+
 
 func _process(delta):
 	verificar_distancia()
