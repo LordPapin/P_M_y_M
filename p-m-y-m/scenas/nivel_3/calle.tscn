@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=24 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="Script" uid="uid://ci3qcaop57vu7" path="res://scenas/nivel_3/calle.gd" id="1_vac77"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cgt4rvl6o2kg7" path="res://assets/nivel_3/puerta oficina de calle 3.png" id="16_mg38b"]
 [ext_resource type="Texture2D" uid="uid://cof22jy8xrre6" path="res://assets/botones/banco_btn2.png" id="16_x8cbe"]
 [ext_resource type="Texture2D" uid="uid://d34v6s25gdnbo" path="res://assets/botones/banco_btn3.png" id="18_brtqh"]
+[ext_resource type="Texture2D" uid="uid://xcm7xdvxq14w" path="res://assets/nivel_3/cartel de oficina nuevo.png" id="22_mg38b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_47044"]
 vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.5625, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.3516, 450.0703, 3298.4063, 473.78906, 2099.4531, 468, 2041.9609, 450.79688)
@@ -141,6 +142,11 @@ position = Vector2(3221, 674)
 position = Vector2(697, 387)
 
 [node name="InventoryUI" parent="." instance=ExtResource("4_47044")]
+
+[node name="CartelDeOficina" type="Sprite2D" parent="."]
+position = Vector2(748, 39.5)
+scale = Vector2(1.3376, 1.2741935)
+texture = ExtResource("22_mg38b")
 
 [connection signal="mouse_entered" from="puerta_bar" to="." method="_on_puerta_bar_mouse_entered"]
 [connection signal="mouse_exited" from="puerta_bar" to="." method="_on_puerta_bar_mouse_exited"]
