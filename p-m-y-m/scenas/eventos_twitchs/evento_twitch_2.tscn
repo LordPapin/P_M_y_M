@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://gtk5ey14cpve"]
+[gd_scene load_steps=32 format=3 uid="uid://gtk5ey14cpve"]
 
 [ext_resource type="Script" uid="uid://ouquivf7my4u" path="res://scenas/eventos_twitchs/luther_minijuego_2.gd" id="1_7dgbb"]
 [ext_resource type="Script" uid="uid://cppj147xmv2xs" path="res://scenas/eventos_twitchs/evento_twitch_2_manager.gd" id="1_7rgwk"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bqkj8xtf8d15j" path="res://assets/nivel_4/cartel.png" id="14_nost8"]
 [ext_resource type="Texture2D" uid="uid://hieimbk5jumq" path="res://assets/nivel_4/boton_reintentar.png" id="15_7v56u"]
 [ext_resource type="Texture2D" uid="uid://bmah547fg3ny" path="res://assets/nivel_4/boton_reintentar2.png" id="16_prodv"]
+[ext_resource type="Texture2D" uid="uid://cjqql4tqcn1sm" path="res://scenas/eventos_twitchs/pixel-art-yellow-warning-sign-with-exclamation-mark-icon-png.webp" id="17_prodv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqoae"]
 atlas = ExtResource("3_nm4vf")
@@ -121,9 +122,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="evento_twitch_2" type="CanvasLayer"]
+[node name="evento_twitch_2" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_7rgwk")
+metadata/_edit_horizontal_guides_ = [726.0]
+metadata/_edit_vertical_guides_ = [1566.0]
 
 [node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -182,7 +185,7 @@ script = ExtResource("2_al2cu")
 
 [node name="Sprite2D" type="Sprite2D" parent="LauchaMapache"]
 texture_filter = 1
-position = Vector2(112, -80)
+position = Vector2(121, -71)
 scale = Vector2(3, 3)
 texture = ExtResource("8_d655e")
 
@@ -197,9 +200,9 @@ position = Vector2(615, 242)
 script = ExtResource("2_piq6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boton"]
-texture_filter = 1
-position = Vector2(26.000023, -21)
-scale = Vector2(1.3695652, 1.3695652)
+texture_filter = 4
+position = Vector2(11.000027, -136.99998)
+scale = Vector2(2.0559437, 2.4637682)
 texture = ExtResource("14_nost8")
 
 [node name="pantalla_reintentar" type="Control" parent="."]
@@ -236,6 +239,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("15_7v56u")
 texture_pressed = ExtResource("16_prodv")
+
+[node name="PixelArtYellowWarningSignWithExclamationMarkIconPng" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 447)
+scale = Vector2(0.15428564, 0.13142845)
+texture = ExtResource("17_prodv")
+
+[node name="PixelArtYellowWarningSignWithExclamationMarkIconPng2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1112.0001, 282)
+scale = Vector2(0.15428564, 0.13142845)
+texture = ExtResource("17_prodv")
+
+[node name="CameraDialogo" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1560
+limit_bottom = 726
 
 [connection signal="alertados" from="LauchaMapache" to="." method="_on_alertados"]
 [connection signal="pressed" from="pantalla_reintentar/reintentar_btn" to="." method="_on_reintentar_btn_pressed"]
