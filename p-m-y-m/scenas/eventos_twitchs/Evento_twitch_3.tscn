@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0kx028nus6xa"]
+[gd_scene load_steps=20 format=3 uid="uid://c0kx028nus6xa"]
 
 [ext_resource type="Script" uid="uid://cnsncd8viua3g" path="res://scenas/eventos_twitchs/evento_twitch_3.gd" id="1_d3kxg"]
 [ext_resource type="Texture2D" uid="uid://bgrvcsrarocm5" path="res://assets/nivel_5/Muelle_minijuego3.png" id="2_sogsj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="6_o2ia3"]
 [ext_resource type="Texture2D" uid="uid://hieimbk5jumq" path="res://assets/nivel_4/boton_reintentar.png" id="7_iltya"]
 [ext_resource type="Texture2D" uid="uid://bmah547fg3ny" path="res://assets/nivel_4/boton_reintentar2.png" id="8_rryog"]
+[ext_resource type="Script" uid="uid://bxdqi0xrkbg7r" path="res://scenas/eventos_twitchs/label_2.gd" id="11_jislm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxq3v"]
 atlas = ExtResource("4_jislm")
@@ -56,6 +57,18 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmgvh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmgvh"]
+bg_color = Color(0.2902977, 0.29192042, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.023529412)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="minijuego_3" type="CanvasLayer"]
 script = ExtResource("1_d3kxg")
 pez_escena = ExtResource("2_w6cvv")
@@ -101,10 +114,6 @@ texture = ExtResource("6_o2ia3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Luther/PuntaLengua/AreaPuntaLengua"]
 shape = SubResource("CircleShape2D_lmgvh")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -173,6 +182,42 @@ color = Color(0.08235294, 0.08235294, 0.08235294, 0.80784315)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(420, 187.86)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 420, 187.86)
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = -35.0
+offset_top = -35.465
+offset_right = 148.0
+offset_bottom = -11.465
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(0.14470568, 1.2229996, 0.25566447, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lmgvh")
+text = "¡Cuidado con las pirañas!"
+script = ExtResource("11_jislm")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 391.0
+offset_top = 151.0
+offset_right = 535.0
+offset_bottom = 175.0
+scale = Vector2(3, 3)
+size_flags_vertical = 1
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(0.14470568, 1.2229996, 0.25566447, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_lmgvh")
+script = ExtResource("11_jislm")
+metadata/_edit_group_ = true
 
 [connection signal="Derrota" from="." to="." method="_on_derrota"]
 [connection signal="Ganado" from="." to="." method="_on_ganado"]

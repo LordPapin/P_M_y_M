@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdy0t71ivgmlr"]
+[gd_scene load_steps=26 format=3 uid="uid://cdy0t71ivgmlr"]
 
 [ext_resource type="Script" uid="uid://br6wrbsq3vh82" path="res://scenas/eventos_twitchs/NPC1.gd" id="1_nunfk"]
 [ext_resource type="Texture2D" uid="uid://j20ljbkoky5g" path="res://icon.svg" id="1_qvj33"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="7_h0pjf"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="7_x6e1x"]
 [ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="8_x6e1x"]
+[ext_resource type="Script" uid="uid://bxdqi0xrkbg7r" path="res://scenas/eventos_twitchs/label_2.gd" id="10_qxq3v"]
 
 [sub_resource type="GDScript" id="GDScript_0oqla"]
 script/source = "extends Area2D
@@ -86,6 +87,18 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5vt0"]
+bg_color = Color(0.70980394, 0, 0.3529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.023529412)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="evento_twitch_1" type="CanvasLayer"]
 process_mode = 3
@@ -202,6 +215,26 @@ texture = ExtResource("8_x6e1x")
 [node name="TimerCastigo" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(420, 187.86)
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 420, 187.86)
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = -23.999996
+offset_top = -21.771997
+offset_right = 113.0
+offset_bottom = 2.2280025
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(0, 1.223366, 0.21622744, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_v5vt0")
+text = "¡¡Roba los billetes!!"
+script = ExtResource("10_qxq3v")
+metadata/_edit_group_ = true
 
 [connection signal="input_event" from="NPC/Area2Dbilletes" to="NPC" method="_on_area_2_dbilletes_input_event"]
 [connection signal="input_event" from="NPC/Area2Dculo" to="NPC" method="_on_area_2_dculo_input_event"]

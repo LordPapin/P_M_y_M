@@ -21,7 +21,6 @@ func _ready():
 
 	timer.timeout.connect(_on_timeout)
 
-	hide()
 
 
 func iniciar_prueba(objetivo:int):
@@ -65,8 +64,6 @@ func _on_timeout():
 
 	activa = false
 
-	hide()
-
 	if superada:
 		prueba_superada.emit()
 	else:
@@ -86,9 +83,4 @@ func actualizar_color():
 		sprite.modulate = Color.YELLOW
 
 	elif progreso >= 0.33:
-
-		sprite.modulate = Color.ORANGE
-
-	else:
-
 		sprite.modulate = Color.RED
