@@ -3,8 +3,6 @@ extends Label
 @export var duracion_parpadeo: float = 1.5
 
 func _ready() -> void:
-	# Comprobamos si el jugador ya vio este tutorial
-	print("¿Tutorial de calle visto?: ", NPCstates.tutorial_calle_visto)
 
 	# Si todavía no lo vio, mostramos el Label
 	visible = true
