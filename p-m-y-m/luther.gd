@@ -101,33 +101,63 @@ func _physics_process(_delta: float) -> void:
 	actualizar_animacion()
 
 func _process(delta: float) -> void:
-	# orientar la lengua
+
+	# =====================================================
+	# MAPA
+	# =====================================================
+
+	if Input.is_action_just_pressed("mapa"):
+		$Mapa.visible = !$Mapa.visible
+
+		if $Mapa.visible:
+			# Cancelamos absolutamente cualquier orden pendiente
+			npc_objetivo = null
+			recurso_objetivo = null
+			puerta_objetivo = null
+
+			quiere_viajar = false
+			quiere_escritorio = false
+
+			nav_agent.target_position = global_position
+			velocity = Vector2.ZERO
+
+			$Mapa.global_position = camara.get_screen_center_position()
+
+	# Mientras el mapa esté abierto, mantenemos canceladas
+	# las órdenes de viaje.
+	if $Mapa.visible:
+		quiere_viajar = false
+		quiere_escritorio = false
+		puerta_objetivo = null
+
+	# =====================================================
+	# ORIENTAR LA LENGUA
+	# =====================================================
+
 	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
 		var dir = recurso_objetivo.global_position - lengua.global_position
 		lengua.rotation = dir.angle()
 	else:
 		var dir = get_global_mouse_position() - lengua.global_position
 		lengua.rotation = dir.angle()
-		
-	# --- SISTEMA DE MAPA CORREGIDO ---
-	if Input.is_action_just_pressed("mapa"):
-		$Mapa.visible = !$Mapa.visible
-		if $Mapa.visible:
-			# Si usas una Camera2D que se desplaza, esta línea es la más precisa para centrar
-			$Mapa.global_position = camara.get_screen_center_position()
-			
-			# Reseteamos la navegación inmediatamente para que se detenga si venía caminando
-			nav_agent.target_position = global_position
-			velocity = Vector2.ZERO
-	# ----------------------------------
+
+	# =====================================================
+	# LENGUA
+	# =====================================================
 
 	match estado_lengua:
 		EstadoLengua.EXTENDIENDO:
-			longitud_lengua = min(longitud_lengua + velocidad_lengua * delta, longitud_maxima)
+			longitud_lengua = min(
+				longitud_lengua + velocidad_lengua * delta,
+				longitud_maxima
+			)
 			_aplicar_longitud()
 
 			if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
-				var dist_punta = punta_lengua.global_position.distance_to(recurso_objetivo.global_position)
+				var dist_punta = punta_lengua.global_position.distance_to(
+					recurso_objetivo.global_position
+				)
+
 				if dist_punta < 40.0:
 					objeto_atrapado = recurso_objetivo
 					estado_lengua = EstadoLengua.RETRAYENDO
@@ -136,7 +166,10 @@ func _process(delta: float) -> void:
 				estado_lengua = EstadoLengua.RETRAYENDO
 
 		EstadoLengua.RETRAYENDO:
-			longitud_lengua = max(longitud_lengua - velocidad_lengua * delta, 1.0)
+			longitud_lengua = max(
+				longitud_lengua - velocidad_lengua * delta,
+				1.0
+			)
 			_aplicar_longitud()
 
 			if objeto_atrapado != null:
@@ -144,7 +177,6 @@ func _process(delta: float) -> void:
 
 			if longitud_lengua <= 1.0:
 				_finalizar_recoleccion()
-
 
 func _aplicar_longitud() -> void:
 	cuerpo_lengua.scale.x = longitud_lengua
