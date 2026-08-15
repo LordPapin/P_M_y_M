@@ -181,6 +181,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 2667
 limit_bottom = 720
+position_smoothing_enabled = true
 
 [node name="Basuratirada" type="StaticBody2D" parent="."]
 position = Vector2(1120, 618)

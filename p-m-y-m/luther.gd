@@ -12,6 +12,7 @@ class_name personaje
 @onready var cuerpo_lengua = $Lengua/CuerpoLengua
 @onready var punta_lengua = $Lengua/PuntaLengua
 
+@onready var camara: Camera2D = $Camera2D
 
 var longitud_lengua := 1.0
 var recurso_objetivo = null
@@ -204,14 +205,59 @@ func ir_hacia_npc(npc):
 func iniciar_conversacion(npc):
 	if conversando:
 		return
+	
 	if npc_objetivo != null and npc_objetivo != npc:
 		return
+	
 	conversando = true
 	npc_objetivo = null
 	velocity = Vector2.ZERO
 	nav_agent.target_position = global_position
 	
+	enfocar_conversacion(npc)
+	
 	npc.iniciar_dialogo()
 	
 func terminar_conversacion() -> void:
 	conversando = false
+	restaurar_camara()
+
+
+func enfocar_conversacion(npc: Node2D) -> void:
+	var punto_medio = (global_position + npc.global_position) / 2.0
+	punto_medio.y -= 45
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(
+		$Camera2D,
+		"global_position",
+		punto_medio,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(
+		$Camera2D,
+		"zoom",
+		Vector2(1.5, 1.5),
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+func restaurar_camara() -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(
+		$Camera2D,
+		"global_position",
+		global_position,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(
+		$Camera2D,
+		"zoom",
+		Vector2(1.0, 1.0),
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

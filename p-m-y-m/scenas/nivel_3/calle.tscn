@@ -94,7 +94,7 @@ texture_hover = ExtResource("16_mg38b")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_wjdaa")]
+[node name="Luther" parent="." instance=ExtResource("2_wjdaa")]
 texture_filter = 1
 position = Vector2(405, 493)
 
@@ -103,6 +103,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 3294
 limit_bottom = 720
+position_smoothing_enabled = true
 
 [node name="banco_tbn" type="TextureButton" parent="."]
 offset_left = 3170.0

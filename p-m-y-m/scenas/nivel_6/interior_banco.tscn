@@ -15,6 +15,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 489, 212, 489, 658, 
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gb3gd")
+metadata/_edit_horizontal_guides_ = [728.0]
 
 [node name="InteriorBanco(2)" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -45,6 +46,11 @@ scale = Vector2(1.655, 1.655)
 texture_filter = 1
 position = Vector2(102, 614)
 scale = Vector2(6.02, 6.02)
+
+[node name="Camera2D" type="Camera2D" parent="Luther"]
+limit_left = 0
+limit_bottom = 728
+position_smoothing_enabled = true
 
 [node name="posicion_puerta" type="Node2D" parent="."]
 position = Vector2(19, 484)
