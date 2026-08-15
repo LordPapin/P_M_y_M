@@ -128,8 +128,9 @@ func verificar_distancia():
 		quiere_muelle = false
 		quiere_banco = false
 		quiere_oficina = false
-		return # El 'return' hace que la función se detenga aquí. ¡Ahorramos cálculos!
-
+		return# El 'return' hace que la función se detenga aquí. ¡Ahorramos cálculos!
+	if luther.get_node("Mapa").visible:
+		return
 	# 2. Si llegamos aquí, ES PORQUE quiere viajar. 
 	# Calculamos SOLAMENTE la distancia del destino elegido usando elif.
 	

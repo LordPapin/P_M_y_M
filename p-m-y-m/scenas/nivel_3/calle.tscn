@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmb6u1wi5wl4k"]
+[gd_scene load_steps=26 format=3 uid="uid://dmb6u1wi5wl4k"]
 
 [ext_resource type="Texture2D" uid="uid://rs8rt30wgiuv" path="res://assets/nivel_3/calle.png" id="1_8rw0t"]
 [ext_resource type="Script" uid="uid://ci3qcaop57vu7" path="res://scenas/nivel_3/calle.gd" id="1_vac77"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d37f21wl016p3" path="res://assets/botones/flecha_up3.png" id="12_x8cbe"]
 [ext_resource type="Texture2D" uid="uid://66ye4sy86sqk" path="res://assets/botones/flecha_der3.png" id="13_giqkc"]
 [ext_resource type="Texture2D" uid="uid://ddpwkonr7hefx" path="res://assets/nivel_3/puerta oficina de calle.png" id="15_brtqh"]
+[ext_resource type="Script" uid="uid://dxhy4doc2mg6f" path="res://scenas/nivel_3/label_2.gd" id="15_cfy1b"]
 [ext_resource type="Texture2D" uid="uid://qpdswgkdp0kf" path="res://assets/nivel_3/puerta oficina de calle 2.png" id="15_e0nnv"]
 [ext_resource type="Texture2D" uid="uid://6v7aq1a3fvqa" path="res://assets/botones/flecha_izq3.png" id="15_huow2"]
 [ext_resource type="Texture2D" uid="uid://cgt4rvl6o2kg7" path="res://assets/nivel_3/puerta oficina de calle 3.png" id="16_mg38b"]
@@ -27,6 +28,18 @@
 vertices = PackedVector2Array(21.148438, 707.0078, 26.828125, 334.07813, 427.1797, 375.96875, 3284.5625, 711.97656, 1096.3828, 416.03906, 1169.4219, 406.03125, 2061.1797, 468, 2122.3516, 450.0703, 3298.4063, 473.78906, 2099.4531, 468, 2041.9609, 450.79688)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 9), PackedInt32Array(5, 10, 6), PackedInt32Array(3, 6, 9)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(17, 323, 11, 717, 3294, 722, 3309, 464, 2119, 440, 2096, 458, 2065, 458, 2046, 441, 1169, 396, 1096, 406, 428, 366)])
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg38b"]
+bg_color = Color(0.4249623, 0.41961008, 0.41425782, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.023529412)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="calle" type="Node2D"]
 script = ExtResource("1_vac77")
@@ -104,6 +117,25 @@ limit_top = 0
 limit_right = 3294
 limit_bottom = 720
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Luther/Camera2D"]
+offset = Vector2(420, 187.86)
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 420, 187.86)
+
+[node name="Label2" type="Label" parent="Luther/Camera2D/CanvasLayer"]
+texture_filter = 3
+offset_right = 82.0
+offset_bottom = 29.0
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(2.033, 2.033, 2.033, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_mg38b")
+text = "Presiona M para
+abrir el minimapa."
+script = ExtResource("15_cfy1b")
+metadata/_edit_group_ = true
 
 [node name="banco_tbn" type="TextureButton" parent="."]
 offset_left = 3170.0

@@ -30,24 +30,28 @@ scale = Vector2(2.1687498, 1)
 texture = ExtResource("2_priya")
 
 [node name="CajasMuelle" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(166, 635)
 scale = Vector2(4.301068, 4.301068)
 texture = ExtResource("3_sys1u")
 flip_h = true
 
 [node name="CajasMuelle3" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2204, 422)
 scale = Vector2(2.4702673, 2.110267)
 texture = ExtResource("3_sys1u")
 flip_h = true
 
 [node name="CajasMuelle4" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2049, 457)
 scale = Vector2(2.7651343, 2.3621619)
 texture = ExtResource("3_sys1u")
 flip_h = true
 
 [node name="CajasMuelle2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2422, 343)
 scale = Vector2(1.2402656, 1.2402656)
 texture = ExtResource("3_sys1u")

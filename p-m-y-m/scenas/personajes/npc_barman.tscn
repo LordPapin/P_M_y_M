@@ -50,7 +50,7 @@ animations = [{
 size = Vector2(92, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nua"]
-size = Vector2(212, 294)
+size = Vector2(212, 270)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6nua"]
 radius = 31.016125
@@ -76,7 +76,7 @@ shape = SubResource("RectangleShape2D_34iv8")
 [node name="cercanía de conv" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cercanía de conv"]
-position = Vector2(0, 1)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_m6nua")
 
 [node name="Area2D2" type="Area2D" parent="."]
