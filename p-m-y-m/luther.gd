@@ -14,6 +14,8 @@ class_name personaje
 
 @onready var camara: Camera2D = $Camera2D
 
+var tutorial_visto = false
+
 var longitud_lengua := 1.0
 var recurso_objetivo = null
 var objeto_atrapado = null
@@ -36,7 +38,8 @@ func _ready() -> void:
 		recurso.clicked.connect(seleccionar_recurso)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if recolectando or conversando:
+	# Bloqueo total de clics si estás haciendo otra acción o el mapa está abierto
+	if recolectando or conversando or $Mapa.visible:
 		return
 
 	if event is InputEventMouseButton:
@@ -44,6 +47,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			set_movement_target(get_global_mouse_position())
 
 func set_movement_target(target_point: Vector2):
+	# Si el mapa está visible, rechazamos cualquier orden de movimiento
+	if $Mapa.visible:
+		return
+		
 	npc_objetivo = null
 	recurso_objetivo = null
 	nav_agent.target_position = target_point
@@ -52,6 +59,13 @@ func set_movement_target(target_point: Vector2):
 		quiere_escritorio = false
 
 func _physics_process(_delta: float) -> void:
+	# Si el mapa está abierto, congelamos al personaje en su lugar
+	if $Mapa.visible:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		actualizar_animacion()
+		return
+
 	if recolectando:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -61,14 +75,13 @@ func _physics_process(_delta: float) -> void:
 	if npc_objetivo != null and is_instance_valid(npc_objetivo):
 		var distancia_npc = global_position.distance_to(npc_objetivo.global_position)
 
-		# Si ya estamos suficientemente cerca,
-		# dejamos de caminar.
 		if distancia_npc <= npc_objetivo.distancia_conversacion:
 			velocity = Vector2.ZERO
 			nav_agent.target_position = global_position
 			move_and_slide()
 			actualizar_animacion()
 			return
+			
 	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
 		var distancia = global_position.distance_to(recurso_objetivo.global_position)
 		if distancia <= distancia_recoleccion:
@@ -95,20 +108,30 @@ func _process(delta: float) -> void:
 	else:
 		var dir = get_global_mouse_position() - lengua.global_position
 		lengua.rotation = dir.angle()
+		
+	# --- SISTEMA DE MAPA CORREGIDO ---
+	if Input.is_action_just_pressed("mapa"):
+		$Mapa.visible = !$Mapa.visible
+		if $Mapa.visible:
+			# Si usas una Camera2D que se desplaza, esta línea es la más precisa para centrar
+			$Mapa.global_position = camara.get_screen_center_position()
+			
+			# Reseteamos la navegación inmediatamente para que se detenga si venía caminando
+			nav_agent.target_position = global_position
+			velocity = Vector2.ZERO
+	# ----------------------------------
 
 	match estado_lengua:
 		EstadoLengua.EXTENDIENDO:
 			longitud_lengua = min(longitud_lengua + velocidad_lengua * delta, longitud_maxima)
 			_aplicar_longitud()
 
-			# hit por distancia: comparamos la punta con el recurso
 			if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
 				var dist_punta = punta_lengua.global_position.distance_to(recurso_objetivo.global_position)
 				if dist_punta < 40.0:
 					objeto_atrapado = recurso_objetivo
 					estado_lengua = EstadoLengua.RETRAYENDO
 
-			# llegó al máximo sin golpear nada → retraer igual
 			if longitud_lengua >= longitud_maxima and estado_lengua == EstadoLengua.EXTENDIENDO:
 				estado_lengua = EstadoLengua.RETRAYENDO
 
@@ -116,12 +139,12 @@ func _process(delta: float) -> void:
 			longitud_lengua = max(longitud_lengua - velocidad_lengua * delta, 1.0)
 			_aplicar_longitud()
 
-			# arrastrar objeto si hay uno atrapado
 			if objeto_atrapado != null:
 				objeto_atrapado.global_position = punta_lengua.global_position
 
 			if longitud_lengua <= 1.0:
 				_finalizar_recoleccion()
+
 
 func _aplicar_longitud() -> void:
 	cuerpo_lengua.scale.x = longitud_lengua
@@ -147,15 +170,11 @@ func _finalizar_recoleccion() -> void:
 	nav_agent.target_position = global_position
 
 func actualizar_animacion() -> void:
-	# Si el personaje está cayendo, abortamos esta función para no pisar la animación
 	if cayendo:
 		return
 
-	# Obtenemos la velocidad real a la que se desplazó el cuerpo tras chocar
 	var velocidad_real = get_real_velocity()
 
-	# Usamos un pequeño margen de tolerancia (ej: 10.0) en vez de 0 
-	# para ignorar la micro-fricción contra las paredes
 	if velocidad_real.length() > 10.0:
 		if abs(velocidad_real.y) > abs(velocidad_real.x):
 			animation_player.play("walk_up" if velocidad_real.y < 0 else "walk")
@@ -166,34 +185,27 @@ func actualizar_animacion() -> void:
 		animation_player.play("idle")
 
 func seleccionar_recurso(recurso) -> void:
-	if recolectando:
+	# Si el mapa está visible, ignoramos la selección de recursos en el mapa de fondo
+	if recolectando or $Mapa.visible:
 		return
 	recurso_objetivo = recurso
 	nav_agent.target_position = recurso.global_position
 	
 func recibir_aviso_del_area() -> void:
-	# Bloqueamos las otras animaciones
 	cayendo = true 
-	
-	# Opcional: frenar al personaje para que no patine mientras cae
 	velocity = Vector2.ZERO 
-	
-	# 1. Reproducimos la animación
 	animation_player.play("caida")
-	
-	# 2. Esperamos a que termine
 	await animation_player.animation_finished
-	
-	# 3. Liberamos el bloqueo y volvemos a idle
 	cayendo = false
 	animation_player.play("idle")
 
 func ir_hacia_puerta(puerta):
+	if $Mapa.visible: return
 	puerta_objetivo = puerta
 	nav_agent.target_position = puerta
 
-
 func ir_hacia_npc(npc):
+	if $Mapa.visible: return
 	npc_objetivo = npc
 	recurso_objetivo = null
 	puerta_objetivo = null
@@ -201,9 +213,8 @@ func ir_hacia_npc(npc):
 	quiere_escritorio = false
 	nav_agent.target_position = npc.global_position
 	
-	
 func iniciar_conversacion(npc):
-	if conversando:
+	if conversando or $Mapa.visible:
 		return
 	
 	if npc_objetivo != null and npc_objetivo != npc:
@@ -215,13 +226,11 @@ func iniciar_conversacion(npc):
 	nav_agent.target_position = global_position
 	
 	enfocar_conversacion(npc)
-	
 	npc.iniciar_dialogo()
 	
 func terminar_conversacion() -> void:
 	conversando = false
 	restaurar_camara()
-
 
 func enfocar_conversacion(npc: Node2D) -> void:
 	var punto_medio = (global_position + npc.global_position) / 2.0
