@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://sngrs2jqnhft"]
+
+[ext_resource type="Script" path="res://scenas/nivel_5/pirania.gd" id="1_8inhp"]
+[ext_resource type="Texture2D" path="res://assets/nivel_5/piraña.png" id="1_mqs6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8inhp"]
+atlas = ExtResource("1_mqs6o")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt7p6"]
+atlas = ExtResource("1_mqs6o")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0idge"]
+atlas = ExtResource("1_mqs6o")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvcfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8inhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt7p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0idge")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0174a"]
+radius = 44.102154
+
+[node name="pirania" type="Area2D"]
+script = ExtResource("1_8inhp")
+
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xvcfw")
+animation = &"anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -7)
+shape = SubResource("CircleShape2D_0174a")

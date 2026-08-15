@@ -1,0 +1,182 @@
+[gd_scene load_steps=18 format=3 uid="uid://c0kx028nus6xa"]
+
+[ext_resource type="Script" path="res://scenas/eventos_twitchs/evento_twitch_3.gd" id="1_d3kxg"]
+[ext_resource type="Texture2D" path="res://assets/nivel_5/Muelle_minijuego3.png" id="2_sogsj"]
+[ext_resource type="PackedScene" path="res://scenas/nivel_5/pez.tscn" id="2_w6cvv"]
+[ext_resource type="PackedScene" path="res://scenas/nivel_5/pirania.tscn" id="3_jislm"]
+[ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_w6cvv"]
+[ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="4_jislm"]
+[ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="5_lmgvh"]
+[ext_resource type="Texture2D" uid="uid://b5ie5y6wfhfuv" path="res://assets/punteeros/objeto_lengua.png" id="6_o2ia3"]
+[ext_resource type="Texture2D" uid="uid://hieimbk5jumq" path="res://assets/nivel_4/boton_reintentar.png" id="7_iltya"]
+[ext_resource type="Texture2D" uid="uid://bmah547fg3ny" path="res://assets/nivel_4/boton_reintentar2.png" id="8_rryog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxq3v"]
+atlas = ExtResource("4_jislm")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5vt0"]
+atlas = ExtResource("4_jislm")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mau03"]
+atlas = ExtResource("4_jislm")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vusqs"]
+atlas = ExtResource("4_jislm")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ficvf"]
+atlas = ExtResource("4_jislm")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fomsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxq3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5vt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mau03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vusqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ficvf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmgvh"]
+
+[node name="minijuego_3" type="CanvasLayer"]
+script = ExtResource("1_d3kxg")
+pez_escena = ExtResource("2_w6cvv")
+"piraña_escena" = ExtResource("3_jislm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sogsj")
+expand_mode = 1
+
+[node name="Luther" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(1059, 559)
+script = ExtResource("3_w6cvv")
+metadata/_edit_group_ = true
+
+[node name="boca" type="Marker2D" parent="Luther"]
+position = Vector2(-19, -76)
+
+[node name="lutherSprite" type="AnimatedSprite2D" parent="Luther"]
+scale = Vector2(5, 4.62)
+sprite_frames = SubResource("SpriteFrames_fomsa")
+animation = &"idle"
+flip_h = true
+
+[node name="lengua" type="Line2D" parent="Luther"]
+visible = false
+texture_repeat = 1
+position = Vector2(-148, -47)
+width = 20.0
+texture = ExtResource("5_lmgvh")
+texture_mode = 1
+
+[node name="PuntaLengua" type="Sprite2D" parent="Luther"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("6_o2ia3")
+
+[node name="AreaPuntaLengua" type="Area2D" parent="Luther/PuntaLengua"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Luther/PuntaLengua/AreaPuntaLengua"]
+shape = SubResource("CircleShape2D_lmgvh")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="fishSpawner" type="Node2D" parent="Node2D"]
+
+[node name="fishTimer" type="Timer" parent="Node2D/fishSpawner"]
+
+[node name="piraniaSpawner" type="Node2D" parent="Node2D"]
+
+[node name="piraniaTimer" type="Timer" parent="Node2D/piraniaSpawner"]
+
+[node name="pantalla_reintentar" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="pantalla_reintentar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1250.0
+offset_bottom = 684.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.80784315)
+
+[node name="reintentar_btn" type="TextureButton" parent="pantalla_reintentar"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 506.0
+offset_top = 344.0
+offset_right = 782.0
+offset_bottom = 533.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_iltya")
+texture_pressed = ExtResource("8_rryog")
+
+[node name="pantalla_ganado" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="pantalla_ganado"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1250.0
+offset_bottom = 684.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.80784315)
+
+[node name="continuar" type="TextureButton" parent="pantalla_ganado"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="Derrota" from="." to="." method="_on_derrota"]
+[connection signal="Ganado" from="." to="." method="_on_ganado"]
+[connection signal="area_entered" from="Luther/PuntaLengua/AreaPuntaLengua" to="." method="_on_area_punta_lengua_area_entered"]
+[connection signal="pressed" from="pantalla_reintentar/reintentar_btn" to="." method="_on_reintentar_btn_pressed"]

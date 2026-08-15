@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://5xcjyx7m6605"]
+
+[ext_resource type="Script" path="res://scenas/nivel_5/pez.gd" id="1_whiiv"]
+[ext_resource type="Texture2D" path="res://assets/nivel_5/pez_anim.png" id="1_xp53y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whiiv"]
+atlas = ExtResource("1_xp53y")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2xgf"]
+atlas = ExtResource("1_xp53y")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsojd"]
+atlas = ExtResource("1_xp53y")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6x15p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whiiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2xgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsojd")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a113c"]
+radius = 51.0392
+
+[node name="pez" type="Area2D"]
+script = ExtResource("1_whiiv")
+
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6x15p")
+animation = &"anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("CircleShape2D_a113c")
