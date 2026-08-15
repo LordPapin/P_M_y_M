@@ -1,7 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://sngrs2jqnhft"]
 
-[ext_resource type="Script" path="res://scenas/nivel_5/pirania.gd" id="1_8inhp"]
-[ext_resource type="Texture2D" path="res://assets/nivel_5/piraña.png" id="1_mqs6o"]
+
+
+[ext_resource type="Script" uid="uid://cgifiu63j88nc" path="res://scenas/nivel_5/pirania.gd" id="1_8inhp"]
+[ext_resource type="Texture2D" uid="uid://01ulg5g7avsc" path="res://assets/nivel_5/piraña.png" id="1_mqs6o"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8inhp"]
 atlas = ExtResource("1_mqs6o")
@@ -39,7 +42,7 @@ radius = 44.102154
 script = ExtResource("1_8inhp")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
+
 sprite_frames = SubResource("SpriteFrames_xvcfw")
 animation = &"anim"
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://c0kx028nus6xa"]
 
-[ext_resource type="Script" path="res://scenas/eventos_twitchs/evento_twitch_3.gd" id="1_d3kxg"]
-[ext_resource type="Texture2D" path="res://assets/nivel_5/Muelle_minijuego3.png" id="2_sogsj"]
-[ext_resource type="PackedScene" path="res://scenas/nivel_5/pez.tscn" id="2_w6cvv"]
-[ext_resource type="PackedScene" path="res://scenas/nivel_5/pirania.tscn" id="3_jislm"]
+[ext_resource type="Script" uid="uid://cnsncd8viua3g" path="res://scenas/eventos_twitchs/evento_twitch_3.gd" id="1_d3kxg"]
+[ext_resource type="Texture2D" uid="uid://bgrvcsrarocm5" path="res://assets/nivel_5/Muelle_minijuego3.png" id="2_sogsj"]
+[ext_resource type="PackedScene" uid="uid://5xcjyx7m6605" path="res://scenas/nivel_5/pez.tscn" id="2_w6cvv"]
+[ext_resource type="PackedScene" uid="uid://sngrs2jqnhft" path="res://scenas/nivel_5/pirania.tscn" id="3_jislm"]
 [ext_resource type="Script" uid="uid://cfd5xdngpyfhd" path="res://scenas/eventos_twitchs/luther.gd" id="3_w6cvv"]
 [ext_resource type="Texture2D" uid="uid://dcgsgx6hyg56s" path="res://assets/luther/luther_idle_anim.png" id="4_jislm"]
 [ext_resource type="Texture2D" uid="uid://v0mjuccydbgh" path="res://assets/punteeros/Lengua.png" id="5_lmgvh"]
@@ -62,7 +62,6 @@ pez_escena = ExtResource("2_w6cvv")
 "piraña_escena" = ExtResource("3_jislm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -72,7 +71,6 @@ texture = ExtResource("2_sogsj")
 expand_mode = 1
 
 [node name="Luther" type="Node2D" parent="."]
-texture_filter = 1
 position = Vector2(1059, 559)
 script = ExtResource("3_w6cvv")
 metadata/_edit_group_ = true

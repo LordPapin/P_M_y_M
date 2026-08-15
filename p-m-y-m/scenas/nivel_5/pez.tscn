@@ -1,7 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://5xcjyx7m6605"]
 
-[ext_resource type="Script" path="res://scenas/nivel_5/pez.gd" id="1_whiiv"]
-[ext_resource type="Texture2D" path="res://assets/nivel_5/pez_anim.png" id="1_xp53y"]
+
+
+[ext_resource type="Script" uid="uid://dcd0bwutc28j8" path="res://scenas/nivel_5/pez.gd" id="1_whiiv"]
+[ext_resource type="Texture2D" uid="uid://b4sm64htmp8wi" path="res://assets/nivel_5/pez_anim.png" id="1_xp53y"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whiiv"]
 atlas = ExtResource("1_xp53y")
@@ -39,10 +42,12 @@ radius = 51.0392
 script = ExtResource("1_whiiv")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
+
+
 sprite_frames = SubResource("SpriteFrames_6x15p")
 animation = &"anim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
+
+
 shape = SubResource("CircleShape2D_a113c")
