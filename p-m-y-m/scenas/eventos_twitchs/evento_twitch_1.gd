@@ -2,44 +2,61 @@ extends CanvasLayer
 
 var puntuacion = 0
 var max_billetes = 1.5
+
 @onready var timer_castigo = $TimerCastigo
 @onready var mi_npc = $NPC
 @onready var cursor = get_tree().get_first_node_in_group("cursor")
 
 signal minijuego_ganado
 
+
 func _ready():
+	# Este minijuego debe funcionar aunque el juego esté pausado
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	
 	$NPC.parte_tocada.connect(_al_tocar_npc)
 	timer_castigo.start()
 	cursor.animacion_forzada = "lengua"
+
 
 func _al_tocar_npc(parte):
 	match parte:
 		"billetes":
 			puntuacion += 1
+			
 			if puntuacion >= max_billetes:
 				ganar_juego()
+
 		"culo":
 			derrota("SLAP")
+
 		"cabeza":
 			derrota("OJO")
+
 
 func _on_timer_castigo_timeout():
 	if puntuacion > 0:
 		puntuacion -= 1
 
+
 func derrota(tipo):
 	timer_castigo.stop()
 	cursor.animacion_forzada = ""
+
 	if tipo == "SLAP":
 		print("Animación de bofetada y enojo")
 	else:
 		print("Lengua en el ojo")
 
+
 func ganar_juego():
 	emit_signal("minijuego_ganado")
+
 	NPCstates.npcs["npc1"]["current_state"] = "robado"
 	NPCstates.npcs["npc_barman"]["current_state"] = "con_billetes"
+
 	get_tree().call_group("evento_1", "JuegoTerminado")
+
 	cursor.animacion_forzada = ""
+
 	queue_free()

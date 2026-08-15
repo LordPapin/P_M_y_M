@@ -222,6 +222,7 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 420, 187.86)
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+process_mode = 2
 texture_filter = 1
 offset_left = -23.999996
 offset_top = -21.771997
