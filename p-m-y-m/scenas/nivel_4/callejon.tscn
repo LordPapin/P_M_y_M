@@ -84,6 +84,7 @@ animations = [{
 script = ExtResource("1_rm82d")
 
 [node name="EscenarioMinijuego2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1337, 358)
 scale = Vector2(4.175, 3.025)
 texture = ExtResource("1_0iobx")
@@ -171,7 +172,7 @@ scale = Vector2(2, 2)
 position = Vector2(1411, 592)
 scale = Vector2(2, 2)
 
-[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("7_4o0vk")]
+[node name="Luther" parent="." instance=ExtResource("7_4o0vk")]
 position = Vector2(383.00003, 594)
 scale = Vector2(6, 6)
 
@@ -180,6 +181,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 2667
 limit_bottom = 720
+position_smoothing_enabled = true
 
 [node name="Basuratirada" type="StaticBody2D" parent="."]
 position = Vector2(1120, 618)

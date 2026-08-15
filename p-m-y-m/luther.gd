@@ -12,6 +12,7 @@ class_name personaje
 @onready var cuerpo_lengua = $Lengua/CuerpoLengua
 @onready var punta_lengua = $Lengua/PuntaLengua
 
+@onready var camara: Camera2D = $Camera2D
 
 var longitud_lengua := 1.0
 var recurso_objetivo = null
@@ -20,6 +21,9 @@ var cayendo := false
 var puerta_objetivo = null
 var quiere_viajar = false
 var quiere_escritorio = false
+
+var npc_objetivo = null
+var conversando := false
 
 enum EstadoLengua { INACTIVA, EXTENDIENDO, RETRAYENDO }
 var estado_lengua := EstadoLengua.INACTIVA
@@ -32,13 +36,16 @@ func _ready() -> void:
 		recurso.clicked.connect(seleccionar_recurso)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if recolectando:
+	if recolectando or conversando:
 		return
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			set_movement_target(get_global_mouse_position())
 
 func set_movement_target(target_point: Vector2):
+	npc_objetivo = null
+	recurso_objetivo = null
 	nav_agent.target_position = target_point
 	if quiere_viajar:
 		quiere_viajar = false
@@ -51,6 +58,17 @@ func _physics_process(_delta: float) -> void:
 		actualizar_animacion()
 		return
 
+	if npc_objetivo != null and is_instance_valid(npc_objetivo):
+		var distancia_npc = global_position.distance_to(npc_objetivo.global_position)
+
+		# Si ya estamos suficientemente cerca,
+		# dejamos de caminar.
+		if distancia_npc <= npc_objetivo.distancia_conversacion:
+			velocity = Vector2.ZERO
+			nav_agent.target_position = global_position
+			move_and_slide()
+			actualizar_animacion()
+			return
 	if recurso_objetivo != null and is_instance_valid(recurso_objetivo):
 		var distancia = global_position.distance_to(recurso_objetivo.global_position)
 		if distancia <= distancia_recoleccion:
@@ -173,3 +191,73 @@ func recibir_aviso_del_area() -> void:
 func ir_hacia_puerta(puerta):
 	puerta_objetivo = puerta
 	nav_agent.target_position = puerta
+
+
+func ir_hacia_npc(npc):
+	npc_objetivo = npc
+	recurso_objetivo = null
+	puerta_objetivo = null
+	quiere_viajar = false
+	quiere_escritorio = false
+	nav_agent.target_position = npc.global_position
+	
+	
+func iniciar_conversacion(npc):
+	if conversando:
+		return
+	
+	if npc_objetivo != null and npc_objetivo != npc:
+		return
+	
+	conversando = true
+	npc_objetivo = null
+	velocity = Vector2.ZERO
+	nav_agent.target_position = global_position
+	
+	enfocar_conversacion(npc)
+	
+	npc.iniciar_dialogo()
+	
+func terminar_conversacion() -> void:
+	conversando = false
+	restaurar_camara()
+
+
+func enfocar_conversacion(npc: Node2D) -> void:
+	var punto_medio = (global_position + npc.global_position) / 2.0
+	punto_medio.y -= 45
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(
+		$Camera2D,
+		"global_position",
+		punto_medio,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(
+		$Camera2D,
+		"zoom",
+		Vector2(1.5, 1.5),
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+func restaurar_camara() -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(
+		$Camera2D,
+		"global_position",
+		global_position,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(
+		$Camera2D,
+		"zoom",
+		Vector2(1.0, 1.0),
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

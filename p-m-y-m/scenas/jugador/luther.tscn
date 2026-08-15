@@ -228,7 +228,7 @@ size = Vector2(18.75, 6.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0yjg"]
 size = Vector2(12.235293, 14.000008)
 
-[node name="Luther" type="CharacterBody2D"]
+[node name="Luther" type="CharacterBody2D" groups=["jugador"]]
 scale = Vector2(4, 4)
 script = ExtResource("1_p2y8e")
 

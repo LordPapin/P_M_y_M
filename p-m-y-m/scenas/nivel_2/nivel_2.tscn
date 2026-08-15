@@ -26,6 +26,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-24, 534, -23, 643, 287
 script = ExtResource("1_uik70")
 
 [node name="Fondo_bar" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1442.5, 360)
 scale = Vector2(1.3212649, 1)
 texture = ExtResource("2_1dr2i")
@@ -51,26 +52,31 @@ texture_hover = ExtResource("8_oa34d")
 script = ExtResource("10_fs502")
 
 [node name="Asiento" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(687.00006, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
 [node name="Asiento2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(952, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
 [node name="Asiento3" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1318, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
 [node name="Asiento4" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1881, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
 
 [node name="Asiento5" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2322, 542.00006)
 scale = Vector2(0.7097561, 0.70975614)
 texture = ExtResource("3_oa34d")
@@ -88,10 +94,12 @@ position = Vector2(1818, 289)
 scale = Vector2(2, 2)
 
 [node name="NPC2" parent="." instance=ExtResource("3_sbju3")]
-position = Vector2(1540, 256)
+texture_filter = 1
+position = Vector2(1541.0001, 254)
 scale = Vector2(3, 3)
 
-[node name="Luther" parent="." groups=["jugador"] instance=ExtResource("2_e64c6")]
+[node name="Luther" parent="." instance=ExtResource("2_e64c6")]
+texture_filter = 1
 position = Vector2(384, 675)
 scale = Vector2(7, 7)
 
@@ -100,8 +108,11 @@ limit_left = 0
 limit_top = 0
 limit_right = 2877
 limit_bottom = 720
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="NPC1" parent="." instance=ExtResource("4_mg47c")]
+texture_filter = 1
 position = Vector2(2478, 540)
 scale = Vector2(2, 2)
 

@@ -21,6 +21,7 @@ metadata/_edit_vertical_guides_ = [665.0]
 metadata/_edit_horizontal_guides_ = [536.0]
 
 [node name="Banco" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(641.00006, 354.5)
 scale = Vector2(1.0150675, 0.64156085)
 texture = ExtResource("1_tyf7j")
@@ -52,6 +53,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Luther" parent="." instance=ExtResource("2_p30yp")]
+texture_filter = 1
 position = Vector2(217, 640)
 
 [node name="posicion_puerta" type="Node2D" parent="."]
