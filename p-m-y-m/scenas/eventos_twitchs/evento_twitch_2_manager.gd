@@ -150,8 +150,11 @@ func _on_finalizar() -> void:
 		NPCstates.npcs["npc_pescador"]["current_state"] = "sobrio_con_info_conversado"
 
 	if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_sin_info":
-		NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
-
+		NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_sin_ayuda_conversado"
+		
+	if NPCstates.npcs["npc_pescador"]["current_state"] == "borracho_sin_info_conversado":
+		NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_sin_ayuda_conversado"
+		
 	eliminar()
 
 
