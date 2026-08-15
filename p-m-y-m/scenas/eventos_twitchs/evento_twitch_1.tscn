@@ -101,6 +101,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_nunfk")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC"]
+texture_filter = 1
 scale = Vector2(1.69, 1.6356249)
 texture = ExtResource("3_0oqla")
 
@@ -169,6 +170,7 @@ position = Vector2(68, 30)
 position = Vector2(284, 28)
 
 [node name="Luther" type="Node2D" parent="."]
+texture_filter = 1
 position = Vector2(1055, 493)
 script = ExtResource("3_r6r7q")
 metadata/_edit_group_ = true

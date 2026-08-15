@@ -17,6 +17,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 489, 212, 489, 658, 
 script = ExtResource("1_gb3gd")
 
 [node name="InteriorBanco(2)" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(827, 362.5)
 scale = Vector2(1.3046874, 1.0180556)
 texture = ExtResource("1_3cp35")
@@ -36,10 +37,12 @@ stretch_mode = 0
 navigation_polygon = SubResource("NavigationPolygon_gb3gd")
 
 [node name="npc_cajera" parent="." instance=ExtResource("6_gb3gd")]
+texture_filter = 1
 position = Vector2(878, 420)
 scale = Vector2(1.655, 1.655)
 
 [node name="Luther" parent="." instance=ExtResource("3_vpad3")]
+texture_filter = 1
 position = Vector2(102, 614)
 scale = Vector2(6.02, 6.02)
 

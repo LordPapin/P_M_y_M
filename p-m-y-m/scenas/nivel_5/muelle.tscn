@@ -18,18 +18,20 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(360, 710, 1211, 499, 2013, 505, 2345, 442, 2406, 391, 2398, 331, 2474, 307, 2765, 304, 3079, 507, 3982, 499, 3988, 691, 2617, 713)])
 
 [node name="muelle" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_befke")
 metadata/_edit_group_ = true
 
 [node name="Muelle21" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2087, 362)
 scale = Vector2(2.1687498, 1)
 texture = ExtResource("2_priya")
 
 [node name="npc_pescador" parent="." instance=ExtResource("5_el811")]
+texture_filter = 1
 position = Vector2(2742, 245.00002)
 scale = Vector2(2.016423, 2.016423)
-distancia_conversacion = 100.0
 
 [node name="tienda" type="TextureButton" parent="."]
 offset_left = 493.0
@@ -44,6 +46,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Luther" parent="." groups=["npc"] instance=ExtResource("2_el811")]
+texture_filter = 1
 position = Vector2(3755, 578)
 scale = Vector2(6, 6)
 metadata/_edit_group_ = true
