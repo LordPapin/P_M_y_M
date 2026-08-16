@@ -90,7 +90,7 @@ navigation_polygon = SubResource("NavigationPolygon_e64c6")
 [node name="InventoryUI" parent="." instance=ExtResource("7_48d3o")]
 
 [node name="cerbeza" parent="." instance=ExtResource("9_ret4i")]
-position = Vector2(1818, 289)
+position = Vector2(1929, 355)
 scale = Vector2(2, 2)
 
 [node name="NPC2" parent="." instance=ExtResource("3_sbju3")]
@@ -103,7 +103,7 @@ texture_filter = 1
 position = Vector2(384, 675)
 scale = Vector2(7, 7)
 
-[node name="Camera2D" type="Camera2D" parent="Luther"]
+[node name="Camera2D2" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 2877

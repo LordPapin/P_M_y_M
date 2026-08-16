@@ -176,7 +176,7 @@ scale = Vector2(2, 2)
 position = Vector2(383.00003, 594)
 scale = Vector2(6, 6)
 
-[node name="Camera2D" type="Camera2D" parent="Luther"]
+[node name="Camera2D2" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 2667

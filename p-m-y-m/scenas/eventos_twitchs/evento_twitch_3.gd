@@ -47,8 +47,8 @@ var puntuacion: int = 0
 # ============================================================
 
 @export var velocidad_pez_inicial: float = 100.0
-@export var velocidad_pez_nivel_2: float = 150.0
-@export var velocidad_pez_nivel_3: float = 200.0
+@export var velocidad_pez_nivel_2: float = 110.0
+@export var velocidad_pez_nivel_3: float = 130.0
 
 var velocidad_actual_peces: float = 100.0
 
@@ -179,9 +179,8 @@ func _on_area_punta_lengua_area_entered(area: Area2D) -> void:
 # ============================================================
 
 func _on_derrota() -> void:
-
 	pantalla_derrota.show()
-	get_tree().paused = true
+	
 
 
 # ============================================================
@@ -191,8 +190,9 @@ func _on_derrota() -> void:
 func _on_ganado() -> void:
 
 	print("¡GANASTE!")
-	pantalla_ganado.show()
-	get_tree().paused = true
+	queue_free()
+	#pantalla_ganado.show()
+	#get_tree().paused = true
 
 
 # ============================================================
@@ -200,6 +200,14 @@ func _on_ganado() -> void:
 # ============================================================
 
 func _on_reintentar_btn_pressed() -> void:
-
-	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+
+func _on_continuar_pressed() -> void:
+	emit_signal("Ganado")
+	queue_free()
+
+
+func terminar():
+	queue_free()

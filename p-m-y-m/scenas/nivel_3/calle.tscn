@@ -111,19 +111,19 @@ stretch_mode = 0
 texture_filter = 1
 position = Vector2(405, 493)
 
-[node name="Camera2D" type="Camera2D" parent="Luther"]
+[node name="Camera2D2" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 3294
 limit_bottom = 720
 position_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Luther/Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Luther/Camera2D2"]
 offset = Vector2(420, 187.86)
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 420, 187.86)
 
-[node name="Label2" type="Label" parent="Luther/Camera2D/CanvasLayer"]
+[node name="Label2" type="Label" parent="Luther/Camera2D2/CanvasLayer"]
 texture_filter = 3
 offset_right = 82.0
 offset_bottom = 29.0

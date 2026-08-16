@@ -25,7 +25,7 @@ var animado: bool = false
 # ============================================================
 
 func _ready() -> void:
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	luther_sprite.play("idle")
 
 
@@ -34,9 +34,7 @@ func _ready() -> void:
 # ============================================================
 
 func _input(event):
-
 	if event.is_action_pressed("dispararLengua") and not animado:
-
 		disparar_lengua(get_global_mouse_position())
 
 
@@ -45,7 +43,6 @@ func _input(event):
 # ============================================================
 
 func _process(_delta):
-
 	lengua.clear_points()
 
 	lengua.add_point(

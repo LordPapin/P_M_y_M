@@ -80,7 +80,7 @@ position = Vector2(3755, 578)
 scale = Vector2(6, 6)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="Luther"]
+[node name="Camera2D2" type="Camera2D" parent="Luther"]
 limit_left = 0
 limit_top = 0
 limit_right = 4165
@@ -110,6 +110,7 @@ position = Vector2(3964, 577)
 [node name="posicion_tienda" type="Node2D" parent="."]
 position = Vector2(728, 613)
 
+[connection signal="comenzar_minijuego" from="npc_pescador" to="." method="_on_npc_pescador_comenzar_minijuego"]
 [connection signal="mouse_entered" from="tienda" to="." method="_on_tienda_mouse_entered"]
 [connection signal="mouse_exited" from="tienda" to="." method="_on_tienda_mouse_exited"]
 [connection signal="pressed" from="tienda" to="." method="_on_tienda_pressed"]

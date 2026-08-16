@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://5xcjyx7m6605"]
 
-[ext_resource type="Script" path="res://scenas/nivel_5/pez.gd" id="1_whiiv"]
+[ext_resource type="Script" uid="uid://dcd0bwutc28j8" path="res://scenas/nivel_5/pez.gd" id="1_whiiv"]
 [ext_resource type="Texture2D" uid="uid://b4sm64htmp8wi" path="res://assets/nivel_5/pez_anim.png" id="1_xp53y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whiiv"]
@@ -36,6 +36,7 @@ animations = [{
 radius = 51.0392
 
 [node name="pez" type="Area2D"]
+process_mode = 3
 script = ExtResource("1_whiiv")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]

@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+signal comenzar_minijuego
+
 var miniJuego = "res://scenas/eventos_twitchs/Evento_twitch_3.tscn"
 var conversable = false
 @onready var MiSprite: AnimatedSprite2D 
 @export var distancia_conversacion := 100.0
+@onready var luther = get_tree().get_first_node_in_group("jugador")
 
 @onready var MiDialogo = preload("res://dialogos/npc_pescador.dialogue")
 
@@ -18,10 +21,10 @@ func _handle_interaction():
 		print("Cambiando a la escena del minijuego de pesca...")
 		
 		# Cambiamos el estado para que, al volver del minijuego, salte directo a la recompensa
-		NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
+		#NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
 		
 		# Cambiar de escena al minijuego
-		get_tree().change_scene_to_file(miniJuego)
+		emit_signal("comenzar_minijuego")
 
 func _on_cercanía_de_conv_body_entered(body: Node2D) -> void:
 	if body is personaje:
@@ -36,7 +39,6 @@ func _on_cercanía_de_conv_body_exited(body: Node2D) -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			var luther = get_tree().get_first_node_in_group("jugador")
 			if luther == null or luther.conversando:
 				return
 			
@@ -62,6 +64,5 @@ func iniciar_dialogo() -> void:
 	# Se ejecuta inmediatamente al cerrar la caja de texto
 	_handle_interaction()
 	
-	var luther = get_tree().get_first_node_in_group("jugador")
 	if luther:
 		luther.terminar_conversacion()

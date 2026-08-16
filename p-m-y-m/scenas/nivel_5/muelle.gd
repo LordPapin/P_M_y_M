@@ -1,8 +1,9 @@
 extends Node2D
-
+#muelle
 
 #conseguimos referencia a Luther
 @onready var luther: personaje = $Luther
+@onready var npc_pescador = $npc_pescador
 
 #conseguimos referencia a puertas
 @onready var calle_btn: TextureButton = $calle
@@ -11,11 +12,13 @@ extends Node2D
 #conseguimos referencia a la posicion de las puertas(un nodo 2D personalizado)
 @onready var posicion_calle = $posicion_calle.global_position
 @onready var posicion_tienda = $posicion_tienda.global_position
+@onready var minijuego3 = preload("res://scenas/eventos_twitchs/Evento_twitch_3.tscn")
 
 #usamos booleanos para controlar hacia donde quiere viajar el jugador
 #serán manejadas por las señales de botones presionados
 var quiere_calle = false
 var quiere_tienda = false
+
 
 
 func _ready() -> void:
@@ -38,7 +41,7 @@ func _on_tienda_pressed() -> void:
 	quiere_tienda = true
 		
 func visible():
-	$npc_pescador.visible = true
+	npc_pescador.visible = true
 	pass
 
 
@@ -90,15 +93,21 @@ func verificar_distancia():
 			get_tree().change_scene_to_file("res://scenas/nivel_5/tienda_muelle.tscn")
 			luther.quiere_viajar = false
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+func _on_npc_pescador_comenzar_minijuego() -> void:
+	# 1. Creamos una instancia real de la escena y la guardamos en una variable
+	var instancia_minijuego = minijuego3.instantiate()
+	instancia_minijuego.process_mode = Node.PROCESS_MODE_ALWAYS
+	instancia_minijuego.Ganado.connect(_on_minijuego_ganado)
+	npc_pescador.process_mode = Node.PROCESS_MODE_DISABLED
+	# 2. Añadimos esa instancia como hijo a la escena actual
+	add_child(instancia_minijuego)
+
+
+func _on_minijuego_ganado():
+	npc_pescador.process_mode = Node.PROCESS_MODE_INHERIT
+	NPCstates.npcs["npc_pescador"]["current_state"] = "borracho_con_info_con_ayuda"
+	
+	# 2. Iniciamos la conversación automáticamente para darle la recompensa
+	npc_pescador.iniciar_dialogo()

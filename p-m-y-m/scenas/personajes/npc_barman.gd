@@ -78,7 +78,8 @@ func _on_area_2d_mouse_exited() -> void:
 	var cursor = get_tree().get_first_node_in_group("cursor")
 	
 	if cursor:
-		cursor._on_mouse_exited(self)
+		pass
+		#cursor._on_mouse_exited(self)
 
 
 func iniciar_dialogo() -> void:

@@ -21,11 +21,9 @@ var tween_salto: Tween
 # ============================================================
 
 func _ready():
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group("peces")
-
 	animacion.play("anim")
-
 	animar_salto()
 
 

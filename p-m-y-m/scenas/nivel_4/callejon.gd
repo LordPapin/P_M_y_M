@@ -21,6 +21,8 @@ func _process(delta):
 func _ready() -> void:
 	$moscas.play("default")
 	pass
+
+
 func instance():
 	var minijuego = minijuego2.instantiate()
 	get_tree().paused = true

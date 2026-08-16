@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0kx028nus6xa"]
+[gd_scene load_steps=21 format=3 uid="uid://c0kx028nus6xa"]
 
 [ext_resource type="Script" uid="uid://cnsncd8viua3g" path="res://scenas/eventos_twitchs/evento_twitch_3.gd" id="1_d3kxg"]
 [ext_resource type="Texture2D" uid="uid://bgrvcsrarocm5" path="res://assets/nivel_5/Muelle_minijuego3.png" id="2_sogsj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://hieimbk5jumq" path="res://assets/nivel_4/boton_reintentar.png" id="7_iltya"]
 [ext_resource type="Texture2D" uid="uid://bmah547fg3ny" path="res://assets/nivel_4/boton_reintentar2.png" id="8_rryog"]
 [ext_resource type="Script" uid="uid://bxdqi0xrkbg7r" path="res://scenas/eventos_twitchs/label_2.gd" id="11_jislm"]
+[ext_resource type="Texture2D" uid="uid://bmf0oa6dhjp0c" path="res://assets/nivel_4/boton_Continuar.png" id="11_lmgvh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxq3v"]
 atlas = ExtResource("4_jislm")
@@ -179,21 +180,26 @@ grow_vertical = 2
 color = Color(0.08235294, 0.08235294, 0.08235294, 0.80784315)
 
 [node name="continuar" type="TextureButton" parent="pantalla_ganado"]
+process_mode = 3
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 462.0
+offset_top = 381.0
+offset_right = 762.0
+offset_bottom = 573.0
+texture_normal = ExtResource("11_lmgvh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(420, 187.86)
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 420, 187.86)
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="Label2" type="Label" parent="."]
 texture_filter = 1
-offset_left = -35.0
-offset_top = -35.465
-offset_right = 148.0
-offset_bottom = -11.465
+offset_left = 393.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 88.0
+scale = Vector2(2.4207861, 2.5660963)
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/font_color = Color(0.14470568, 1.2229996, 0.25566447, 1)
 theme_override_constants/line_spacing = 0
@@ -223,3 +229,4 @@ metadata/_edit_group_ = true
 [connection signal="Ganado" from="." to="." method="_on_ganado"]
 [connection signal="area_entered" from="Luther/PuntaLengua/AreaPuntaLengua" to="." method="_on_area_punta_lengua_area_entered"]
 [connection signal="pressed" from="pantalla_reintentar/reintentar_btn" to="." method="_on_reintentar_btn_pressed"]
+[connection signal="pressed" from="pantalla_ganado/continuar" to="." method="_on_continuar_pressed"]

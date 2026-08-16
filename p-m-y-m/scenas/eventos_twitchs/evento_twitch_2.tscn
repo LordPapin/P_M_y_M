@@ -122,7 +122,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="evento_twitch_2" type="Node2D"]
+[node name="evento_twitch_2" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_7rgwk")
 metadata/_edit_horizontal_guides_ = [726.0]
@@ -255,7 +255,7 @@ texture = ExtResource("17_prodv")
 [node name="CameraDialogo" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-limit_right = 1560
+limit_right = 1567
 limit_bottom = 726
 
 [connection signal="alertados" from="LauchaMapache" to="." method="_on_alertados"]
